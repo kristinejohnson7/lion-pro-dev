@@ -72,3 +72,15 @@
   margin-right: 17px;
   font-size: .9rem;
 }
+
+@media only screen and (max-width: 500px) {
+  .portfolioHeader {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .portfolioCard {
+    width: 300px;
+  }
+}

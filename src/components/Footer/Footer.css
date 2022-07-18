@@ -84,3 +84,17 @@
   padding: 25px;
   text-align: center;
 }
+
+@media only screen and (max-width: 450px) {
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerMain {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

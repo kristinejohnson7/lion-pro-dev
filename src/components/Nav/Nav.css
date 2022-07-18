@@ -1,26 +1,106 @@
+.navbar {
+  box-shadow: rgba(255, 197, 41, 0.13) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  background-color: var(--white);
+}
+
 .logoContainer {
   width: 150px;
 }
 
+nav.navOptions {
+  display: flex;
+}
 .logoContainer img {
   width: 100%;
 }
 
 .navBar {
   display: flex;
+  width: 100vw;
   justify-content: space-between;
   align-items: center;
   padding: 7px;
-  box-shadow: rgba(255, 197, 41, 0.13) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .navList {
   display: flex;
   gap: 40px;
   align-items: center;
-  margin-right: 18px;
+  flex-direction: row;
+}
+
+.navList li a:hover {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-primary)
 }
 
 .navList li .project {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+header .nav-btn {
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+  position: absolute;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+@media only screen and (max-width: 900px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+    top: 15px;
+    right: 30px;
+  }
+
+  header nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--color-primary);
+    color: var(--white);
+    transition: 1s;
+    transform: translateY(-100vh);
+    z-index: 1000;
+  }
+
+  header .responsive_nav {
+    transform: none;
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--color-secondary)
+  }
+
+  nav a {
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+
+  header .navList {
+    flex-direction: column;
+  }
+
+  .navList li a:hover {
+    color: var(--color-primary-light)
+  }
+
+  .navList .btn {
+    background-color: var(--color-secondary);
+    color: var(--color-primary)
+  }
 }

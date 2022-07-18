@@ -28,7 +28,7 @@
 }
 
 .pItemWrapper .pModalContent .portfolioBtn {
-  align-self: end;
+  align-self: start;
 }
 
 .pModalContent .portfolioTitle {
@@ -56,4 +56,30 @@
 .pModalContent .startProjectBtn:hover {
   color: var(--color-secondary);
   background-color: var(--color-primary);
+}
+
+@media only screen and (max-width: 800px) {
+  .pItemWrapper {
+    flex-direction: column;
+    overflow: scroll;
+    padding-top: 590px;
+  }
+
+  .carousel {
+    width: 330px;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .pItemWrapper {
+    padding-top: 700px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .pItemWrapper {
+    padding-top: 780px;
+  }
 }

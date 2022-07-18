@@ -69,3 +69,34 @@
 .heroBottomBanner div img {
   width: 100%;
 }
+
+@media only screen and (max-width: 900px) {
+  .heroImg {
+    width: 86%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .heroContainer {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .heroText {
+    text-align: center;
+  }
+
+  .heroText h1 {
+    inline-size: initial;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .heroText h1 {
+    font-size: 2rem;
+  }
+
+  .heroBottomBanner {
+    flex-direction: column;
+  }
+}

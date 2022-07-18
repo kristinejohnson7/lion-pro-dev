@@ -82,3 +82,13 @@
   border: 2px solid var(--color-secondary);
 }
 
+@media only screen and (max-width: 900px) {
+  .services {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .servicesCardWrapper {
+    justify-content: center;
+  }
+}

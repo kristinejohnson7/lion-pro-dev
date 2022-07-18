@@ -33,12 +33,12 @@ export default function PortfolioItem({ images, handleClose, item }) {
   const { title, pictures, description, youTubeEmbedId } = item;
   const filteredPictures = pictures.map((picture) => {
     const id = picture.sys.id;
-    const image = picture.fields.file.url;
+    const image = picture.fields?.file.url;
+    console.log("image", image);
     return { id: id, image: image };
   });
   return (
     <div className="pItemWrapper">
-      <CarouselElm images={filteredPictures} />
       <div className="pModalContent">
         <button className="portfolioBtn btn" onClick={handleClose}>
           X
@@ -57,6 +57,7 @@ export default function PortfolioItem({ images, handleClose, item }) {
         />
         <button className="btn startProjectBtn">Start a project with us</button>
       </div>
+      <CarouselElm images={filteredPictures} />
     </div>
   );
 }
