@@ -1,0 +1,54 @@
+:root {
+  --white: #FFFF;
+  --black: #181A18;
+  --font-color-base: #1D1F1E;
+  --color-primary: #0C71C3;
+  --color-secondary: #FFC529; 
+  --color-primary-lightest: #e4eff7;
+  --color-primary-light: #9ec7e8;
+
+
+  --size-5: 0.313rem;
+  --size-10: 0.625rem;
+  --size-12: 0.75rem;
+  --size-14: 0.875rem;
+  --size-16: 1rem;
+  --size-18: 1.125rem;
+  --size-20: 1.25rem; 
+  --size-30: 1.875rem;
+  --size-40: 2.5rem;
+  --size-50: 3.125rem;
+  --size-100: 6.25rem;
+  --size-150: 9.375rem;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-color-base);
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--color-primary);
+  border: 1px solid transparent;
+  padding: .75rem 1.3rem .65rem 1.3rem;
+  border-radius: 1.25rem;
+  transition: ease-in-out 0.3s;
+  color: var(--white);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.btn:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}

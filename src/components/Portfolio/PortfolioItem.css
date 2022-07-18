@@ -1,0 +1,59 @@
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pItemWrapper {
+  background-color: var(--white);
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 5px;
+  gap: 10px;
+}
+
+.pModalContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pItemWrapper .pModalContent .portfolioBtn {
+  align-self: end;
+}
+
+.pModalContent .portfolioTitle {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.pModalContent .portfolioDescription {
+  line-height: 1.7;
+  width: 85%;
+}
+
+.carousel {
+  width: 510px;
+}
+
+.pModalContent .startProjectBtn {
+  margin-top: 30px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.pModalContent .startProjectBtn:hover {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+}

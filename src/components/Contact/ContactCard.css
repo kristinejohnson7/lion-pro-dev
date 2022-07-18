@@ -1,0 +1,28 @@
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background-color: var(--white);
+  margin-bottom: 10px;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+.contactText {
+  width: 100%;
+}
+
+.contactText h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.contactText p {
+  font-size: 0.83rem;
+  margin-bottom: 0;
+}
+
+.contactCard .contactIcon {
+  color: var(--color-primary);
+}

@@ -1,0 +1,86 @@
+.footerContainer {
+  display: flex;
+  gap: 50px;
+  padding: 25px 0;
+  justify-content: space-evenly;
+}
+
+.footerMain {
+  width: 300px;
+  text-align: left;
+}
+
+.footerLogo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.footerMain img {
+  width: 100%;
+}
+
+.socialsContainer {
+  margin-top: 15px;
+  display: flex;
+  gap: 11px;
+}
+
+.socialCircle {
+  width: 40px;
+  height: 40px;
+  border: 1px solid lightgrey;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+ .fa-facebook-f {
+  color: #3B5998;
+}
+
+.fa-twitter {
+  color: #55ACEE;
+}
+
+.fa-linkedin-in {
+  color: #007bb5;
+}
+
+.fa-instagram {
+  color: #125688;
+}
+
+.socialCircle:hover {
+  border: 1px solid var(--color-secondary)
+}
+
+.usefulLinks h4 {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 7px;
+}
+
+.usefulLinks ul li {
+  margin-bottom: 7px;
+  text-align: left;
+}
+
+.usefulLinks ul li a:hover {
+  color: var(--color-secondary);
+}
+
+.usefulLinks ul li i {
+  color: var(--color-primary);
+  margin-right: 9px;
+}
+
+.footerBottom {
+  background-color: var(--color-primary);
+  color: var(--white);
+  padding: 25px;
+  text-align: center;
+}

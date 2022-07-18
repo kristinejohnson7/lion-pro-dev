@@ -1,0 +1,71 @@
+.heroWrapper {
+  padding: 20px 100px;
+}
+
+.heroImg {
+  width: 65%;
+  max-width: 500px;
+}
+
+.heroImg img {
+  width: 100%;
+}
+
+.heroContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  align-items: center;
+}
+
+.heroText {
+  margin-top: -50px;
+  text-align: left;
+}
+
+.heroText h1 {
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  inline-size: 80%;
+  overflow-wrap: break-word;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+}
+
+.heroBottomBanner {
+  background-color: var(--color-primary);
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 15px 0;
+}
+
+.heroBottomBanner {
+  display: flex;
+}
+
+.heroBottomBanner div {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.heroBtmImage {
+  width: 50px;
+}
+
+.design .heroBtmImage {
+  width: 80px;
+}
+
+.heroBottomBanner div h5 {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.heroBottomBanner div img {
+  width: 100%;
+}

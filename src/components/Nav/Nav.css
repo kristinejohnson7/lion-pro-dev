@@ -1,0 +1,26 @@
+.logoContainer {
+  width: 150px;
+}
+
+.logoContainer img {
+  width: 100%;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px;
+  box-shadow: rgba(255, 197, 41, 0.13) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.navList {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-right: 18px;
+}
+
+.navList li .project {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
