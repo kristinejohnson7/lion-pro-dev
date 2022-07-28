@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "../../assets/lionlogo.png";
 import "./Footer.css";
+import { Link } from "react-router-dom";
+import Blog from "../Blog/Blog";
 
 export default function Footer() {
   return (
@@ -50,7 +52,9 @@ export default function Footer() {
             </li>
             <li>
               <i className="fa-solid fa-angle-right"></i>
-              <a href="#blog">Blog</a>
+              <Link to="/blog" component={<Blog />}>
+                Blog
+              </Link>
             </li>
             <li>
               <i className="fa-solid fa-angle-right"></i>

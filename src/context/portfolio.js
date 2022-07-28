@@ -1,12 +1,11 @@
 import { createContext, useState, useEffect, useCallback } from "react";
 import { client } from "../client";
 
-const context = createContext({ isPortfolioLoading: true, portfolio: null });
+const context = createContext({ portfolio: null });
 
 const { Provider } = context;
 
 export const PortfolioProvider = ({ children }) => {
-  const [isPortfolioLoading, setIsPortfolioLoading] = useState(false);
   const [portfolio, setPortfolio] = useState([]);
 
   const cleanPortfolioInfo = useCallback((rawData) => {
@@ -35,7 +34,6 @@ export const PortfolioProvider = ({ children }) => {
 
   useEffect(() => {
     const getPortfolioInfo = async () => {
-      setIsPortfolioLoading(true);
       try {
         const response = await client.getEntries({
           content_type: "lpdPortfolio",
@@ -46,10 +44,8 @@ export const PortfolioProvider = ({ children }) => {
         } else {
           setPortfolio([]);
         }
-        setIsPortfolioLoading(false);
       } catch (err) {
         console.log(err);
-        setIsPortfolioLoading(false);
       }
     };
     getPortfolioInfo();
@@ -58,7 +54,6 @@ export const PortfolioProvider = ({ children }) => {
   return (
     <Provider
       value={{
-        isPortfolioLoading,
         portfolio,
       }}
       children={children}

@@ -1,12 +1,11 @@
 import { createContext, useState, useEffect, useCallback } from "react";
 import { client } from "../client";
 
-const context = createContext({ isHomeLoading: true, hero: null });
+const context = createContext({ hero: null });
 
 const { Provider } = context;
 
 export const HomePageProvider = ({ children }) => {
-  const [isHomeLoading, setIsHomeLoading] = useState(false);
   const [hero, setHero] = useState([]);
 
   const cleanHeroInfo = useCallback((rawData) => {
@@ -24,7 +23,6 @@ export const HomePageProvider = ({ children }) => {
 
   useEffect(() => {
     const getHeroInfo = async () => {
-      setIsHomeLoading(true);
       try {
         const response = await client.getEntries({ content_type: "lpdHero" });
         const responseData = response.items;
@@ -33,10 +31,8 @@ export const HomePageProvider = ({ children }) => {
         } else {
           setHero([]);
         }
-        setIsHomeLoading(false);
       } catch (err) {
         console.log(err);
-        setIsHomeLoading(false);
       }
     };
     getHeroInfo();
@@ -45,7 +41,6 @@ export const HomePageProvider = ({ children }) => {
   return (
     <Provider
       value={{
-        isHomeLoading,
         hero,
       }}
       children={children}

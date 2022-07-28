@@ -5,7 +5,7 @@ import Modal from "../Modal/Modal";
 import "./Services.css";
 
 export default function Services() {
-  const { isServicesLoading, services } = useContext(servicesContext);
+  const { services } = useContext(servicesContext);
   const [modalData, setModalData] = useState("");
   const [isReady, setIsReady] = useState("");
 
@@ -19,34 +19,32 @@ export default function Services() {
     <>
       <div className="services" id="services">
         <div className="servicesCardWrapper">
-          {isServicesLoading && <p>Loading...</p>}
-          {!isServicesLoading &&
-            services.map((item) => {
-              const { id, title, featuredPicture, icon } = item;
-              return (
-                <>
-                  <motion.div
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.9 }}
-                    key={id}
-                    className="serviceCard"
-                    onClick={(e) => {
-                      handleDisplayService(e, id);
-                    }}
-                  >
-                    <div className="cardHeaderImage">
-                      <img src={featuredPicture} alt="services" />
-                    </div>
-                    <div className="cardIcon">
-                      <img src={icon} alt="services icon" />
-                    </div>
-                    <div className="cardText">
-                      <h3>{title.toUpperCase()}</h3>
-                    </div>
-                  </motion.div>
-                </>
-              );
-            })}
+          {services.map((item) => {
+            const { id, title, featuredPicture, icon } = item;
+            return (
+              <>
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.9 }}
+                  key={id}
+                  className="serviceCard"
+                  onClick={(e) => {
+                    handleDisplayService(e, id);
+                  }}
+                >
+                  <div className="cardHeaderImage">
+                    <img src={featuredPicture} alt="services" />
+                  </div>
+                  <div className="cardIcon">
+                    <img src={icon} alt="services icon" />
+                  </div>
+                  <div className="cardText">
+                    <h3>{title.toUpperCase()}</h3>
+                  </div>
+                </motion.div>
+              </>
+            );
+          })}
         </div>
         <h2>
           LEARN MORE ABOUT OUR <span>SERVICES</span>

@@ -30,7 +30,7 @@ export default function Home() {
       <ContactProvider>
         <Contact />
       </ContactProvider>
-      <BlogProvider>{/* <Blog /> */}</BlogProvider>
+      {/* <BlogProvider><Blog /></BlogProvider> */}
     </>
   );
 }

@@ -1,0 +1,75 @@
+.blogPost {
+  padding: 20px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.blogHeader {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.blogHeader .blogDetailsHeader {
+  text-align: left;
+  margin-bottom: 17px;
+  font-size: 0.9rem;
+}
+
+.blogDetailsHeader p {
+  margin: 0;
+  padding: 0;
+}
+
+.blogDetailsHeader .date {
+  color: grey;
+  font-size: 0.87rem;
+}
+
+.blogPost .title {
+  margin-bottom: 33px;
+  font-size: 2.2rem;
+  font-family: 'Bebas Neue', cursive;
+
+}
+
+.blogFeaturedImg {
+  box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+  width: 350px;
+  height: 10%;
+  margin: 0 auto;
+  margin-bottom: 45px;
+}
+
+.blogFeaturedImg img {
+  width: 100%;
+  border-radius: 9px;
+}
+
+.blogText {
+  margin-top: 30px;
+  text-align: left;
+  width: 80%;
+  margin: 10px auto;
+  line-height: 1.7;
+}
+
+.blogText h4 {
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+.blogText ol {
+  margin-left: 35px;
+}
+
+.blogText img {
+  width: 450px;
+  height: 70%;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 27px auto;
+  display: flex;
+}
+

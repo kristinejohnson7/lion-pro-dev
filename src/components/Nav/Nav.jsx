@@ -3,6 +3,7 @@ import logo from "../../assets/lionlogo.png";
 import "./Nav.css";
 import Navbar from "react-bootstrap/Navbar";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
   const navRef = useRef();
@@ -15,7 +16,9 @@ export default function Nav() {
     <Navbar sticky="top">
       <header className="navBar">
         <div className="logoContainer">
-          <img src={logo} alt="" />
+          <NavLink to="/">
+            <img src={logo} alt="lpd logo" />
+          </NavLink>
         </div>
         <div>
           <nav className="navOptions" ref={navRef}>
@@ -29,7 +32,9 @@ export default function Nav() {
               <li>
                 <a href="#contact">CONTACT</a>
               </li>
-              <li>BLOG</li>
+              <li>
+                <NavLink to="/blog">BLOG</NavLink>
+              </li>
               <li>
                 <a href="#contact" className="btn project">
                   START A PROJECT

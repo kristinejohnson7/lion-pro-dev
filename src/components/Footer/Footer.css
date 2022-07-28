@@ -69,6 +69,10 @@
   text-align: left;
 }
 
+.usefulLinks ul li a {
+  text-decoration: none;
+}
+
 .usefulLinks ul li a:hover {
   color: var(--color-secondary);
 }

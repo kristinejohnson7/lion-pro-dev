@@ -1,22 +1,22 @@
 import { createContext, useState, useEffect, useCallback } from "react";
 import { client } from "../client";
 
-const context = createContext({ blogLoading: false, blog: null });
+const context = createContext({ blog: null });
 
 const { Provider } = context;
 
 export const BlogProvider = ({ children }) => {
-  const [blogLoading, setBlogLoading] = useState(false);
   const [blog, setBlog] = useState([]);
 
   const cleanBlogInfo = useCallback((rawData) => {
     const cleanBlog = rawData.map((slide) => {
+      console.log("raw", rawData);
       const { sys, fields } = slide;
       const { id } = sys;
       const title = fields.title;
       const author = fields.author;
       const date = fields.date;
-      const content = fields.description;
+      const content = fields.content;
       const featuredPicture = fields.featuredImage.fields.file.url;
       const updatedBlog = {
         id,
@@ -33,7 +33,6 @@ export const BlogProvider = ({ children }) => {
 
   useEffect(() => {
     const getBlogInfo = async () => {
-      setBlogLoading(true);
       try {
         const response = await client.getEntries({
           content_type: "lpdBlogPost",
@@ -44,10 +43,8 @@ export const BlogProvider = ({ children }) => {
         } else {
           setBlog([]);
         }
-        setBlogLoading(false);
       } catch (err) {
         console.log(err);
-        setBlogLoading(false);
       }
     };
     getBlogInfo();
@@ -56,7 +53,6 @@ export const BlogProvider = ({ children }) => {
   return (
     <Provider
       value={{
-        blogLoading,
         blog,
       }}
       children={children}

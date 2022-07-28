@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import blogContext from "../../context/blogs";
+import { BlogProvider } from "../../context/blogs";
+import BlogListings from "../BlogListings/BlogListings";
 
 export default function Blog() {
-  const { blog } = useContext(blogContext);
-
-  console.log("blog", blog);
-
-  return <div>Blog</div>;
+  return (
+    <BlogProvider>
+      <BlogListings />
+    </BlogProvider>
+  );
 }
