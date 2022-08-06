@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect } from "react";
 import { client } from "../client";
 import { selectServiceData } from "./selectors";
 

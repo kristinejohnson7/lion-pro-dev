@@ -17,6 +17,7 @@ export const BlogProvider = ({ children }) => {
       const author = fields.author;
       const date = fields.date;
       const content = fields.content;
+      const slug = fields.slug;
       const featuredPicture = fields.featuredImage.fields.file.url;
       const updatedBlog = {
         id,
@@ -24,6 +25,7 @@ export const BlogProvider = ({ children }) => {
         author,
         date,
         content,
+        slug,
         featuredPicture,
       };
       return updatedBlog;

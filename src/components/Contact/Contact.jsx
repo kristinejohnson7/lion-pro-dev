@@ -3,6 +3,7 @@ import ContactCard from "./ContactCard";
 import contactContext from "../../context/contact";
 
 import "./Contact.css";
+import HubspotContactForm from "../HubspotContactForm/HubspotContactForm";
 
 export default function Contact() {
   const { contact } = useContext(contactContext);
@@ -31,7 +32,9 @@ export default function Contact() {
           })}
         </div>
       </div>
-      <div className="formContainer">FORM</div>
+      <div className="formContainer">
+        <HubspotContactForm />
+      </div>
     </div>
   );
 }

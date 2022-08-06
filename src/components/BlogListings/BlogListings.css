@@ -9,10 +9,6 @@
   letter-spacing: 2px;
 }
 
-a:not([href]):not([class]) {
-  color: initial;
-}
-
 .paginationBttns {
   list-style: none;
   display: flex;
@@ -32,18 +28,18 @@ a:not([href]):not([class]) {
   font-weight: 600;
 }
 
-.paginationBttns a:hover,
-.paginationActive a {
+.paginationBttns a:not([href]):not([class]):hover,
+.paginationActive a:not([href]):not([class]) {
   border-radius: 50%;
   color: white;
   background-color: var(--color-primary);
 }
 
-.paginationBttns .previous a,
+/* .paginationBttns .previous a,
 .paginationBttns .next a {
   border: none;
   box-shadow: none;
-}
+} */
 
 .paginationBttns .previous a:hover,
 .paginationBttns .next a:hover {

@@ -3,17 +3,16 @@ import { useNavigate } from "react-router-dom";
 import "./BlogCard.css";
 
 export default function BlogCard(data) {
-  const { author, content, date, featuredPicture, id, title } = data;
+  const { featuredPicture, content, title, slug } = data;
 
-  console.log("data before", data);
   let navigate = useNavigate();
-  const routeChange = (id) => {
-    let pathName = `/blog/${id}`;
+  const routeChange = (slug) => {
+    let pathName = `/blog/${slug}`;
     navigate(pathName, { state: data });
   };
 
   return (
-    <div className="blogCard" onClick={() => routeChange(id)}>
+    <div className="blogCard" onClick={() => routeChange(slug)}>
       <div className="blogCardPic">
         <img src={featuredPicture} alt="featured blog" />
       </div>

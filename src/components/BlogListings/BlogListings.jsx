@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import blogContext from "../../context/blogs";
 import BlogCard from "../BlogCard/BlogCard";
-import "./BlogListings.css";
 import ReactPaginate from "react-paginate";
+import "./BlogListings.css";
 
 export default function BlogListings() {
   const { blog } = useContext(blogContext);
