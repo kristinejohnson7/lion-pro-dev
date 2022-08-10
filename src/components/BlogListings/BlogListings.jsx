@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import blogContext from "../../context/blogs";
 import BlogCard from "../BlogCard/BlogCard";
 import ReactPaginate from "react-paginate";
@@ -7,17 +7,12 @@ import "./BlogListings.css";
 export default function BlogListings() {
   const { blog, getBlogInfo } = useContext(blogContext);
   const [pageNumber, setPageNumber] = useState(0);
-  const [filteredBlogs, setFilteredBlogs] = useState("");
-  console.log("filteredBlog", filteredBlogs);
-  console.log("blog", blog);
+  const [searchWord, setSearchWord] = useState("");
 
   const postsPerPage = 6;
   const pagesVisited = pageNumber * postsPerPage;
 
   const displayPosts = blog
-    // .filter((blogPost) => {
-    //   return blogPost.title.toLowerCase().includes(filteredBlogs.toLowerCase());
-    // })
     .slice(pagesVisited, pagesVisited + postsPerPage)
     .map((item) => {
       return <BlogCard key={item.id} {...item} />;
@@ -33,18 +28,18 @@ export default function BlogListings() {
     const searchWord = event.target.value;
     setPageNumber(0);
     getBlogInfo(searchWord);
-    setFilteredBlogs(searchWord);
+    setSearchWord(searchWord);
   };
 
   const handleTag = (tag) => {
     if (tag === null) {
       setPageNumber(0);
       getBlogInfo(null, null);
-      setFilteredBlogs("");
+      setSearchWord("");
     }
     setPageNumber(0);
     getBlogInfo(null, tag);
-    setFilteredBlogs(tag);
+    setSearchWord(tag);
   };
 
   return (
