@@ -9,8 +9,8 @@ Sentry.init({
   dsn: process.env.REACT_APP_SENTRY_KEY,
   integrations: [new Integrations.BrowserTracing()],
 
-  tracesSampleRate: 0,
-})
+  tracesSampleRate: 1.0,
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

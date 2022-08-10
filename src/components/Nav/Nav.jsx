@@ -12,6 +12,10 @@ export default function Nav() {
     navRef.current.classList.toggle("responsive_nav");
   };
 
+  const hideBars = () => {
+    navRef.current.setAttribute("class", "navbar-collapse collapse");
+  };
+
   return (
     <Navbar sticky="top">
       <header className="navBar">
@@ -21,29 +25,45 @@ export default function Nav() {
           </NavLink>
         </div>
         <div>
-          <nav className="navOptions" ref={navRef}>
+          <nav
+            ref={navRef}
+            className="collapse navbar-collapse navOptions"
+            id="navbarCollapse"
+          >
             <ul className="navList">
               <li>
                 <ScrollHandler>
-                  <Link to="/#services">SERVICES</Link>
+                  <Link to="/#services" onClick={hideBars}>
+                    SERVICES
+                  </Link>
                 </ScrollHandler>
               </li>
               <li>
                 <ScrollHandler>
-                  <Link to="/#portfolio">PORTFOLIO</Link>
+                  <Link to="/#portfolio" onClick={hideBars}>
+                    PORTFOLIO
+                  </Link>
                 </ScrollHandler>
               </li>
               <li>
                 <ScrollHandler>
-                  <Link to="/#contact">CONTACT</Link>
+                  <Link to="/#contact" onClick={hideBars}>
+                    CONTACT
+                  </Link>
                 </ScrollHandler>
               </li>
               <li>
-                <NavLink to="/blog">BLOG</NavLink>
+                <NavLink to="/blog" onClick={hideBars}>
+                  BLOG
+                </NavLink>
               </li>
               <li>
                 <ScrollHandler>
-                  <Link to="/#contact" className="btn project">
+                  <Link
+                    to="/#contact"
+                    className="btn project"
+                    onClick={hideBars}
+                  >
                     START A PROJECT
                   </Link>
                 </ScrollHandler>

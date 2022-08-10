@@ -10,6 +10,7 @@
 nav.navOptions {
   display: flex;
 }
+
 .logoContainer img {
   width: 100%;
 }
@@ -35,8 +36,18 @@ nav.navOptions {
   color: var(--color-primary)
 }
 
+.navList li a:focus{
+  color: var(--color-primary);
+  border-bottom: 3px solid var(--color-primary);
+  padding-bottom: 17px;
+}
+
 .navList li .project {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.navList li .project:focus {
+  color: var(--color-secondary);
 }
 
 header .nav-btn {

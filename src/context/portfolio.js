@@ -9,8 +9,6 @@ export const PortfolioProvider = ({ children }) => {
   const [portfolio, setPortfolio] = useState([]);
 
   const cleanPortfolioInfo = useCallback((rawData) => {
-    console.log("raw", rawData);
-
     const cleanPortfolio = rawData.map((slide) => {
       const { sys, fields } = slide;
       const { id } = sys;

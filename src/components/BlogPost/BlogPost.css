@@ -22,9 +22,13 @@
   padding: 0;
 }
 
-.blogDetailsHeader .date {
+.blogDetailsHeader .headerDateAndTime {
   color: grey;
   font-size: 0.87rem;
+}
+
+.blogDetailsHeader .headerDateAndTime span {
+  margin: 0 5px;
 }
 
 .blogPost .title {

@@ -2,11 +2,85 @@
   margin: 50px auto;
 }
 
+.blogHeader {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.blogListingsContainer .blogHeader p {
+  color: grey;
+  text-align: center;
+}
+
 .blogListingsContainer h2 {
   text-align: center;
   font-family: 'Bebas Neue', cursive;
   font-size: 3rem;
   letter-spacing: 2px;
+}
+
+.blogFilterOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  margin: 30px auto;
+  color: grey;
+  border-bottom: 2px solid grey;
+}
+
+.blogFilterOptions input {
+  border: none;
+  outline: none;
+  margin-bottom: 1rem;
+  padding: 3px;
+  font-size: 0.7rem;
+}
+
+.blogFilterOptions input:active {
+  border: none;
+}
+
+.filterTags {
+  display: flex;
+  gap: 15px;
+
+}
+
+.filterTags button {
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: grey;
+
+}
+
+.filterTags button:focus {
+  color: var(--color-primary);
+  font-weight: 600;
+  border: none;
+  outline: none;
+}
+
+.blogSearch {
+  position: relative;
+}
+
+.blogSearch .fa-magnifying-glass {
+  position: absolute;
+  right: 0;
+  bottom: 21px;
+}
+
+.blogListings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  flex-wrap: wrap;
+  margin: 55px auto;
+  gap: 23px;
 }
 
 .paginationBttns {
@@ -35,24 +109,9 @@
   background-color: var(--color-primary);
 }
 
-/* .paginationBttns .previous a,
-.paginationBttns .next a {
-  border: none;
-  box-shadow: none;
-} */
-
 .paginationBttns .previous a:hover,
 .paginationBttns .next a:hover {
   text-decoration: none;
   background-color: none;
 }
 
-.blogListings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1000px;
-  flex-wrap: wrap;
-  margin: 40px auto;
-  gap: 23px;
-}

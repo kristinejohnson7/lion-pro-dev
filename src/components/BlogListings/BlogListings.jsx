@@ -1,17 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import blogContext from "../../context/blogs";
 import BlogCard from "../BlogCard/BlogCard";
 import ReactPaginate from "react-paginate";
 import "./BlogListings.css";
 
 export default function BlogListings() {
-  const { blog } = useContext(blogContext);
+  const { blog, getBlogInfo } = useContext(blogContext);
   const [pageNumber, setPageNumber] = useState(0);
+  const [filteredBlogs, setFilteredBlogs] = useState("");
+  console.log("filteredBlog", filteredBlogs);
+  console.log("blog", blog);
 
   const postsPerPage = 6;
   const pagesVisited = pageNumber * postsPerPage;
 
   const displayPosts = blog
+    // .filter((blogPost) => {
+    //   return blogPost.title.toLowerCase().includes(filteredBlogs.toLowerCase());
+    // })
     .slice(pagesVisited, pagesVisited + postsPerPage)
     .map((item) => {
       return <BlogCard key={item.id} {...item} />;
@@ -23,9 +29,52 @@ export default function BlogListings() {
     setPageNumber(selected);
   };
 
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setPageNumber(0);
+    getBlogInfo(searchWord);
+    setFilteredBlogs(searchWord);
+  };
+
+  const handleTag = (tag) => {
+    if (tag === null) {
+      setPageNumber(0);
+      getBlogInfo(null, null);
+      setFilteredBlogs("");
+    }
+    setPageNumber(0);
+    getBlogInfo(null, tag);
+    setFilteredBlogs(tag);
+  };
+
   return (
     <div className="blogListingsContainer">
-      <h2>Blog Listings</h2>
+      <div className="blogHeader">
+        <h2>Blog Listings</h2>
+        <p>
+          Check out our blogs for developers offering tips on how to code clean,
+          and case studies for Android development.
+        </p>
+      </div>
+
+      <div className="blogFilterOptions">
+        <div className="filterTags">
+          <button onClick={() => handleTag(null)}>All</button>
+          <button onClick={() => handleTag("Developer Guides")}>
+            Developer Guides
+          </button>
+          <button onClick={() => handleTag("Android")}>Android</button>
+        </div>
+        <div className="blogSearch">
+          <i className="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            onChange={handleFilter}
+            placeholder="Search blog title"
+          />
+        </div>
+      </div>
+      <div className="blogListings"> {displayPosts}</div>
       <div>
         <ReactPaginate
           previousLabel={""}
@@ -39,7 +88,6 @@ export default function BlogListings() {
           activeClassName={"paginationActive"}
         />
       </div>
-      <div className="blogListings"> {displayPosts}</div>
     </div>
   );
 }
