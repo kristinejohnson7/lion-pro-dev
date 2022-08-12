@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import phone from "../../assets/mobilePhone.svg";
 import computer from "../../assets/computerHero.svg";
 import homePageContext from "../../context/home-page";
-import { ProgressBar } from "react-bootstrap";
-// import LocomotiveScroll from "locomotive-scroll";
-
+import Tilt from "react-parallax-tilt";
 import "./Hero.css";
+import heroBg from "../../assets/heroBckgrd.svg";
+import heroPhones from "../../assets/heroPhones.png";
 
 function Hero() {
   const { hero } = useContext(homePageContext);
@@ -13,7 +13,7 @@ function Hero() {
   return (
     <div id="home">
       {hero.map((item) => {
-        const { id, heroTitle, heroBg } = item;
+        const { id, heroTitle } = item;
         return (
           <>
             <div key={id} className="heroWrapper">
@@ -24,8 +24,20 @@ function Hero() {
                     START A PROJECT
                   </a>
                 </div>
-                <div className="heroImg scroll">
-                  <img src={heroBg} alt="hero header phones" />
+                <div className="heroImgsContainer">
+                  <img src={heroBg} alt="" />
+                  <div className="heroPhoneContainer">
+                    <Tilt
+                      className="track-on-window"
+                      transitionSpeed={2500}
+                      scale={1.2}
+                      // trackOnWindow={true}
+                    >
+                      <div className="heroPhoneImg">
+                        <img src={heroPhones} alt="hero header phones" />
+                      </div>
+                    </Tilt>
+                  </div>
                 </div>
               </div>
             </div>

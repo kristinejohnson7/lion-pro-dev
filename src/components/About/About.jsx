@@ -7,7 +7,7 @@ export default function About() {
   console.log("about", about);
 
   return (
-    <>
+    <div id="about">
       <h3 className="aboutHeader">Meet the Team</h3>
       <div className="aboutContainer">
         {about.map((item) => {
@@ -22,6 +22,6 @@ export default function About() {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

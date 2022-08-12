@@ -2,10 +2,18 @@ import React from "react";
 import logo from "../../assets/lionlogo.png";
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import Blog from "../Blog/Blog";
 import HubspotForm from "../HubspotForm/HubspotForm";
+import { ScrollHandler } from "../Nav/ScrollHandle";
 
 export default function Footer() {
+  const usefulLinks = [
+    { to: "/", title: "Home", key: 1 },
+    { to: "/#about", title: "About", key: 2 },
+    { to: "/#services", title: "Services", key: 3 },
+    { to: "/#portfolio", title: "Portfolio", key: 4 },
+    { to: "/blog", title: "Blog", key: 5 },
+    { to: "/#contact", title: "Contact", key: 6 },
+  ];
   return (
     <footer>
       <div className="footerContainer">
@@ -36,32 +44,14 @@ export default function Footer() {
           <div className="usefulLinks">
             <h4>Useful Links</h4>
             <ul>
-              <li>
-                <i className="fa-solid fa-angle-right"></i>
-                <a href="#home">Home</a>
-              </li>
-              <li>
-                <i className="fa-solid fa-angle-right"></i>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <i className="fa-solid fa-angle-right"></i>
-                <a href="#services">Services</a>
-              </li>
-              <li>
-                <i className="fa-solid fa-angle-right"></i>
-                <a href="#portfolio">Portfolio</a>
-              </li>
-              <li>
-                <i className="fa-solid fa-angle-right"></i>
-                <Link to="/blog" component={<Blog />}>
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <i className="fa-solid fa-angle-right"></i>
-                <a href="#contact">Contact</a>
-              </li>
+              {usefulLinks.map((link) => (
+                <li>
+                  <ScrollHandler>
+                    <i className="fa-solid fa-angle-right"></i>
+                    <Link to={link.to}>{link.title}</Link>
+                  </ScrollHandler>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

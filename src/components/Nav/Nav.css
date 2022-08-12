@@ -1,6 +1,7 @@
 .navbar {
   box-shadow: rgba(255, 197, 41, 0.13) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
   background-color: var(--white);
+  height: 90px;
 }
 
 .logoContainer {

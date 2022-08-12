@@ -6,13 +6,14 @@
   border-radius: 7px;
 }
 
-#hubspotContactForm button {
+#hubspotContactForm .actions input {
   margin: 0 auto;
-  text-align: center;
+  text-align: center !important;
 }
 
 @media only screen and (max-width: 415px) {
   #hubspotNewsletter {
     width: 90%;
+    margin: 0 auto;
   }
 }
