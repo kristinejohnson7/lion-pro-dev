@@ -8,7 +8,7 @@ export default function CarouselElm({ images }) {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-  console.log("images", images);
+
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
       {images.map((image) => (

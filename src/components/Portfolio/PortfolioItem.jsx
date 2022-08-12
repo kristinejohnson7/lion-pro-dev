@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import CarouselElm from "../Carousel/CarouselElm";
 
 export default function PortfolioItem({ images, handleClose, item }) {
-  console.log("images");
-
   const dropIn = {
     hidden: {
       opacity: 0,
@@ -34,7 +32,6 @@ export default function PortfolioItem({ images, handleClose, item }) {
   const filteredPictures = pictures.map((picture) => {
     const id = picture.sys.id;
     const image = picture.fields?.file.url;
-    console.log("image", image);
     return { id: id, image: image };
   });
   return (

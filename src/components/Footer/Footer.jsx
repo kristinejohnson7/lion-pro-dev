@@ -3,7 +3,7 @@ import logo from "../../assets/lionlogo.png";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import HubspotForm from "../HubspotForm/HubspotForm";
-import { ScrollHandler } from "../Nav/ScrollHandle";
+import ScrollHandler from "../Nav/ScrollHandle";
 
 export default function Footer() {
   const usefulLinks = [

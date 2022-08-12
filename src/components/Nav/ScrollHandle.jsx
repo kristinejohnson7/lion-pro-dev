@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-export const ScrollHandler = ({ children }) => {
+export default function ScrollHandler({ children }) {
   const { pathname, hash } = useLocation();
 
   const handleScroll = () => {
@@ -20,4 +20,4 @@ export const ScrollHandler = ({ children }) => {
   }, [pathname, hash]);
 
   return children;
-};
+}

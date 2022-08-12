@@ -3,7 +3,7 @@ import logo from "../../assets/lionlogo.png";
 import "./Nav.css";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, Link } from "react-router-dom";
-import { ScrollHandler } from "./ScrollHandle";
+import ScrollHandler from "./ScrollHandle";
 
 export default function Nav() {
   const navRef = useRef();

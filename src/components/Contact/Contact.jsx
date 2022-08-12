@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import ContactCard from "./ContactCard";
 import contactContext from "../../context/contact";
-
 import "./Contact.css";
 import HubspotForm from "../HubspotForm/HubspotForm";
 

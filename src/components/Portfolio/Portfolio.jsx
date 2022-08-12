@@ -14,7 +14,7 @@ export default function Portfolio() {
     setPortfolioData(modalPage);
     setIsOpen(true);
   };
-  console.log("portfolio", portfolio);
+
   return (
     <div className="portfolioContainer" id="portfolio">
       <div className="portfolioHeader">
