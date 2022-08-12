@@ -115,3 +115,9 @@
   background-color: none;
 }
 
+@media only screen and (max-width: 550px) {
+  .blogFilterOptions {
+   flex-direction: column;
+   gap: 25px;
+  }
+}

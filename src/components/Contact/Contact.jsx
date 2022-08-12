@@ -3,12 +3,10 @@ import ContactCard from "./ContactCard";
 import contactContext from "../../context/contact";
 
 import "./Contact.css";
-import HubspotContactForm from "../HubspotContactForm/HubspotContactForm";
+import HubspotForm from "../HubspotForm/HubspotForm";
 
 export default function Contact() {
   const { contact } = useContext(contactContext);
-
-  console.log("contact", contact);
 
   return (
     <div className="contactContainer" id="contact">
@@ -33,7 +31,11 @@ export default function Contact() {
         </div>
       </div>
       <div className="formContainer">
-        <HubspotContactForm />
+        <HubspotForm
+          id="hubspotContactForm"
+          target="#hubspotContactForm"
+          formId="2129388b-778b-49a7-b596-7e918bb0dc0a"
+        />
       </div>
     </div>
   );

@@ -1,0 +1,18 @@
+#hubspotContactForm {
+  padding: 25px;
+}
+
+#hubspotContactForm .hs-form-iframe {
+  border-radius: 7px;
+}
+
+#hubspotContactForm button {
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media only screen and (max-width: 415px) {
+  #hubspotNewsletter {
+    width: 90%;
+  }
+}

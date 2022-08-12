@@ -92,11 +92,21 @@
 }
 
 @media only screen and (max-width: 550px) {
+  .heroWrapper {
+    padding: 20px 40px;
+  }
+
   .heroText h1 {
     font-size: 2rem;
   }
 
   .heroBottomBanner {
     flex-direction: column;
+    gap: 7px;
+  }
+
+  .heroBottomBanner div h5 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
   }
 }

@@ -12,7 +12,8 @@
 .modalContent {
   background: rgba(255, 255, 255, 0.9);
   width: 380px;
-  overflow: scroll;
+  max-height: calc(100vh - 20vh);
+  overflow: auto;
   border-radius: 9px;
 }
 

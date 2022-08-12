@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import "./HubspotContactForm.css";
+import "./HubspotForm.css";
 
-export default function HubspotContactForm() {
+export default function HubspotForm({ formId, id, target }) {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "//js.hsforms.net/forms/v2.js";
@@ -11,8 +11,8 @@ export default function HubspotContactForm() {
         window.hbspt.forms.create({
           region: "na1",
           portalId: "21617810",
-          formId: "2129388b-778b-49a7-b596-7e918bb0dc0a",
-          target: "#hubspotForm",
+          formId: formId,
+          target: target,
         });
       }
     };
@@ -23,5 +23,5 @@ export default function HubspotContactForm() {
     };
   }, []);
 
-  return <div id="hubspotForm"></div>;
+  return <div id={id}></div>;
 }

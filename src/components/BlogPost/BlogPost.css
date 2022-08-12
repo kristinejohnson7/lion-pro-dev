@@ -77,3 +77,8 @@
   display: flex;
 }
 
+@media only screen and (max-width: 415px) {
+  .blogFeaturedImg {
+    width: 250px;
+  }
+}

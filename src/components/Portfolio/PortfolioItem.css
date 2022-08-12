@@ -11,8 +11,10 @@
 
 .pItemWrapper {
   background-color: var(--white);
-  width: 80vw;
-  height: 90vh;
+  max-width: calc(100% - 80px);
+  height: calc(100% - 100px);
+  /* width: 80vw; */
+  /* height: 90vh; */
   display: flex;
   justify-content: center;
   padding: 20px;
@@ -60,9 +62,11 @@
 
 @media only screen and (max-width: 800px) {
   .pItemWrapper {
-    flex-direction: column;
-    overflow: scroll;
-    padding-top: 590px;
+    /* flex-direction: column; */
+    overflow: auto;
+    flex-wrap: wrap;
+    max-height: 700px;
+    /* padding-top: 700px; */
   }
 
   .carousel {
@@ -72,14 +76,8 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
-  .pItemWrapper {
-    padding-top: 700px;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .pItemWrapper {
-    padding-top: 780px;
+@media only screen and (max-width: 550px) {
+  .pModalContent iframe {
+    width: 100%;
   }
 }
