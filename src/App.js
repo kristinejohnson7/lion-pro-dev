@@ -6,6 +6,7 @@ import Blog from "./components/Blog/Blog";
 import BlogPost from "./components/BlogPost/BlogPost";
 import "./defaults.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BlogProvider } from "./context/blogs";
 
 function App() {
   return (
@@ -14,7 +15,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route
+          path="/blog/:slug"
+          element={
+            <BlogProvider>
+              <BlogPost />
+            </BlogProvider>
+          }
+        />
       </Routes>
       <Footer />
     </Router>

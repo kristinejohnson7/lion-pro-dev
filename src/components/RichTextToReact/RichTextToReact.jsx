@@ -1,11 +1,10 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React from "react";
-import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 export default function RichTextToReact({ content }) {
   const renderOptions = {
     renderNode: {
-      [INLINES.EMBEDDED_ENTRY]: (node, children) => {
+      "embedded-entry-inline": (node, children) => {
         // target the contentType of the EMBEDDED_ENTRY to display as you need
         if (node.data.target.sys.contentType.sys.id === "blogPost") {
           return (
@@ -16,7 +15,7 @@ export default function RichTextToReact({ content }) {
           );
         }
       },
-      [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+      "embedded-entry-block": (node, children) => {
         // target the contentType of the EMBEDDED_ENTRY to display as you need
         if (node.data.target.sys.contentType.sys.id === "codeBlock") {
           return (
@@ -41,7 +40,7 @@ export default function RichTextToReact({ content }) {
         }
       },
 
-      [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+      "embedded-asset-block": (node, children) => {
         // render the EMBEDDED_ASSET as you need
         return (
           <img

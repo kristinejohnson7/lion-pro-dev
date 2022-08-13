@@ -7,6 +7,7 @@ const { Provider } = context;
 
 export const BlogProvider = ({ children }) => {
   const [blog, setBlog] = useState([]);
+  const [singleBlog, setSingleBlog] = useState({});
 
   const cleanBlogInfo = useCallback((rawData) => {
     const cleanBlog = rawData.map((slide) => {
@@ -55,6 +56,20 @@ export const BlogProvider = ({ children }) => {
     }
   };
 
+  const getSingleBlog = async (slug) => {
+    try {
+      const response = await client.getEntries({
+        content_type: "lpdBlogPost",
+        "fields.slug": slug,
+      });
+      const blog = response.items[0];
+      console.log("blog", blog);
+      setSingleBlog(blog.fields);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     getBlogInfo();
   }, []);
@@ -64,6 +79,8 @@ export const BlogProvider = ({ children }) => {
       value={{
         blog,
         getBlogInfo,
+        getSingleBlog,
+        singleBlog,
       }}
       children={children}
     />
