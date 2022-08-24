@@ -20,7 +20,12 @@ export default function Services() {
 
   return (
     <div ref={ref} className={isInView ? "scrollAnimate" : null}>
-      <motion.div className="services" id="services">
+      <motion.div
+        className="services"
+        id="services"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
         <div className="servicesCardWrapper">
           {services.map((item) => {
             const { id, title, featuredPicture, icon } = item;
@@ -52,18 +57,18 @@ export default function Services() {
         <h2>
           LEARN MORE ABOUT OUR <span>SERVICES</span>
         </h2>
-
-        <AnimatePresence initial={false} exitBeforeEnter={true}>
-          {isReady && (
-            <Modal
-              modalOpen={isReady}
-              handleClose={() => setIsReady(false)}
-              text={modalData}
-              type="services"
-            ></Modal>
-          )}
-        </AnimatePresence>
       </motion.div>
+
+      <AnimatePresence initial={false} exitBeforeEnter={true}>
+        {isReady && (
+          <Modal
+            modalOpen={isReady}
+            handleClose={() => setIsReady(false)}
+            text={modalData}
+            type="services"
+          ></Modal>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

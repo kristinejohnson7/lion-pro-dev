@@ -54,17 +54,18 @@ export default function Portfolio() {
               </>
             );
           })}
-          {isOpen && (
-            <AnimatePresence initial={false} exitBeforeEnter={true}>
-              <Modal
-                type="portfolio"
-                text={portfolioData}
-                handleClose={() => setIsOpen(false)}
-              />
-            </AnimatePresence>
-          )}
         </div>
       </motion.div>
+
+      <AnimatePresence initial={false} exitBeforeEnter={true}>
+        {isOpen && (
+          <Modal
+            type="portfolio"
+            text={portfolioData}
+            handleClose={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
