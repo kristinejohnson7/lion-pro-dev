@@ -8,7 +8,7 @@ import { BlogProvider } from "../../context/blogs";
 import { ContactProvider } from "../../context/contact";
 import Portfolio from "../Portfolio/Portfolio";
 import Contact from "../Contact/Contact";
-import Blog from "../Blog/Blog";
+import FeaturedBlogs from "../FeaturedBlogs/FeaturedBlogs";
 import { AboutProvider } from "../../context/about";
 import About from "../About/About";
 import "./Home.css";
@@ -34,13 +34,15 @@ export default function Home() {
       <PortfolioProvider>
         <Portfolio />
       </PortfolioProvider>
+      <BlogProvider isFeatured>
+        <FeaturedBlogs />
+      </BlogProvider>
       <AboutProvider>
         <About />
       </AboutProvider>
       <ContactProvider>
         <Contact />
       </ContactProvider>
-      {/* <BlogProvider><Blog /></BlogProvider> */}
     </>
   );
 }

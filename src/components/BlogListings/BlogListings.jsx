@@ -51,7 +51,6 @@ export default function BlogListings() {
           and case studies for Android development.
         </p>
       </div>
-
       <div className="blogFilterOptions">
         <div className="filterTags">
           <button onClick={() => handleTag(null)}>All</button>

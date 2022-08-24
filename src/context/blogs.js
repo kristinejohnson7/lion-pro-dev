@@ -5,7 +5,7 @@ const context = createContext({ blog: null });
 
 const { Provider } = context;
 
-export const BlogProvider = ({ children }) => {
+export const BlogProvider = ({ children, isFeatured }) => {
   const [blog, setBlog] = useState([]);
   const [singleBlog, setSingleBlog] = useState({});
 
@@ -20,6 +20,7 @@ export const BlogProvider = ({ children }) => {
       const slug = fields.slug;
       const tag = fields.tag;
       const excerpt = fields.excerpt;
+      const isFeatured = fields.isFeatured;
       const featuredPicture = fields.featuredImage.fields.file.url;
       const updatedBlog = {
         id,
@@ -31,19 +32,21 @@ export const BlogProvider = ({ children }) => {
         tag,
         excerpt,
         featuredPicture,
+        isFeatured,
       };
       return updatedBlog;
     });
     setBlog(cleanBlog);
   }, []);
 
-  const getBlogInfo = async (search, tag) => {
+  const getBlogInfo = async (search, tag, featured) => {
     try {
       const response = await client.getEntries({
         content_type: "lpdBlogPost",
         order: "-sys.createdAt",
         "fields.title[match]": search,
         "fields.tag[match]": tag,
+        "fields.isFeatured": featured,
       });
       const responseData = response.items;
       if (responseData) {
@@ -63,7 +66,6 @@ export const BlogProvider = ({ children }) => {
         "fields.slug": slug,
       });
       const blog = response.items[0];
-      console.log("blog", blog);
       setSingleBlog(blog.fields);
     } catch (err) {
       console.error(err);
@@ -71,8 +73,8 @@ export const BlogProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getBlogInfo();
-  }, []);
+    getBlogInfo(undefined, undefined, isFeatured);
+  }, [isFeatured]);
 
   return (
     <Provider

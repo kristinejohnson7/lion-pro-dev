@@ -4,6 +4,7 @@ import computer from "../../assets/computerHero.svg";
 import homePageContext from "../../context/home-page";
 import Tilt from "react-parallax-tilt";
 import "./Hero.css";
+import { motion } from "framer-motion";
 import heroBg from "../../assets/heroBckgrd.svg";
 import heroPhones from "../../assets/heroPhones.png";
 
@@ -11,7 +12,7 @@ function Hero() {
   const { hero } = useContext(homePageContext);
 
   return (
-    <div id="home">
+    <motion.div id="home" animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
       {hero.map((item) => {
         const { id, heroTitle } = item;
         return (
@@ -31,7 +32,6 @@ function Hero() {
                       className="track-on-window"
                       transitionSpeed={2500}
                       scale={1.2}
-                      // trackOnWindow={true}
                     >
                       <div className="heroPhoneImg">
                         <img src={heroPhones} alt="hero header phones" />
@@ -58,7 +58,7 @@ function Hero() {
           </>
         );
       })}
-    </div>
+    </motion.div>
   );
 }
 

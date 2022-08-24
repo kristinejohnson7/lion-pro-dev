@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import blogContext from "../../context/blogs";
 import "./BlogPost.css";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
 import dayjs from "dayjs";
 import readingTime from "reading-time/lib/reading-time";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function BlogPost() {
   const { singleBlog, getSingleBlog } = useContext(blogContext);
@@ -13,6 +14,13 @@ export default function BlogPost() {
   const [readingTimeState, setReadingTimeState] = useState("");
 
   const ref = useRef();
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     if (slug) {
@@ -27,12 +35,11 @@ export default function BlogPost() {
     }
   }, [content, ref]);
 
-  console.log("pic", featuredImage);
-
   return (
     slug &&
     title && (
       <>
+        {/* <motion.div className="progress-bar" style={{ scaleX }} /> */}
         <div className="blogPost">
           <div className="blogHeader">
             <div className="blogDetailsHeader">

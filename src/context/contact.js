@@ -39,7 +39,7 @@ export const ContactProvider = ({ children }) => {
           setContact([]);
         }
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
     getContactInfo();

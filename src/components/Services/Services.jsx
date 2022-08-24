@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
 import servicesContext from "../../context/services";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Modal from "../Modal/Modal";
 import "./Services.css";
+import { useRef } from "react";
 
 export default function Services() {
   const { services } = useContext(servicesContext);
   const [modalData, setModalData] = useState("");
   const [isReady, setIsReady] = useState("");
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   const handleDisplayService = (e, id) => {
     const modalPage = services.find((service) => service.id === id);
@@ -16,8 +19,13 @@ export default function Services() {
   };
 
   return (
-    <>
-      <div className="services" id="services">
+    <div ref={ref} className={isInView ? "scrollAnimate" : null}>
+      <motion.div
+        className="services"
+        id="services"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
         <div className="servicesCardWrapper">
           {services.map((item) => {
             const { id, title, featuredPicture, icon } = item;
@@ -49,7 +57,7 @@ export default function Services() {
         <h2>
           LEARN MORE ABOUT OUR <span>SERVICES</span>
         </h2>
-      </div>
+      </motion.div>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isReady && (
           <Modal
@@ -60,6 +68,6 @@ export default function Services() {
           ></Modal>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }

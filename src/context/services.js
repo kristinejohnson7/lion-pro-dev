@@ -22,7 +22,7 @@ export const ServicesProvider = ({ children }) => {
           setServices([]);
         }
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
     getServicesInfo();

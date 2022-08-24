@@ -9,7 +9,7 @@ export default function BlogCard(data) {
   let navigate = useNavigate();
   const routeChange = (slug) => {
     let pathName = `/blog/${slug}`;
-    navigate(pathName, { state: data });
+    navigate(pathName);
   };
 
   return (
@@ -30,7 +30,6 @@ export default function BlogCard(data) {
           <h4>{title}</h4>
           <p className="cardTextPreview">{excerpt}</p>
           <p className="blogAuthor">{author}</p>
-          {/* <button className="btn">Read More</button> */}
         </div>
       </motion.div>
     </div>

@@ -3,7 +3,7 @@
   gap: 30px;
   justify-content: center;
   padding: 70px 0;
-  background-color: var(--color-primary-lightest);
+  background-color: var(--color-primary);
 }
 
 .getInTouch {
@@ -14,22 +14,24 @@
 
 .getInTouch h3 {
   font-family: 'Bebas Neue', cursive;
-  font-size: 2rem;
-  letter-spacing: 2px;
-  color: var(--color-primary);
+  font-size: 3.5rem;
+  letter-spacing: 3px;
   margin-bottom: 10px;
+  color: var(--white);
 }
 
 .getInTouch .getInTouchIntro {
   width: 60%;
-  text-align: left;
+  text-align: center;
   margin-bottom: 33px;
+  color: var(--white);
 }
 
 .formContainer {
   width: 50%;
   background-color: var(--white);
   margin-right: 50px;
+  border-radius: 7px;
 }
 
 .contactCardContainer {

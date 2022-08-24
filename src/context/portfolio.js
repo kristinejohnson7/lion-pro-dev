@@ -43,7 +43,7 @@ export const PortfolioProvider = ({ children }) => {
           setPortfolio([]);
         }
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
     getPortfolioInfo();

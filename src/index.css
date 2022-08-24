@@ -9,7 +9,6 @@ html {
 }
 
 body {
-  /* overscroll-behavior: none; */
   overflow: auto;
 }
 

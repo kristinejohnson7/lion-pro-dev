@@ -5,7 +5,6 @@ export default function RichTextToReact({ content }) {
   const renderOptions = {
     renderNode: {
       "embedded-entry-inline": (node, children) => {
-        // target the contentType of the EMBEDDED_ENTRY to display as you need
         if (node.data.target.sys.contentType.sys.id === "blogPost") {
           return (
             <a href={`/blog/${node.data.target.fields.slug}`}>
@@ -16,7 +15,6 @@ export default function RichTextToReact({ content }) {
         }
       },
       "embedded-entry-block": (node, children) => {
-        // target the contentType of the EMBEDDED_ENTRY to display as you need
         if (node.data.target.sys.contentType.sys.id === "codeBlock") {
           return (
             <pre>
@@ -41,7 +39,6 @@ export default function RichTextToReact({ content }) {
       },
 
       "embedded-asset-block": (node, children) => {
-        // render the EMBEDDED_ASSET as you need
         return (
           <img
             src={`https://${node.data.target.fields.file.url}`}

@@ -1,0 +1,66 @@
+.featuredBlogs {
+  background-color: var(--color-primary-lightest);
+  padding: 60px;
+}
+
+.bgShapeTop {
+  position: absolute;
+  top: -50px;
+  left: 25px;
+  z-index: 1;
+
+}
+
+.bgShapeBottom {
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+  z-index: 1;
+
+}
+
+.bgShapeBottom img, 
+.bgShapeTop img {
+  width: 100%;
+}
+
+.featuredBlogsTitle {
+  text-align: center;
+}
+
+.featuredBlogsTitle h2 {
+  font-size: 3.5rem;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 3px;
+  color: var(--color-primary);
+}
+
+.featuredBlogsTitle p  a {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-primary);
+
+}
+
+.featuredBlogWrapper {
+  display: flex;
+  gap: 20px;
+  margin: 65px auto;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+}
+
+.featuredBlogWrapper div .blogCard {
+  background-color: white;
+  z-index: 100;
+  position: relative;
+  margin-top: 30px;
+}
+  
+  @media only screen and (max-width: 975px) {
+    .featuredBlogWrapper {
+      flex-wrap: wrap;
+    }
+  }
