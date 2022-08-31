@@ -90,6 +90,24 @@
   margin-right: 9px;
 }
 
+.footerTerms {
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+
+.footerTerms a {
+  margin: 0 15px;
+}
+
+.footerTerms a:first-child {
+  margin-left: 0;
+}
+
+.footerTerms a, 
+.footerTerms span {
+  color: lightgrey;
+}
+
 .footerBottom {
   background-color: var(--color-primary);
   color: var(--white);

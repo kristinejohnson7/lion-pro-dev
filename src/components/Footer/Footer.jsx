@@ -17,42 +17,53 @@ export default function Footer() {
   return (
     <footer>
       <div className="footerContainer">
-        <div className="footerMain">
-          <div className="footerSocialsAndLogo">
-            <div className="footerLogo">
-              <img src={logo} alt="" />
-            </div>
-            <p>
-              Behind the word mountains, far from the countries Vokalia and
-              Consonantia, there live the blind texts they live
-            </p>
-            <div className="socialsContainer">
-              <a className="socialCircle" href="#">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-              <a className="socialCircle">
-                <i class="fa-brands fa-twitter"></i>
-              </a>
-              <a className="socialCircle">
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
-              <div className="socialCircle">
-                <i class="fa-brands fa-instagram"></i>
+        <div>
+          <div className="footerMain">
+            <div className="footerSocialsAndLogo">
+              <div className="footerLogo">
+                <img src={logo} alt="" />
+              </div>
+              <p>
+                Behind the word mountains, far from the countries Vokalia and
+                Consonantia, there live the blind texts they live
+              </p>
+              <div className="socialsContainer">
+                <a
+                  className="socialCircle"
+                  target="_blank"
+                  href="https://www.facebook.com/LionProDev"
+                  rel="noreferrer"
+                >
+                  <i className="fa-brands fa-facebook-f"></i>
+                </a>
+                <a
+                  className="socialCircle"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.tiktok.com/@philipjcutting?is_from_webapp=1&sender_device=pc"
+                >
+                  <i className="fa-brands fa-tiktok"></i>
+                </a>
               </div>
             </div>
+            <div className="usefulLinks">
+              <h4>Useful Links</h4>
+              <ul>
+                {usefulLinks.map((link) => (
+                  <li key={link.key}>
+                    <ScrollHandler>
+                      <i className="fa-solid fa-angle-right"></i>
+                      <Link to={link.to}>{link.title}</Link>
+                    </ScrollHandler>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="usefulLinks">
-            <h4>Useful Links</h4>
-            <ul>
-              {usefulLinks.map((link) => (
-                <li>
-                  <ScrollHandler>
-                    <i className="fa-solid fa-angle-right"></i>
-                    <Link to={link.to}>{link.title}</Link>
-                  </ScrollHandler>
-                </li>
-              ))}
-            </ul>
+          <div className="footerTerms">
+            <Link to="/terms-of-use">Terms of Use</Link>
+            <span>|</span>
+            <Link to="/privacy-policy">Privacy Policy</Link>
           </div>
         </div>
 
@@ -65,6 +76,7 @@ export default function Footer() {
           />
         </div>
       </div>
+
       <div className="footerBottom">
         ©2022. Kristine Johnson. All Rights Reserved.
       </div>

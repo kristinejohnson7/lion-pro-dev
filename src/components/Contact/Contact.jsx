@@ -12,7 +12,7 @@ export default function Contact() {
 
   return (
     <div ref={ref} className={isInView ? "scrollAnimate" : null} id="contact">
-      <motion.div className="contactContainer">
+      <div className="contactContainer">
         <div className="getInTouch">
           <h3>Get In Touch</h3>
           <p className="getInTouchIntro">
@@ -33,14 +33,14 @@ export default function Contact() {
             })}
           </div>
         </div>
-        <div className="formContainer">
+        <motion.div className="formContainer">
           <HubspotForm
             id="hubspotContactForm"
             target="#hubspotContactForm"
             formId="2129388b-778b-49a7-b596-7e918bb0dc0a"
           />
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }
