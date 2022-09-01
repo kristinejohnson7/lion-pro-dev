@@ -1,39 +1,19 @@
 import React from "react";
-import Backdrop from "../Backdrop/Backdrop";
 import "./PortfolioItem.css";
-import { motion } from "framer-motion";
-import CarouselElm from "../Carousel/CarouselElm";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 export default function PortfolioItem({ images, handleClose, item }) {
-  const dropIn = {
-    hidden: {
-      opacity: 0,
-      scale: 0.75,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.15,
-        ease: "easeOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0.75,
-      transition: {
-        ease: "easeIn",
-        duration: 0.15,
-      },
-    },
-  };
-
   const { title, pictures, description, youTubeEmbedId } = item;
   const filteredPictures = pictures.map((picture) => {
     const id = picture.sys.id;
     const image = picture.fields?.file.url;
     return { id: id, image: image };
   });
+
   return (
     <div className="pItemWrapper">
       <div className="pModalContent">
@@ -52,9 +32,22 @@ export default function PortfolioItem({ images, handleClose, item }) {
           allowFullScreen
           title="Embedded youtube"
         />
-        <button className="btn startProjectBtn">Start a project with us</button>
+        <button className="btn startProjectBtn">START A PROJECT</button>
       </div>
-      <CarouselElm images={filteredPictures} />
+      <Swiper
+        pagination={{
+          type: "progressbar",
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        {filteredPictures.map((item) => (
+          <SwiperSlide key={item.id}>
+            <img src={item.image} alt="" />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }

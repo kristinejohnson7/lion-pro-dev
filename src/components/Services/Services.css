@@ -1,4 +1,4 @@
-.services {
+.servicesContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,13 +7,13 @@
   padding: 30px 90px; 
 }
 
-.services h2 {
+.servicesContainer h2 {
   font-size: 3.5rem;
   color: #061f35;
   font-family: 'Bebas Neue', cursive;
 }
 
-.services h2 span {
+.servicesContainer h2 span {
   color: var(--color-primary);
 }
 
@@ -83,12 +83,12 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .services {
+  .servicesContainer {
     flex-wrap: wrap;
     gap: 20px;
   }
 
-  .services h2 {
+  .servicesContainer h2 {
     text-align: center;
     margin-top: 20px;
 

@@ -16,8 +16,8 @@ function Hero() {
       {hero.map((item) => {
         const { id, heroTitle } = item;
         return (
-          <>
-            <div key={id} className="heroWrapper">
+          <div key={id}>
+            <div className="heroWrapper">
               <div className="heroContainer">
                 <div className="heroText">
                   <h1>{heroTitle}</h1>
@@ -55,7 +55,7 @@ function Hero() {
                 <h5>Design</h5>
               </div>
             </div>
-          </>
+          </div>
         );
       })}
     </motion.div>

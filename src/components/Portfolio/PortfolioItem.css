@@ -43,19 +43,18 @@
   width: 85%;
 }
 
-.carousel {
-  width: 510px;
-}
-
 .pModalContent .startProjectBtn {
   margin-top: 30px;
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
 }
 
-.pModalContent .startProjectBtn:hover {
-  color: var(--color-secondary);
-  background-color: var(--color-primary);
+.pItemWrapper .swiper-wrapper {
+  max-width: 550px;
+}
+
+.pItemWrapper .swiper-slide img {
+  width: 100%;
+  border: 9px solid black;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -65,10 +64,12 @@
     max-height: 700px;
   }
 
-  .carousel {
-    width: 330px;
-    margin: auto;
-    margin-top: 20px;
+  .pItemWrapper .swiper-wrapper {
+    max-width: 350px;
+  }
+
+  .pItemWrapper .swiper {
+    margin-top: 50px;
   }
 }
 

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useInView } from "framer-motion";
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import portfolioContext from "../../context/portfolio";
 import Modal from "../Modal/Modal";
 import "./Portfolio.css";
@@ -16,6 +16,12 @@ export default function Portfolio() {
     setPortfolioData(modalPage);
     setIsOpen(true);
   };
+
+  useEffect(() => {
+    isOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [isOpen]);
 
   return (
     <div

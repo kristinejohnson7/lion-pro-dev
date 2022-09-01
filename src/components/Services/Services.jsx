@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import servicesContext from "../../context/services";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Modal from "../Modal/Modal";
 import "./Services.css";
-import { useRef } from "react";
 
 export default function Services() {
   const { services } = useContext(servicesContext);
@@ -18,10 +17,16 @@ export default function Services() {
     setIsReady(true);
   };
 
+  useEffect(() => {
+    isReady
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [isReady]);
+
   return (
     <div ref={ref} className={isInView ? "scrollAnimate" : null}>
       <motion.div
-        className="services"
+        className="servicesContainer"
         id="services"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
