@@ -1,15 +1,14 @@
-import { AnimatePresence, motion, useInView } from "framer-motion";
-import React, { useContext, useState, useRef, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useContext, useState, useEffect } from "react";
 import portfolioContext from "../../context/portfolio";
 import Modal from "../Modal/Modal";
 import "./Portfolio.css";
+import { Fade } from "react-awesome-reveal";
 
 export default function Portfolio() {
   const { portfolio } = useContext(portfolioContext);
   const [isOpen, setIsOpen] = useState(false);
   const [portfolioData, setPortfolioData] = useState(false);
-  const ref = useRef(null);
-  const isInView = useInView(ref);
 
   const handleDisplayItem = (e, id) => {
     const modalPage = portfolio.find((item) => item.id === id);
@@ -24,12 +23,8 @@ export default function Portfolio() {
   }, [isOpen]);
 
   return (
-    <div
-      ref={ref}
-      className={`portfolioContainer ${isInView ? "scrollAnimate" : null}`}
-      id="portfolio"
-    >
-      <motion.div>
+    <div className="portfolioContainer" id="portfolio">
+      <Fade>
         <div className="portfolioHeader">
           <h2>Portfolio</h2>
           <p>
@@ -42,11 +37,10 @@ export default function Portfolio() {
           {portfolio.map((item) => {
             const { id, title, featuredPicture } = item;
             return (
-              <>
+              <div key={id}>
                 <motion.div
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.9 }}
-                  key={id}
                   className="portfolioCard"
                   onClick={(e) => handleDisplayItem(e, id)}
                 >
@@ -57,11 +51,11 @@ export default function Portfolio() {
                     <h3>{title.toUpperCase()}</h3>
                   </div>
                 </motion.div>
-              </>
+              </div>
             );
           })}
         </div>
-      </motion.div>
+      </Fade>
 
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (

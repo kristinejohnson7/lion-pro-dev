@@ -1,31 +1,30 @@
-import React, { useContext, useRef, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import aboutContext from "../../context/about";
 import "./About.css";
 import Modal from "../Modal/Modal";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Fade } from "react-awesome-reveal";
 
 export default function About() {
   const { about } = useContext(aboutContext);
-  const ref = useRef(null);
-  const isInView = useInView(ref);
   const [modalData, setModalData] = useState("");
-  const [isReady, setIsReady] = useState("");
+  const [isOpen, setIsOpen] = useState("");
 
   const handleDisplayAbout = (e, id) => {
     const modalPage = about.find((service) => service.id === id);
     setModalData(modalPage);
-    setIsReady(true);
+    setIsOpen(true);
   };
 
   useEffect(() => {
-    isReady
+    isOpen
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "unset");
-  }, [isReady]);
+  }, [isOpen]);
 
   return (
-    <div ref={ref} id="about" className={isInView ? "scrollAnimate" : null}>
-      <motion.div>
+    <div id="about">
+      <Fade>
         <h3 className="aboutHeader">Meet the Team</h3>
         <div className="aboutContainer">
           {about.map((item) => {
@@ -48,12 +47,12 @@ export default function About() {
             );
           })}
         </div>
-      </motion.div>
+      </Fade>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
-        {isReady && (
+        {isOpen && (
           <Modal
-            modalOpen={isReady}
-            handleClose={() => setIsReady(false)}
+            modalOpen={isOpen}
+            handleClose={() => setIsOpen(false)}
             text={modalData}
             type="about"
           ></Modal>

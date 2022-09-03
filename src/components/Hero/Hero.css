@@ -30,21 +30,24 @@
   justify-content: center;
   margin-top: 100px;
   align-items: center;
+  gap: 5rem;
 }
 
 .heroText {
   margin-top: -50px;
-  text-align: left;
 }
 
-.heroText h1 {
-  font-weight: 400;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  inline-size: 80%;
+.heroText p {
   overflow-wrap: break-word;
-  font-family: 'Bebas Neue', cursive;
+  font-size: 2.3rem;
   letter-spacing: 2px;
+}
+
+.heroText p b {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  color: var(--color-primary);
+  font-size: 3rem;
 }
 
 .heroBottomBanner {
@@ -110,6 +113,20 @@
   }
 }
 
+@media only screen and (max-width: 675px) {
+  .heroText p {
+    font-size: 1.5rem;
+  }
+
+  .heroText p b {
+    font-size: 2.3rem;
+  }
+
+  .heroText a {
+    margin: 17px;
+  }
+}
+
 @media only screen and (max-width: 550px) {
   .heroWrapper {
     padding: 20px 40px;
@@ -131,10 +148,8 @@
 }
 
 @media only screen and (max-width: 450px) {
-  .heroText h1 {
-    font-size: 1.5rem;
-    width: 100vw;
-    padding: 0 10px;
+  .heroText p b {
+    font-size: 1.75rem;
   }
 
   .heroPhoneContainer {
@@ -144,6 +159,7 @@
 }
 
 @media only screen and (max-width: 400px) {
+
   .heroPhoneContainer {
     left: 15px;
     width: 190px;

@@ -30,7 +30,7 @@ export default function Modal({ handleClose, text, type }) {
   };
 
   const { title, featuredPicture, description } = text;
-
+  console.log("DESCRIPTION", description);
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -53,13 +53,13 @@ export default function Modal({ handleClose, text, type }) {
             </div>
             <div className={`modalText ${type}`}>
               <h3>{title}</h3>
-              <p>
+              <div>
                 {type === "about" ? (
                   <RichTextToReact content={description} />
                 ) : (
                   description
                 )}
-              </p>
+              </div>
             </div>
           </div>
         ) : null}

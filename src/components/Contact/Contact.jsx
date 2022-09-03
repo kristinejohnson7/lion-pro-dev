@@ -1,17 +1,16 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import ContactCard from "./ContactCard";
 import contactContext from "../../context/contact";
 import "./Contact.css";
 import HubspotForm from "../HubspotForm/HubspotForm";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { Fade } from "react-awesome-reveal";
 
 export default function Contact() {
   const { contact } = useContext(contactContext);
-  const ref = useRef(null);
-  const isInView = useInView(ref);
 
   return (
-    <div ref={ref} className={isInView ? "scrollAnimate" : null} id="contact">
+    <Fade id="contact">
       <div className="contactContainer">
         <div className="getInTouch">
           <h3>Get In Touch</h3>
@@ -41,6 +40,6 @@ export default function Contact() {
           />
         </motion.div>
       </div>
-    </div>
+    </Fade>
   );
 }

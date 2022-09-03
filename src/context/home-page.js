@@ -13,8 +13,7 @@ export const HomePageProvider = ({ children }) => {
       const { sys, fields } = slide;
       const { id } = sys;
       const heroTitle = fields.title;
-      const heroBg = fields.image.fields.file.url;
-      const updatedHero = { id, heroTitle, heroBg };
+      const updatedHero = { id, heroTitle };
       return updatedHero;
     });
 
@@ -27,6 +26,7 @@ export const HomePageProvider = ({ children }) => {
         const response = await client.getEntries({ content_type: "lpdHero" });
         const responseData = response.items;
         if (responseData) {
+          console.log("Response data", responseData);
           cleanHeroInfo(responseData);
         } else {
           setHero([]);

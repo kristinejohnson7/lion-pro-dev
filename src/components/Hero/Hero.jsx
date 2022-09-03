@@ -7,20 +7,21 @@ import "./Hero.css";
 import { motion } from "framer-motion";
 import heroBg from "../../assets/heroBckgrd.svg";
 import heroPhones from "../../assets/heroPhones.png";
+import RichTextToReact from "../RichTextToReact/RichTextToReact";
 
 function Hero() {
   const { hero } = useContext(homePageContext);
-
   return (
     <motion.div id="home" animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
       {hero.map((item) => {
         const { id, heroTitle } = item;
+
         return (
           <div key={id}>
             <div className="heroWrapper">
               <div className="heroContainer">
                 <div className="heroText">
-                  <h1>{heroTitle}</h1>
+                  <RichTextToReact content={heroTitle} />
                   <a href="#contact" className="btn">
                     START A PROJECT
                   </a>

@@ -47,6 +47,13 @@ export default function Nav() {
               </li>
               <li>
                 <ScrollHandler>
+                  <Link to="/#about" onClick={hideBars}>
+                    ABOUT
+                  </Link>
+                </ScrollHandler>
+              </li>
+              <li>
+                <ScrollHandler>
                   <Link to="/#contact" onClick={hideBars}>
                     CONTACT
                   </Link>
