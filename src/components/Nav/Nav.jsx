@@ -44,6 +44,13 @@ export default function Nav() {
                     PORTFOLIO
                   </Link>
                 </ScrollHandler>
+              </li>{" "}
+              <li>
+                <ScrollHandler>
+                  <Link to="/#testimonials" onClick={hideBars}>
+                    TESTIMONIALS
+                  </Link>
+                </ScrollHandler>
               </li>
               <li>
                 <ScrollHandler>

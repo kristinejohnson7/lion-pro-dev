@@ -13,6 +13,8 @@ import { AboutProvider } from "../../context/about";
 import About from "../About/About";
 import "./Home.css";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Testimonials from "../Testimonials/Testimonials";
+import { TestimonialsProvider } from "../../context/testimonials";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -34,6 +36,9 @@ export default function Home() {
       <PortfolioProvider>
         <Portfolio />
       </PortfolioProvider>
+      <TestimonialsProvider>
+        <Testimonials />
+      </TestimonialsProvider>
       <BlogProvider isFeatured>
         <FeaturedBlogs />
       </BlogProvider>

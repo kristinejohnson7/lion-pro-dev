@@ -26,7 +26,6 @@ export const HomePageProvider = ({ children }) => {
         const response = await client.getEntries({ content_type: "lpdHero" });
         const responseData = response.items;
         if (responseData) {
-          console.log("Response data", responseData);
           cleanHeroInfo(responseData);
         } else {
           setHero([]);
