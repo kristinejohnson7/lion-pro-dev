@@ -74,13 +74,22 @@ export default function Nav() {
               <li>
                 <ScrollHandler>
                   <Link
+                    className="btn project"
+                    to="/#contact"
+                    onClick={hideBars}
+                  >
+                    START A PROJECT
+                  </Link>
+                </ScrollHandler>
+                {/* <ScrollHandler>
+                  <Link
                     to="/#contact"
                     className="btn project"
                     onClick={hideBars}
                   >
                     START A PROJECT
                   </Link>
-                </ScrollHandler>
+                </ScrollHandler> */}
               </li>
             </ul>
             <button className="nav-btn nav-close-btn" onClick={showNavBar}>

@@ -44,12 +44,12 @@ nav.navOptions {
   padding-bottom: 1.063rem;
 }
 
-.navList li .project {
+.navList li a.project {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.navList li .project:focus {
-  color: var(--color-secondary);
+.navList li a.project:focus {
+  color: var(--white);
 }
 
 header .nav-btn {
