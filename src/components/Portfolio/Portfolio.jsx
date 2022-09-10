@@ -4,6 +4,7 @@ import portfolioContext from "../../context/portfolio";
 import Modal from "../Modal/Modal";
 import "./Portfolio.css";
 import { Fade } from "react-awesome-reveal";
+import PortfolioItem from "./PortfolioItem";
 
 export default function Portfolio() {
   const { portfolio } = useContext(portfolioContext);
@@ -59,11 +60,12 @@ export default function Portfolio() {
 
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
-          <Modal
-            type="portfolio"
-            text={portfolioData}
-            handleClose={() => setIsOpen(false)}
-          />
+          <Modal handleClose={() => setIsOpen(false)}>
+            <PortfolioItem
+              item={portfolioData}
+              handleClose={() => setIsOpen(false)}
+            />
+          </Modal>
         )}
       </AnimatePresence>
     </div>

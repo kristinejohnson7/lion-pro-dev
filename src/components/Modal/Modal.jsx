@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Backdrop from "../Backdrop/Backdrop";
-import PortfolioItem from "../Portfolio/PortfolioItem";
-import RichTextToReact from "../RichTextToReact/RichTextToReact";
 import "./Modal.css";
 
-export default function Modal({ handleClose, text, type }) {
+export default function Modal({ handleClose, children }) {
   const dropIn = {
     hidden: {
       opacity: 0,
@@ -29,8 +27,6 @@ export default function Modal({ handleClose, text, type }) {
     },
   };
 
-  const { title, featuredPicture, description } = text;
-  console.log("DESCRIPTION", description);
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -41,31 +37,7 @@ export default function Modal({ handleClose, text, type }) {
         animate="visible"
         exit="exit"
       >
-        {type === "services" || type === "about" ? (
-          <div className="modalContent">
-            <div className="modalImage">
-              <button className="btn" onClick={handleClose}>
-                X
-              </button>
-              {type === "services" && (
-                <img src={featuredPicture} alt="services" />
-              )}
-            </div>
-            <div className={`modalText ${type}`}>
-              <h3>{title}</h3>
-              <div>
-                {type === "about" ? (
-                  <RichTextToReact content={description} />
-                ) : (
-                  description
-                )}
-              </div>
-            </div>
-          </div>
-        ) : null}
-        {type === "portfolio" && (
-          <PortfolioItem item={text} handleClose={handleClose} />
-        )}
+        {children}
       </motion.div>
     </Backdrop>
   );

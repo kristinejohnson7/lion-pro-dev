@@ -4,6 +4,7 @@ import "./About.css";
 import Modal from "../Modal/Modal";
 import { motion, AnimatePresence } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
+import RichTextToReact from "../RichTextToReact/RichTextToReact";
 
 export default function About() {
   const { about } = useContext(aboutContext);
@@ -50,12 +51,21 @@ export default function About() {
       </Fade>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
-          <Modal
-            modalOpen={isOpen}
-            handleClose={() => setIsOpen(false)}
-            text={modalData}
-            type="about"
-          ></Modal>
+          <Modal handleClose={() => setIsOpen(false)}>
+            <div className="modalContent">
+              <div className="modalImage">
+                <button className="btn" onClick={() => setIsOpen(false)}>
+                  X
+                </button>
+              </div>
+              <div className={`modalText about`}>
+                <h3>{modalData.name}</h3>
+                <div>
+                  <RichTextToReact content={modalData.description} />
+                </div>
+              </div>
+            </div>
+          </Modal>
         )}
       </AnimatePresence>
     </div>

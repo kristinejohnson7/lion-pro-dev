@@ -1,5 +1,5 @@
 .blogListingsContainer {
-  margin: 50px auto;
+  margin: var(--size-50) auto;
 }
 
 .blogHeader {
@@ -16,7 +16,7 @@
   text-align: center;
   font-family: 'Bebas Neue', cursive;
   font-size: 3rem;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
 }
 
 .blogFilterOptions {
@@ -24,16 +24,16 @@
   justify-content: space-between;
   align-items: center;
   width: 85%;
-  margin: 30px auto;
+  margin: var(--size-30) auto;
   color: grey;
-  border-bottom: 2px solid grey;
+  border-bottom: 0.125rem solid grey;
 }
 
 .blogFilterOptions input {
   border: none;
   outline: none;
   margin-bottom: 1rem;
-  padding: 3px;
+  padding: 0.188rem;
   font-size: 0.7rem;
 }
 
@@ -43,7 +43,7 @@
 
 .filterTags {
   display: flex;
-  gap: 15px;
+  gap: var(--size-16);
 
 }
 
@@ -70,17 +70,17 @@
 .blogSearch .fa-magnifying-glass {
   position: absolute;
   right: 0;
-  bottom: 21px;
+  bottom: var(--size-20);
 }
 
 .blogListings {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1000px;
+  max-width: 62.5rem;
   flex-wrap: wrap;
-  margin: 55px auto;
-  gap: 23px;
+  margin: 3.438rem auto;
+  gap: 1.438rem;
 }
 
 .paginationBttns {
@@ -95,10 +95,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
-  padding: 10px;
-  margin: 8px;
+  width: 2.813rem;
+  height: 2.813rem;
+  padding: var(--size-10);
+  margin: 0.5rem;
   font-weight: 600;
 }
 
@@ -118,6 +118,6 @@
 @media only screen and (max-width: 550px) {
   .blogFilterOptions {
    flex-direction: column;
-   gap: 25px;
+   gap: 1.563rem;
   }
 }

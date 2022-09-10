@@ -1,5 +1,5 @@
 .heroWrapper {
-  padding: 20px 100px;
+  padding: var(--size-20) var(--size-100);
 }
 
 .heroImgsContainer {
@@ -18,7 +18,7 @@
 }
 
 .heroPhoneImg {
-  max-width: 500px;
+  max-width: 31.25rem;
 }
 
 .heroPhoneImg img {
@@ -28,36 +28,36 @@
 .heroContainer {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: var(--size-100);
   align-items: center;
   gap: 5rem;
 }
 
 .heroText {
-  margin-top: -50px;
+  margin-top: -3.125;
 }
 
 .heroText p {
   overflow-wrap: break-word;
   font-size: 2.3rem;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
 }
 
 .heroText p b {
   font-family: 'Bebas Neue', cursive;
-  letter-spacing: 6px;
+  letter-spacing: var(--size-5);
   color: var(--color-primary);
   font-size: 3rem;
 }
 
 .heroBottomBanner {
   background-color: var(--color-primary);
-  margin-top: 60px;
+  margin-top: var(--size-60);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
-  padding: 15px 0;
+  gap: var(--size-50);
+  padding: var(--size-14) 0;
 }
 
 .heroBottomBanner {
@@ -71,11 +71,11 @@
 }
 
 .heroBtmImage {
-  width: 50px;
+  width: var(--size-50);
 }
 
 .design .heroBtmImage {
-  width: 80px;
+  width: var(--size-80);
 }
 
 .heroBottomBanner div h5 {
@@ -96,7 +96,7 @@
 @media only screen and (max-width: 900px) {
   .heroContainer {
     flex-direction: column;
-    gap: 30px;
+    gap: var(--size-30);
   }
 
   .heroText {
@@ -108,8 +108,8 @@
   }
 
   .heroPhoneContainer {
-    left: 50px;
-    top: 30px;
+    left: var(--size-50);
+    top: var(--size-30);
   }
 }
 
@@ -123,13 +123,13 @@
   }
 
   .heroText a {
-    margin: 17px;
+    margin: var(--size-16);
   }
 }
 
 @media only screen and (max-width: 550px) {
   .heroWrapper {
-    padding: 20px 40px;
+    padding: var(--size-20) var(--size-40);
   }
 
   .heroText h1 {
@@ -138,7 +138,7 @@
 
   .heroBottomBanner {
     flex-direction: column;
-    gap: 7px;
+    gap: 0.438rem;
   }
 
   .heroBottomBanner div h5 {
@@ -153,23 +153,23 @@
   }
 
   .heroPhoneContainer {
-    left: 33px;
-    width: 200px;
+    left: var(--size-30);
+    width: 12.5rem;
   }
 }
 
 @media only screen and (max-width: 400px) {
 
   .heroPhoneContainer {
-    left: 15px;
-    width: 190px;
+    left: var(--size-16);
+    width: 12rem;
   }
 }
 
 @media only screen and (max-width: 340px) {
   .heroPhoneContainer {
-    left: 37px;
-    width: 130px;
+    left: 2.313rem;
+    width: 8.125rem;
   }
 }
 

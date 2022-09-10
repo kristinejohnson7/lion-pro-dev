@@ -1,11 +1,11 @@
 .navbar {
   box-shadow: rgba(255, 197, 41, 0.13) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
   background-color: var(--white);
-  height: 90px;
+  height: 5.625rem;
 }
 
 .logoContainer {
-  width: 140px;
+  width: 8.75rem;
 }
 
 nav.navOptions {
@@ -21,12 +21,13 @@ nav.navOptions {
   width: 100vw;
   justify-content: space-between;
   align-items: center;
-  padding: 7px;
+  padding: 0.438rem;
+  gap: 2rem;
 }
 
 .navList {
   display: flex;
-  gap: 40px;
+  gap: var(--size-40);
   align-items: center;
   flex-direction: row;
 }
@@ -40,7 +41,7 @@ nav.navOptions {
 .navList li a:focus{
   color: var(--color-primary);
   border-bottom: 3px solid var(--color-primary);
-  padding-bottom: 17px;
+  padding-bottom: 1.063rem;
 }
 
 .navList li .project {
@@ -65,8 +66,8 @@ header .nav-btn {
   header .nav-btn {
     visibility: visible;
     opacity: 1;
-    top: 15px;
-    right: 30px;
+    top: var(--size-16);
+    right: var(--size-30);
   }
 
   header nav {

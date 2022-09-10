@@ -27,7 +27,7 @@ export default function Nav() {
         <div>
           <nav
             ref={navRef}
-            className="collapse navbar-collapse navOptions"
+            className="collapse navbar-collapse navOptions navbar-toggleable-lg"
             id="navbarCollapse"
           >
             <ul className="navList">

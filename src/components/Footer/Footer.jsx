@@ -40,6 +40,14 @@ export default function Footer() {
                   className="socialCircle"
                   target="_blank"
                   rel="noreferrer"
+                  href="https://www.instagram.com/lionprodev/"
+                >
+                  <i className="fa-brands fa-instagram"></i>
+                </a>
+                <a
+                  className="socialCircle"
+                  target="_blank"
+                  rel="noreferrer"
                   href="https://www.tiktok.com/@philipjcutting?is_from_webapp=1&sender_device=pc"
                 >
                   <i className="fa-brands fa-tiktok"></i>

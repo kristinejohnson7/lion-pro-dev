@@ -1,9 +1,9 @@
 #hubspotContactForm {
-  padding: 25px;
+  padding: 1.563rem;
 }
 
 #hubspotContactForm .hs-form-iframe {
-  border-radius: 7px;
+  border-radius: 0.438rem;
 }
 
 #hubspotContactForm .actions input {

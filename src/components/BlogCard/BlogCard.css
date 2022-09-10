@@ -1,14 +1,14 @@
 .blogCard {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  width: 300px;
-  height: 550px;
+  width: 18.75rem;
+  height: 34.375rem;
   cursor: pointer;
   overflow: hidden;
 }
 
 .blogCardPic {
-  width: 320px;
-  height: 240px;
+  width: 20rem;
+  height: 15rem;
 }
 
 .blogCardPic img {
@@ -21,10 +21,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: var(--size-10);
   background-color: rgba(12, 113, 195, 0.05);
-  margin: 10px;
-  border-radius: 7px;
+  margin: var(--size-10);
+  border-radius: 0.5rem;
   font-size: 0.8rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
@@ -39,12 +39,12 @@
   font-family: 'Bebas Neue', cursive;
   text-overflow: ellipsis;
   overflow: hidden;
-  letter-spacing: 1.3px;
+  letter-spacing: 0.081rem;
 }
 
 .blogCardText {
   font-size: 0.9rem;
-  padding: 15px;
+  padding: var(--size-16);
 }
 
 .cardTextPreview {
@@ -56,7 +56,7 @@
 }
 
 .cardTextPreview .contentful-to-react {
-  height: 75px;
+  height: 4.688rem;
   overflow: hidden;
 }
 

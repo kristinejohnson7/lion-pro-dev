@@ -61,12 +61,20 @@ export default function Services() {
 
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
-          <Modal
-            modalOpen={isOpen}
-            handleClose={() => setIsOpen(false)}
-            text={modalData}
-            type="services"
-          ></Modal>
+          <Modal>
+            <div className="modalContent">
+              <div className="modalImage">
+                <button className="btn" onClick={() => setIsOpen(false)}>
+                  X
+                </button>
+                <img src={modalData.featuredPicture} alt="services" />
+              </div>
+              <div className={`modalText services`}>
+                <h3>{modalData.title}</h3>
+                <div>{modalData.description}</div>
+              </div>
+            </div>
+          </Modal>
         )}
       </AnimatePresence>
     </>

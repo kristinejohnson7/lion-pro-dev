@@ -11,10 +11,10 @@
 
 .modalContent {
   background: rgba(255, 255, 255, 0.95);
-  width: 380px;
+  width: 50%;
   max-height: calc(100vh - 20vh);
   overflow: auto;
-  border-radius: 9px;
+  border-radius: var(--size-10);
 }
 
 .modalImage {
@@ -23,8 +23,8 @@
 
 .modalImage button {
   position: absolute;
-  top: 10px;
-  right: 27px;
+  top: var(--size-10);
+  right: var(--size-30);
 }
 
 .modalImage button:hover {
@@ -36,27 +36,33 @@
 }
 
 .modalText {
-  padding: 30px;
+  padding: var(--size-30);
   text-align: left;
-  margin-bottom: 40px;
+  margin-bottom: var(--size-40);
 }
 
 .modalText h3 {
   text-align: center;
   color: var(--color-primary);
-  margin-bottom: 15px;
+  margin-bottom: var(--size-16);
 }
 
 .modalText.about {
-  margin-top: 50px;
+  margin-top: var(--size-50);
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 750px) {
   .modalContent {
-    width: 310px;
+    width: 70%;
   }
 
   .modalText {
-    padding: 20px 33px;
+    padding: var(--size-20) 1.9rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .modalContent {
+    width: 82%;
   }
 }

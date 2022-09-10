@@ -5,6 +5,8 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import ScrollHandler from "../Nav/ScrollHandle";
+import { Link } from "react-router-dom";
 
 export default function PortfolioItem({ images, handleClose, item }) {
   const { title, pictures, description, youTubeEmbedId } = item;
@@ -21,7 +23,6 @@ export default function PortfolioItem({ images, handleClose, item }) {
           X
         </button>
         <div className="portfolioTitle">{title}</div>
-
         <p className="portfolioDescription">{description}</p>
         <iframe
           width="403"
@@ -32,7 +33,17 @@ export default function PortfolioItem({ images, handleClose, item }) {
           allowFullScreen
           title="Embedded youtube"
         />
-        <button className="btn startProjectBtn">START A PROJECT</button>
+        <div>
+          <ScrollHandler>
+            <Link
+              className="btn startProjectBtn"
+              to="/#contact"
+              onClick={handleClose}
+            >
+              START YOUR PROJECT
+            </Link>
+          </ScrollHandler>
+        </div>
       </div>
       <Swiper
         pagination={{
