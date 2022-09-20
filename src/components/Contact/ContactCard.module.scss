@@ -1,0 +1,28 @@
+@import "/src/sassStyles/variables";
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 0.813rem;
+  background-color: $white;
+  margin-bottom: $size-10;
+  padding: $size-10 3.625rem;
+  border-radius: $size-5;
+
+  .contactIcon {
+    color: $primary-color;
+  }
+
+  .contactText {
+    width: 100%;
+
+    h5 {
+      font-size: $size-16;
+    }
+
+    p {
+      font-size: $size-14;
+      margin-bottom: 0;
+    }
+  }
+}

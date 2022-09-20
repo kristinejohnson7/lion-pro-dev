@@ -1,11 +1,10 @@
 import React from "react";
-import "./PortfolioItem.css";
+import s from "./PortfolioItem.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import ScrollHandler from "../Nav/ScrollHandle";
 import { Link } from "react-router-dom";
 
 export default function PortfolioItem({ images, handleClose, item }) {
@@ -17,13 +16,13 @@ export default function PortfolioItem({ images, handleClose, item }) {
   });
 
   return (
-    <div className="pItemWrapper">
-      <div className="pModalContent">
-        <button className="portfolioBtn btn" onClick={handleClose}>
+    <div className={s.itemWrapper}>
+      <div className={s.itemContent}>
+        <button className={`${s.portfolioBtn} btn`} onClick={handleClose}>
           X
         </button>
-        <div className="portfolioTitle">{title}</div>
-        <p className="portfolioDescription">{description}</p>
+        <div className={s.portfolioTitle}>{title}</div>
+        <p className={s.portfolioDescription}>{description}</p>
         <iframe
           width="403"
           height="280"
@@ -34,15 +33,13 @@ export default function PortfolioItem({ images, handleClose, item }) {
           title="Embedded youtube"
         />
         <div>
-          <ScrollHandler>
-            <Link
-              className="btn startProjectBtn"
-              to="/#contact"
-              onClick={handleClose}
-            >
-              START YOUR PROJECT
-            </Link>
-          </ScrollHandler>
+          <Link
+            className={`btn ${s.startProjectBtn}`}
+            to="/#contact"
+            onClick={handleClose}
+          >
+            START YOUR PROJECT
+          </Link>
         </div>
       </div>
       <Swiper

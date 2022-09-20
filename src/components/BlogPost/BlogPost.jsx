@@ -1,11 +1,12 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import blogContext from "../../context/blogs";
-import "./BlogPost.css";
+import s from "./BlogPost.module.scss";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
 import dayjs from "dayjs";
 import readingTime from "reading-time/lib/reading-time";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Header from "../Header/Header";
 
 export default function BlogPost() {
   const { singleBlog, getSingleBlog } = useContext(blogContext);
@@ -35,35 +36,36 @@ export default function BlogPost() {
     }
   }, [content, ref]);
 
+  console.log("content", content);
+
   return (
     slug &&
     title && (
       <>
-        {/* <motion.div className="progress-bar" style={{ scaleX }} /> */}
-        <div className="blogPost">
-          <div className="blogHeader">
-            <div className="blogDetailsHeader">
+        <motion.div className="progress-bar" style={{ scaleX }} />
+        <section className="container">
+          <div className={s.blogHeader}>
+            <div className={s.blogDetailsHeader}>
               <p>{author}</p>
-              <p className="headerDateAndTime">
+              <p className={s.headerDateAndTime}>
                 {dayjs(date).format("dddd MMM DD, YYYY")}
                 <span>-</span>
-                <span className="readEstimate">
+                <span>
                   {parseInt(readingTimeState) > 0
                     ? `${parseInt(readingTimeState)} min read`
                     : "Less than one min read"}
                 </span>
               </p>
             </div>
-            <h3 className="title">{title.toUpperCase()}</h3>
+            <Header title={title.toUpperCase()} />
           </div>
-
-          <div className="blogFeaturedImg">
+          <div className={s.blogFeaturedImg}>
             <img src={featuredImage.fields.file.url} alt="blog featured" />
           </div>
-          <div className="blogText" ref={ref}>
+          <div className={s.blogText} ref={ref}>
             <RichTextToReact content={content} />
           </div>
-        </div>
+        </section>
       </>
     )
   );

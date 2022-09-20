@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import blogContext from "../../context/blogs";
 import BlogCard from "../BlogCard/BlogCard";
 import ReactPaginate from "react-paginate";
-import "./BlogListings.css";
+import Header from "../Header/Header";
+import s from "./BlogListings.module.scss";
 
 export default function BlogListings() {
   const { blog, getBlogInfo } = useContext(blogContext);
   const [pageNumber, setPageNumber] = useState(0);
-  const [searchWord, setSearchWord] = useState("");
 
   const postsPerPage = 6;
   const pagesVisited = pageNumber * postsPerPage;
@@ -28,38 +28,35 @@ export default function BlogListings() {
     const searchWord = event.target.value;
     setPageNumber(0);
     getBlogInfo(searchWord);
-    setSearchWord(searchWord);
   };
 
   const handleTag = (tag) => {
     if (tag === null) {
       setPageNumber(0);
       getBlogInfo(null, null);
-      setSearchWord("");
     }
     setPageNumber(0);
     getBlogInfo(null, tag);
-    setSearchWord(tag);
   };
 
   return (
-    <div className="blogListingsContainer">
-      <div className="blogHeader">
-        <h2>Blog Listings</h2>
+    <section className="container">
+      <div className={s.blogHeader}>
+        <Header title="Lion Pro Dev Blog" />
         <p>
           Check out our blogs for developers offering tips on how to code clean,
           and case studies for Android development.
         </p>
       </div>
-      <div className="blogFilterOptions">
-        <div className="filterTags">
+      <div className={s.blogFilterOptions}>
+        <div className={s.filterTags}>
           <button onClick={() => handleTag(null)}>All</button>
           <button onClick={() => handleTag("Developer Guides")}>
             Developer Guides
           </button>
           <button onClick={() => handleTag("Android")}>Android</button>
         </div>
-        <div className="blogSearch">
+        <div className={s.blogSearch}>
           <i className="fa-solid fa-magnifying-glass"></i>
           <input
             type="text"
@@ -68,8 +65,8 @@ export default function BlogListings() {
           />
         </div>
       </div>
-      <div className="blogListings"> {displayPosts}</div>
-      <div>
+      <div className={s.blogListings}> {displayPosts}</div>
+      <div className={s.paginate}>
         <ReactPaginate
           previousLabel={""}
           nextLabel={""}
@@ -82,6 +79,6 @@ export default function BlogListings() {
           activeClassName={"paginationActive"}
         />
       </div>
-    </div>
+    </section>
   );
 }

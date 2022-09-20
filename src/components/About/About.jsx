@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import aboutContext from "../../context/about";
-import "./About.css";
 import Modal from "../Modal/Modal";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
+import Header from "../Header/Header";
+import s from "./About.module.scss";
 
 export default function About() {
   const { about } = useContext(aboutContext);
@@ -24,27 +25,25 @@ export default function About() {
   }, [isOpen]);
 
   return (
-    <div id="about">
+    <section id="about">
       <Fade>
-        <h3 className="aboutHeader">Meet the Team</h3>
-        <div className="aboutContainer">
+        <Header title="Meet the Team" />
+        <div className={s.aboutContainer}>
           {about.map((item) => {
             const { id, name, picture } = item;
             return (
-              <motion.div
-                className="aboutCircleWrapper"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.9 }}
+              <div
+                className={`${s.aboutCircleWrapper} grow`}
                 key={id}
                 onClick={(e) => {
                   handleDisplayAbout(e, id);
                 }}
               >
-                <div className="aboutCircle">
+                <div className={s.aboutCircle}>
                   <img src={picture} alt="about" />
                 </div>
                 <h5>{name}</h5>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -52,8 +51,8 @@ export default function About() {
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
           <Modal handleClose={() => setIsOpen(false)}>
-            <div className="modalContent">
-              <div className="modalImage">
+            <div className={s.aboutContent}>
+              <div className={s.aboutBtn}>
                 <button className="btn" onClick={() => setIsOpen(false)}>
                   X
                 </button>
@@ -68,6 +67,6 @@ export default function About() {
           </Modal>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 }

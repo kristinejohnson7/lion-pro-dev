@@ -1,0 +1,116 @@
+@import "/src/sassStyles/variables";
+
+.navbar {
+  box-shadow: rgba(255, 197, 41, 0.13) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  background-color: $white;
+  height: 5.625rem;
+}
+
+.navBar {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.438rem;
+  gap: 2rem;
+
+  .logoContainer {
+    width: 8.75rem;
+  }
+
+  .navList {
+    display: flex;
+    gap: $size-40;
+    align-items: center;
+    flex-direction: row;
+
+    li a {
+      &:hover {
+        text-decoration: none;
+        font-weight: 500;
+        color: $primary-color;
+      }
+
+      &:focus {
+        color: $primary-color;
+        border-bottom: 3px solid $primary-color;
+        padding-bottom: 1.063rem;
+      }
+
+      &.project {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        &:focus {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .nav-btn {
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.8rem;
+    position: absolute;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+
+  @media only screen and (max-width: 900px) {
+    .nav-btn {
+      visibility: visible;
+      opacity: 1;
+      top: $size-16;
+      right: $size-30;
+    }
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: $primary-color;
+      color: $white;
+      transition: 1s;
+      transform: translateY(-100vh);
+      z-index: 1000;
+
+      .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        color: $secondary-color;
+      }
+
+      a {
+        font-size: 1.5rem;
+        color: $white;
+      }
+    }
+
+    .responsive_nav {
+      transform: none;
+    }
+
+    .navList {
+      flex-direction: column;
+
+      li a:hover {
+        color: $primary-medium;
+      }
+
+      .btn {
+        background-color: $secondary-color;
+        color: $primary-color;
+      }
+    }
+  }
+}

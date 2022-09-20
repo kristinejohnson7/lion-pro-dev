@@ -1,0 +1,128 @@
+@import "/src/sassStyles/variables";
+
+.footerContainer {
+  display: flex;
+  gap: $size-50;
+  padding: 1.563rem 0;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .footerMain {
+    text-align: left;
+    display: flex;
+    gap: 5.625rem;
+    align-items: center;
+
+    .footerSocialsAndLogo {
+      .footerLogo {
+        width: $size-150;
+        margin-bottom: $size-20;
+      }
+
+      p {
+        overflow-wrap: break-word;
+        width: 11.875rem;
+      }
+
+      i {
+        color: $primary-color;
+      }
+    }
+
+    .socialsContainer {
+      margin-top: $size-16;
+      display: flex;
+      gap: $size-12;
+
+      a {
+        width: $size-40;
+        height: $size-40;
+        border: 1px solid lightgrey;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+          rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+        &:hover {
+          border: 1px solid $secondary-color;
+        }
+      }
+    }
+
+    .usefulLinks {
+      h4 {
+        font-family: $highlight-font;
+        letter-spacing: 0.125rem;
+        font-size: 1.3rem;
+        color: $primary-color;
+        margin-bottom: 0.438rem;
+      }
+
+      ul li {
+        margin-bottom: 0.438rem;
+        text-align: left;
+
+        a:hover {
+          color: $secondary-color;
+        }
+
+        i {
+          color: $primary-color;
+          margin-right: 0.563rem;
+        }
+      }
+    }
+  }
+
+  .footerTerms {
+    font-size: 0.8rem;
+    margin-top: $size-20;
+
+    a,
+    span {
+      margin: 0 $size-16;
+      color: lightgrey;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .newsletterSubscribe h4 {
+    font-family: "Bebas Neue", cursive;
+    letter-spacing: 0.125rem;
+    margin-bottom: 1.063rem;
+    color: $primary-color;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 760px) {
+    flex-direction: column;
+    align-items: center;
+
+    .socialsContainer {
+      justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .footerMain {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $size-50;
+    }
+  }
+}
+
+.footerBottom {
+  background-color: $primary-color;
+  color: $white;
+  padding: 1.563rem;
+  text-align: center;
+}

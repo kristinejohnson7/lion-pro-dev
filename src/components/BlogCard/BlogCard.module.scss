@@ -1,0 +1,74 @@
+@import "/src/sassStyles/variables";
+
+.blogCard {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: $white;
+  width: 18.75rem;
+  height: 34.375rem;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+
+  .blogCardPic {
+    width: 20rem;
+    height: 15rem;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .blogCardTag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $size-10;
+    background-color: rgba(12, 113, 195, 0.05);
+    margin: $size-10;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  }
+
+  .blogCardText {
+    font-size: $size-16;
+    padding: $size-16;
+
+    h4 {
+      color: $primary-color;
+      font-size: 1.3rem;
+      font-family: $highlight-font;
+      letter-spacing: 0.081rem;
+    }
+
+    .cardTextPreview {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      .contentful-to-react {
+        height: 4.688rem;
+        overflow: hidden;
+      }
+
+      h4,
+      h3,
+      h5,
+      p {
+        font-size: $size-14;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .blogAuthor {
+      font-size: $size-14;
+      color: $grey;
+    }
+  }
+}

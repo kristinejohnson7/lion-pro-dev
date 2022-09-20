@@ -1,0 +1,16 @@
+@import "/src/sassStyles/variables";
+
+h3 {
+  font-size: 3.5rem;
+  font-family: $highlight-font;
+  letter-spacing: 0.188rem;
+  text-align: center;
+
+  &.light {
+    color: $white;
+  }
+
+  &.primary {
+    color: $primary-color;
+  }
+}

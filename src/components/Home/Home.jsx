@@ -11,7 +11,7 @@ import Contact from "../Contact/Contact";
 import FeaturedBlogs from "../FeaturedBlogs/FeaturedBlogs";
 import { AboutProvider } from "../../context/about";
 import About from "../About/About";
-import "./Home.css";
+import s from "./Home.module.scss";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Testimonials from "../Testimonials/Testimonials";
 import { TestimonialsProvider } from "../../context/testimonials";
@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <motion.div className="progress-bar" style={{ scaleX }} />
+      <motion.div className={s.progressBar} style={{ scaleX }} />
       <HomePageProvider>
         <Hero />
       </HomePageProvider>

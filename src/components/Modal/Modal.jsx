@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Backdrop from "../Backdrop/Backdrop";
-import "./Modal.css";
+import s from "./Modal.module.scss";
 
 export default function Modal({ handleClose, children }) {
   const dropIn = {
@@ -31,7 +31,7 @@ export default function Modal({ handleClose, children }) {
     <Backdrop onClick={handleClose}>
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="modal"
+        className={s.modal}
         variants={dropIn}
         initial="hidden"
         animate="visible"

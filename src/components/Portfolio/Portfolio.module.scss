@@ -1,0 +1,79 @@
+@import "/src/sassStyles/variables";
+
+.portfolioContainer {
+  background-color: $primary-color;
+
+  .portfolioHeader {
+    color: $white;
+    padding: $size-50 0;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: $size-100;
+    gap: $size-30;
+    max-width: 48.125rem;
+    margin: auto;
+
+    .portfolioCard {
+      color: $white;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      width: 21.875rem;
+      height: 25rem;
+      display: flex;
+      flex-direction: column;
+      font-size: $size-16;
+      cursor: pointer;
+      background-color: rgba(0, 0, 128, 0.8);
+      border-radius: 0.438rem;
+
+      .cardHeaderImage {
+        width: 100%;
+        height: 17.5rem;
+        padding: 0;
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+
+      .cardText {
+        margin-left: $size-18;
+
+        h3 {
+          font-family: "Bebas Neue", cursive;
+          letter-spacing: 0.125rem;
+          font-size: 1.3rem;
+          margin-top: $size-40;
+          text-align: center;
+        }
+      }
+
+      a {
+        color: $white;
+        font-weight: 500;
+        align-self: end;
+        margin-top: $size-50;
+        margin-right: $size-20;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .portfolioHeader {
+      width: 80%;
+
+      .portfolioCard {
+        width: 15.6rem;
+      }
+    }
+  }
+}

@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import servicesContext from "../../context/services";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
-import "./Services.css";
+import s from "./Services.module.scss";
+import "../../animation.scss";
 import { Fade } from "react-awesome-reveal";
 
 export default function Services() {
@@ -25,30 +26,27 @@ export default function Services() {
   return (
     <>
       <Fade>
-        <div className="servicesContainer" id="services">
-          <div className="servicesCardWrapper">
+        <div className={s.servicesContainer} id="services">
+          <div className={s.servicesCardWrapper}>
             {services.map((item) => {
               const { id, title, featuredPicture, icon } = item;
               return (
-                <div key={id}>
-                  <motion.div
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="serviceCard"
-                    onClick={(e) => {
-                      handleDisplayService(e, id);
-                    }}
-                  >
-                    <div className="cardHeaderImage">
-                      <img src={featuredPicture} alt="services" />
-                    </div>
-                    <div className="cardIcon">
-                      <img src={icon} alt="services icon" />
-                    </div>
-                    <div className="cardText">
-                      <h3>{title.toUpperCase()}</h3>
-                    </div>
-                  </motion.div>
+                <div
+                  key={id}
+                  className={`${s.serviceCard} grow`}
+                  onClick={(e) => {
+                    handleDisplayService(e, id);
+                  }}
+                >
+                  <div className={s.cardHeaderImage}>
+                    <img src={featuredPicture} alt="services" />
+                  </div>
+                  <div className={s.cardIcon}>
+                    <img src={icon} alt="services icon" />
+                  </div>
+                  <div className={s.cardText}>
+                    <h3>{title.toUpperCase()}</h3>
+                  </div>
                 </div>
               );
             })}
@@ -62,14 +60,14 @@ export default function Services() {
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
           <Modal>
-            <div className="modalContent">
-              <div className="modalImage">
+            <div className={s.servicesModal}>
+              <div className={s.modalImage}>
                 <button className="btn" onClick={() => setIsOpen(false)}>
                   X
                 </button>
                 <img src={modalData.featuredPicture} alt="services" />
               </div>
-              <div className={`modalText services`}>
+              <div className={s.modalText}>
                 <h3>{modalData.title}</h3>
                 <div>{modalData.description}</div>
               </div>

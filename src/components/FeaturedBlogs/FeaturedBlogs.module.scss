@@ -1,0 +1,45 @@
+@import "/src/sassStyles/variables";
+
+.featuredBlogs {
+  background-color: $primary-light;
+  padding: $size-60;
+
+  .blogsTitle {
+    text-align: center;
+
+    p a {
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $primary-color;
+    }
+  }
+
+  .blogWrapper {
+    display: flex;
+    gap: $size-20;
+    margin: 4.063rem auto;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+    .bgShapeTop {
+      position: absolute;
+      top: -3.125rem;
+      left: 1.563rem;
+      z-index: 1;
+    }
+
+    .bgShapeBottom {
+      position: absolute;
+      bottom: -5.5rem;
+      right: -3.25rem;
+      z-index: 1;
+    }
+  }
+
+  @media only screen and (max-width: 975px) {
+    .blogWrapper {
+      flex-wrap: wrap;
+    }
+  }
+}

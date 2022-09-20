@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import privacyContext from "../../context/privacy";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
-import "../Terms/Terms.css";
+import s from "../Terms/Terms.module.scss";
 
 export default function Privacy() {
   const { privacy } = useContext(privacyContext);
@@ -9,7 +9,7 @@ export default function Privacy() {
   return (
     <>
       {privacy.map((item) => (
-        <div className="container terms" key={item.id}>
+        <div className={`container ${s.terms}`} key={item.id}>
           <h3>{item.title}</h3>
           <div>
             <RichTextToReact content={item.description} />

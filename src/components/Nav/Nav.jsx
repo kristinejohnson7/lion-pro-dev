@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import logo from "../../assets/lionlogo.png";
-import "./Nav.css";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, Link } from "react-router-dom";
 import ScrollHandler from "./ScrollHandle";
+import "./Nav.scss";
 
 export default function Nav() {
   const navRef = useRef();
@@ -15,6 +15,8 @@ export default function Nav() {
   const hideBars = () => {
     navRef.current.setAttribute("class", "navbar-collapse collapse");
   };
+
+  const navOptions = ["services", "portfolio", "testimonials", "about", "blog"];
 
   return (
     <Navbar sticky="top">
@@ -31,46 +33,18 @@ export default function Nav() {
             id="navbarCollapse"
           >
             <ul className="navList">
-              <li>
-                <ScrollHandler>
-                  <Link to="/#services" onClick={hideBars}>
-                    SERVICES
-                  </Link>
-                </ScrollHandler>
-              </li>
-              <li>
-                <ScrollHandler>
-                  <Link to="/#portfolio" onClick={hideBars}>
-                    PORTFOLIO
-                  </Link>
-                </ScrollHandler>
-              </li>{" "}
-              <li>
-                <ScrollHandler>
-                  <Link to="/#testimonials" onClick={hideBars}>
-                    TESTIMONIALS
-                  </Link>
-                </ScrollHandler>
-              </li>
-              <li>
-                <ScrollHandler>
-                  <Link to="/#about" onClick={hideBars}>
-                    ABOUT
-                  </Link>
-                </ScrollHandler>
-              </li>
-              <li>
-                <ScrollHandler>
-                  <Link to="/#contact" onClick={hideBars}>
-                    CONTACT
-                  </Link>
-                </ScrollHandler>
-              </li>
-              <li>
-                <NavLink to="/blog" onClick={hideBars}>
-                  BLOG
-                </NavLink>
-              </li>
+              {navOptions.map((item) => (
+                <li>
+                  <ScrollHandler>
+                    <Link
+                      to={item === "blog" ? "/blog" : `/#${item}`}
+                      onClick={hideBars}
+                    >
+                      {item.toUpperCase()}
+                    </Link>
+                  </ScrollHandler>
+                </li>
+              ))}
               <li>
                 <ScrollHandler>
                   <Link
@@ -81,15 +55,6 @@ export default function Nav() {
                     START A PROJECT
                   </Link>
                 </ScrollHandler>
-                {/* <ScrollHandler>
-                  <Link
-                    to="/#contact"
-                    className="btn project"
-                    onClick={hideBars}
-                  >
-                    START A PROJECT
-                  </Link>
-                </ScrollHandler> */}
               </li>
             </ul>
             <button className="nav-btn nav-close-btn" onClick={showNavBar}>

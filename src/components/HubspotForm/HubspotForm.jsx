@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./HubspotForm.css";
+import "./HubspotForm.scss";
 
 export default function HubspotForm({ formId, id, target }) {
   useEffect(() => {

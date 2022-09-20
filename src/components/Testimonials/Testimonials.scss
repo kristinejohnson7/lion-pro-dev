@@ -1,0 +1,67 @@
+@import "/src/sassStyles/variables";
+
+#testimonials {
+  margin-top: $size-50;
+
+  .testimonySwiper {
+    &.swiper {
+      width: 65%;
+      height: 100%;
+      margin: $size-30 auto 5.625rem;
+    }
+
+    &.swiper-slide {
+      text-align: center;
+      font-size: $size-18;
+      background: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      background-color: $white;
+      opacity: 0.4;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: $primary-color;
+      opacity: 1;
+    }
+
+    .testimonialIframe {
+      position: relative;
+      height: 30rem;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      &.swiper {
+        width: 100%;
+      }
+    }
+  }
+}

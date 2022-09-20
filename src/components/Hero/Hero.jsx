@@ -3,7 +3,7 @@ import phone from "../../assets/mobilePhone.svg";
 import computer from "../../assets/computerHero.svg";
 import homePageContext from "../../context/home-page";
 import Tilt from "react-parallax-tilt";
-import "./Hero.css";
+import s from "./Hero.module.scss";
 import { motion } from "framer-motion";
 import heroBg from "../../assets/heroBckgrd.svg";
 import heroPhones from "../../assets/heroPhones.png";
@@ -18,23 +18,23 @@ function Hero() {
 
         return (
           <div key={id}>
-            <div className="heroWrapper">
-              <div className="heroContainer">
-                <div className="heroText">
+            <div className={s.heroWrapper}>
+              <div className={s.heroContainer}>
+                <div className={s.heroText}>
                   <RichTextToReact content={heroTitle} />
                   <a href="#contact" className="btn">
                     START A PROJECT
                   </a>
                 </div>
-                <div className="heroImgsContainer">
+                <div className={s.heroImgs}>
                   <img src={heroBg} alt="" />
-                  <div className="heroPhoneContainer">
+                  <div className={s.heroPhone}>
                     <Tilt
                       className="track-on-window"
                       transitionSpeed={2500}
                       scale={1.2}
                     >
-                      <div className="heroPhoneImg">
+                      <div className={s.heroPhoneImg}>
                         <img src={heroPhones} alt="hero header phones" />
                       </div>
                     </Tilt>
@@ -42,15 +42,15 @@ function Hero() {
                 </div>
               </div>
             </div>
-            <div className="heroBottomBanner">
-              <div className="nativeMobile">
-                <div className="heroBtmImage">
+            <div className={s.heroBottomBanner}>
+              <div className={s.nativeMobile}>
+                <div className={s.heroBtmImage}>
                   <img src={phone} alt="" />
                 </div>
                 <h5>Native Mobile Development</h5>
               </div>
-              <div className="design">
-                <div className="heroBtmImage">
+              <div className={s.design}>
+                <div className={s.heroBtmImage}>
                   <img src={computer} alt="" />
                 </div>
                 <h5>Design</h5>

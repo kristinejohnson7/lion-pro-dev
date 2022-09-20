@@ -1,0 +1,72 @@
+@import "/src/sassStyles/variables";
+
+.blogHeader {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+
+  .blogDetailsHeader {
+    text-align: left;
+    margin-bottom: 1.063rem;
+    font-size: $size-14;
+
+    .headerDateAndTime {
+      color: $grey;
+      font-size: $size-14;
+
+      span {
+        margin: 0 0.313rem;
+      }
+    }
+  }
+
+  h3 {
+    font-size: $size-40;
+    margin: $size-30 0 $size-20;
+  }
+}
+
+.blogFeaturedImg {
+  box-shadow: rgba(149 157 165 / 20%) 0px 8px 24px;
+  width: 21.875rem;
+  height: 10%;
+  margin: 0 auto;
+  margin-bottom: 2.813rem;
+
+  img {
+    border-radius: $size-10;
+  }
+}
+
+.blogText {
+  margin-top: $size-30;
+  text-align: left;
+  width: 80%;
+  margin: $size-10 auto;
+  line-height: 1.7;
+
+  img {
+    width: 28.125rem;
+    height: 70%;
+    border-radius: 0.438rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 1.688rem auto;
+    display: flex;
+  }
+
+  h4 {
+    margin-top: 2.188rem;
+    margin-bottom: $size-20;
+  }
+
+  ol {
+    margin-left: 2.188rem;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .blogFeaturedImg {
+    width: 15.625rem;
+  }
+}

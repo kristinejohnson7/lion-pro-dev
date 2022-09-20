@@ -1,9 +1,9 @@
 import React from "react";
 import logo from "../../assets/lionlogo.png";
-import "./Footer.css";
 import { Link } from "react-router-dom";
 import HubspotForm from "../HubspotForm/HubspotForm";
 import ScrollHandler from "../Nav/ScrollHandle";
+import s from "./Footer.module.scss";
 
 export default function Footer() {
   const usefulLinks = [
@@ -14,20 +14,23 @@ export default function Footer() {
     { to: "/blog", title: "Blog", key: 5 },
     { to: "/#contact", title: "Contact", key: 6 },
   ];
+
+  const date = new Date().getFullYear();
+
   return (
     <footer>
-      <div className="footerContainer">
+      <div className={s.footerContainer}>
         <div>
-          <div className="footerMain">
-            <div className="footerSocialsAndLogo">
-              <div className="footerLogo">
+          <div className={s.footerMain}>
+            <div className={s.footerSocialsAndLogo}>
+              <div className={s.footerLogo}>
                 <img src={logo} alt="" />
               </div>
               <p>
                 Behind the word mountains, far from the countries Vokalia and
                 Consonantia, there live the blind texts they live
               </p>
-              <div className="socialsContainer">
+              <div className={s.socialsContainer}>
                 <a
                   className="socialCircle"
                   target="_blank"
@@ -54,7 +57,7 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="usefulLinks">
+            <div className={s.usefulLinks}>
               <h4>Useful Links</h4>
               <ul>
                 {usefulLinks.map((link) => (
@@ -68,14 +71,13 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="footerTerms">
+          <div className={s.footerTerms}>
             <Link to="/terms-of-use">Terms of Use</Link>
             <span>|</span>
             <Link to="/privacy-policy">Privacy Policy</Link>
           </div>
         </div>
-
-        <div className="newsletterSubscribe">
+        <div className={s.newsletterSubscribe}>
           <h4>Sign up for our newsletter</h4>
           <HubspotForm
             id="hubspotNewsletter"
@@ -84,9 +86,8 @@ export default function Footer() {
           />
         </div>
       </div>
-
-      <div className="footerBottom">
-        ©2022. Kristine Johnson. All Rights Reserved.
+      <div className={s.footerBottom}>
+        ©{date}. Kristine Johnson. All Rights Reserved.
       </div>
     </footer>
   );

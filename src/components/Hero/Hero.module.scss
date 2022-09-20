@@ -1,0 +1,126 @@
+@import "/src/sassStyles/variables";
+
+.heroWrapper {
+  padding: $size-20 $size-100;
+
+  .heroContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: $size-100;
+    align-items: center;
+    gap: 5rem;
+
+    .heroText p {
+      overflow-wrap: break-word;
+      font-size: 2.3rem;
+      letter-spacing: 0.125rem;
+
+      b {
+        font-family: $highlight-font;
+        letter-spacing: $size-5;
+        color: $primary-color;
+        font-size: 3rem;
+      }
+
+      a {
+        margin: 1.5rem 0;
+      }
+    }
+
+    .heroImgs {
+      position: relative;
+
+      .heroPhone {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+
+        .heroPhoneImg {
+          max-width: 31.25rem;
+        }
+      }
+    }
+  }
+}
+
+.heroBottomBanner {
+  background-color: $primary-color;
+  margin-top: $size-60;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $size-50;
+  padding: $size-14 0;
+
+  div {
+    display: flex;
+    align-items: center;
+    color: $white;
+
+    .heroBtmImage {
+      width: $size-50;
+
+      .design {
+        width: $size-80;
+      }
+    }
+
+    h5 {
+      font-weight: 400;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .heroContainer {
+    flex-direction: column;
+
+    .heroText {
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .heroWrapper .heroContainer {
+    .heroText {
+      p {
+        font-size: 1.5rem;
+
+        b {
+          font-size: 2.3rem;
+        }
+      }
+    }
+
+    .heroImgs .heroPhone {
+      left: $size-30;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .heroWrapper {
+    padding: $size-20 $size-40;
+  }
+
+  .heroBottomBanner {
+    flex-direction: column;
+    gap: 0.438rem;
+
+    div h5 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .heroWrapper .heroContainer {
+    .heroText p b {
+      font-size: 1.75rem;
+    }
+  }
+}

@@ -1,0 +1,160 @@
+@import "/src/sassStyles/variables";
+@import "/src/sassStyles/global";
+
+.servicesContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $size-50;
+  margin-bottom: $size-100;
+  padding: $size-30 5.625rem;
+
+  h2 {
+    font-size: 3.5rem;
+    color: #061f35;
+    font-family: $highlight-font;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  .servicesCardWrapper {
+    display: flex;
+    gap: 1.063rem;
+    flex-wrap: wrap;
+    max-width: 46rem;
+
+    .serviceCard {
+      color: #061f35;
+      border: 1px solid lightgrey;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+        rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+      width: 13.75rem;
+      display: flex;
+      flex-direction: column;
+      font-size: $size-16;
+      cursor: pointer;
+      gap: $size-10;
+
+      &:hover {
+        border: 2px solid $secondary-color;
+      }
+
+      h3 {
+        color: $primary-color;
+        text-align: left;
+      }
+
+      .cardHeaderImage {
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+
+        img {
+          height: 11.25rem;
+          object-fit: cover;
+        }
+      }
+
+      .cardIcon {
+        position: relative;
+
+        img {
+          width: $size-80;
+          background-color: rgba(255, 198, 41, 0.9);
+          border-radius: $size-10;
+          padding: $size-5;
+          position: absolute;
+          left: 1.063rem;
+          top: -3.125rem;
+        }
+      }
+
+      .cardText {
+        margin: 4rem 0 $size-20;
+        text-align: left;
+        padding: 0 $size-20;
+
+        h3 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    flex-wrap: wrap;
+    gap: $size-20;
+
+    h2 {
+      text-align: center;
+      margin-top: $size-20;
+    }
+
+    .servicesCardWrapper {
+      justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 640px) {
+    .servicesCardWrapper .serviceCard {
+      width: 19rem;
+    }
+  }
+}
+
+.servicesModal {
+  background: rgba(255, 255, 255, 0.95);
+  width: 41%;
+  max-height: calc(100vh - 20vh);
+  overflow: auto;
+  border-radius: $size-10;
+  max-width: 700px;
+
+  .modalImage {
+    position: relative;
+
+    button {
+      position: absolute;
+      top: $size-10;
+      right: $size-30;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  .modalText {
+    padding: $size-30;
+    text-align: left;
+    margin-bottom: $size-40;
+
+    h3 {
+      text-align: center;
+      color: $primary-color;
+      margin-bottom: $size-16;
+    }
+
+    &.about {
+      margin-top: $size-50;
+    }
+  }
+
+  @media only screen and (max-width: 950px) {
+    width: 67%;
+
+    .modalText {
+      padding: $size-20 1.9rem;
+
+      h3 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    width: 82%;
+  }
+}

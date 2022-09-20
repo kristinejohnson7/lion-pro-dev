@@ -1,13 +1,13 @@
 import React from "react";
-import "./ContactCard.css";
+import s from "./ContactCard.module.scss";
 
 export default function ContactCard({ title, details, icon }) {
   return (
-    <div className="contactCard">
-      <div className="contactIcon">
+    <div className={s.contactCard}>
+      <div className={s.contactIcon}>
         <i className={`fa-solid ${icon} fa-lg`}></i>
       </div>
-      <div className="contactText">
+      <div className={s.contactText}>
         <h5>{title}</h5>
         <p>{details}</p>
       </div>

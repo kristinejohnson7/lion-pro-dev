@@ -1,14 +1,14 @@
 #hubspotContactForm {
   padding: 1.563rem;
-}
 
-#hubspotContactForm .hs-form-iframe {
-  border-radius: 0.438rem;
-}
+  .hs-form-iframe {
+    border-radius: 0.438rem;
+  }
 
-#hubspotContactForm .actions input {
-  margin: 0 auto;
-  text-align: center !important;
+  .actions input {
+    margin: 0 auto;
+    text-align: center !important;
+  }
 }
 
 @media only screen and (max-width: 415px) {
