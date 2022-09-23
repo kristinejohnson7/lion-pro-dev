@@ -6,6 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import PortfolioItem from "./PortfolioItem";
 import Header from "../Header/Header";
 import s from "./Portfolio.module.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Portfolio() {
   const { portfolio } = useContext(portfolioContext);
@@ -45,7 +46,7 @@ export default function Portfolio() {
                 onClick={(e) => handleDisplayItem(e, id)}
               >
                 <div className={s.cardHeaderImage}>
-                  <img src={featuredPicture} alt="portfolio item"></img>
+                  <LazyLoadImage src={featuredPicture} alt="portfolio item" />
                 </div>
                 <div className={s.cardText}>
                   <h3>{title.toUpperCase()}</h3>

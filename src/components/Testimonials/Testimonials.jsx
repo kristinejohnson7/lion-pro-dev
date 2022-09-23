@@ -8,6 +8,7 @@ import "./Testimonials.scss";
 import testimonialsContext from "../../context/testimonials";
 import Header from "../Header/Header";
 import { Fade } from "react-awesome-reveal";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Testimonials() {
   const { testimonials } = useContext(testimonialsContext);
@@ -16,32 +17,34 @@ export default function Testimonials() {
     <section id="testimonials" className="container">
       <Header title="Testimonials" variant="primary" />
       <Fade>
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Pagination, Navigation]}
-          className="testimonySwiper"
-        >
-          {testimonials.map((testimonial) => (
-            <SwiperSlide key={testimonial.id}>
-              <div className="testimonialIframe">
-                <iframe
-                  title="title"
-                  src={testimonial.videoSource}
-                  frameborder="0"
-                  webkitallowfullscreen
-                  mozallowfullscreen
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <LazyLoadComponent>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
+            className="testimonySwiper"
+          >
+            {testimonials.map((testimonial) => (
+              <SwiperSlide key={testimonial.id}>
+                <div className="testimonialIframe">
+                  <iframe
+                    title="title"
+                    src={testimonial.videoSource}
+                    frameborder="0"
+                    webkitallowfullscreen
+                    mozallowfullscreen
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </LazyLoadComponent>
       </Fade>
     </section>
   );

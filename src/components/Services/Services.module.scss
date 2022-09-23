@@ -132,9 +132,11 @@
     margin-bottom: $size-40;
 
     h3 {
-      text-align: center;
       color: $primary-color;
+      font-size: 2rem;
       margin-bottom: $size-16;
+      padding-top: 1rem;
+      text-align: center;
     }
 
     &.about {
@@ -143,7 +145,7 @@
   }
 
   @media only screen and (max-width: 950px) {
-    width: 67%;
+    width: 50%;
 
     .modalText {
       padding: $size-20 1.9rem;
@@ -154,7 +156,7 @@
     }
   }
 
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 650px) {
     width: 82%;
   }
 }
