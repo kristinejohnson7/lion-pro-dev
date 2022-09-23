@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HubspotForm from "../HubspotForm/HubspotForm";
 import ScrollHandler from "../Nav/ScrollHandle";
 import s from "./Footer.module.scss";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Footer() {
   const usefulLinks = [
@@ -79,11 +80,13 @@ export default function Footer() {
         </div>
         <div className={s.newsletterSubscribe}>
           <h4>Sign up for our newsletter</h4>
-          <HubspotForm
-            id="hubspotNewsletter"
-            target="#hubspotNewsletter"
-            formId="63556e80-90fa-49ba-bda9-264d9f952030"
-          />
+          <LazyLoadComponent>
+            <HubspotForm
+              id="hubspotNewsletter"
+              target="#hubspotNewsletter"
+              formId="63556e80-90fa-49ba-bda9-264d9f952030"
+            />
+          </LazyLoadComponent>
         </div>
       </div>
       <div className={s.footerBottom}>

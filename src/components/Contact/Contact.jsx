@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import Modal from "../Modal/Modal";
 import Header from "../Header/Header";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Contact() {
   const { contact } = useContext(contactContext);
@@ -47,11 +48,13 @@ export default function Contact() {
               </button>
             </div>
             <motion.div className={s.formContainer}>
-              <HubspotForm
-                id="hubspotContactForm"
-                target="#hubspotContactForm"
-                formId="2129388b-778b-49a7-b596-7e918bb0dc0a"
-              />
+              <LazyLoadComponent>
+                <HubspotForm
+                  id="hubspotContactForm"
+                  target="#hubspotContactForm"
+                  formId="2129388b-778b-49a7-b596-7e918bb0dc0a"
+                />
+              </LazyLoadComponent>
             </motion.div>
           </div>
         </Fade>
