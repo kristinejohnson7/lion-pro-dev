@@ -6,6 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
 import Header from "../Header/Header";
 import s from "./About.module.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function About() {
   const { about } = useContext(aboutContext);
@@ -40,7 +41,7 @@ export default function About() {
                 }}
               >
                 <div className={s.aboutCircle}>
-                  <img src={picture} alt="about" />
+                  <LazyLoadImage src={picture} alt="about" />
                 </div>
                 <h5>{name}</h5>
               </div>

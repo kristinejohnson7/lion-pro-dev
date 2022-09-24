@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import s from "./BlogCard.module.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function BlogCard(data) {
   const { featuredPicture, title, slug, author, tag, excerpt } = data;
@@ -14,7 +15,7 @@ export default function BlogCard(data) {
   return (
     <div className={`${s.blogCard} grow`} onClick={() => routeChange(slug)}>
       <div className={s.blogCardPic}>
-        <img src={featuredPicture} alt="featured blog" />
+        <LazyLoadImage src={featuredPicture} alt="featured blog" />
       </div>
       <div className={s.blogCardTag}>
         <p>{tag.toUpperCase()}</p>
