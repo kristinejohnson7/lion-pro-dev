@@ -58,11 +58,19 @@ export default function Nav() {
                 </ScrollHandler>
               </li>
             </ul>
-            <button className="nav-btn nav-close-btn" onClick={showNavBar}>
+            <button
+              className="nav-btn nav-close-btn"
+              aria-label="Close Navigation"
+              onClick={showNavBar}
+            >
               X
             </button>
           </nav>
-          <button className="nav-btn" onClick={showNavBar}>
+          <button
+            className="nav-btn"
+            aria-label="Open Navigation"
+            onClick={showNavBar}
+          >
             <Bars className="icon" width="20px" />
           </button>
         </div>
