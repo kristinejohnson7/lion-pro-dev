@@ -3,6 +3,7 @@ import logo from "../../assets/lionlogo.png";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, Link } from "react-router-dom";
 import ScrollHandler from "./ScrollHandle";
+import { ReactComponent as Bars } from "../../assets/bars.svg";
 import "./Nav.scss";
 
 export default function Nav() {
@@ -58,11 +59,11 @@ export default function Nav() {
               </li>
             </ul>
             <button className="nav-btn nav-close-btn" onClick={showNavBar}>
-              <i className="fa-solid fa-x"></i>
+              X
             </button>
           </nav>
           <button className="nav-btn" onClick={showNavBar}>
-            <i className="fa-solid fa-bars"></i>
+            <Bars className="icon" width="20px" />
           </button>
         </div>
       </header>

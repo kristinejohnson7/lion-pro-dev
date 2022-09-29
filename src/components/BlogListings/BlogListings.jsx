@@ -4,6 +4,7 @@ import BlogCard from "../BlogCard/BlogCard";
 import ReactPaginate from "react-paginate";
 import Header from "../Header/Header";
 import s from "./BlogListings.module.scss";
+import { ReactComponent as MagnifyingGlass } from "../../assets/magnifying-glass.svg";
 
 export default function BlogListings() {
   const { blog, getBlogInfo } = useContext(blogContext);
@@ -57,7 +58,7 @@ export default function BlogListings() {
           <button onClick={() => handleTag("Android")}>Android</button>
         </div>
         <div className={s.blogSearch}>
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <MagnifyingGlass className="icon" width="15px" />
           <input
             type="text"
             onChange={handleFilter}

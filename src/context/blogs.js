@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect, useCallback, useRef } from "react";
 import { client } from "../client";
 
 const context = createContext({ blog: null });
@@ -8,6 +8,7 @@ const { Provider } = context;
 export const BlogProvider = ({ children, isFeatured }) => {
   const [blog, setBlog] = useState([]);
   const [singleBlog, setSingleBlog] = useState({});
+  const loadingRef = useRef(false);
 
   const cleanBlogInfo = useCallback((rawData) => {
     const cleanBlog = rawData.map((slide) => {
@@ -40,22 +41,25 @@ export const BlogProvider = ({ children, isFeatured }) => {
   }, []);
 
   const getBlogInfo = async (search, tag, featured) => {
-    try {
-      const response = await client.getEntries({
-        content_type: "lpdBlogPost",
-        order: "-sys.createdAt",
-        "fields.title[match]": search,
-        "fields.tag[match]": tag,
-        "fields.isFeatured": featured,
-      });
-      const responseData = response.items;
-      if (responseData) {
-        cleanBlogInfo(responseData);
-      } else {
-        setBlog([]);
+    if (!loadingRef.current) {
+      loadingRef.current = true;
+      try {
+        const response = await client.getEntries({
+          content_type: "lpdBlogPost",
+          order: "-sys.createdAt",
+          "fields.title[match]": search,
+          "fields.tag[match]": tag,
+          "fields.isFeatured": featured,
+        });
+        const responseData = response.items;
+        if (responseData) {
+          cleanBlogInfo(responseData);
+        } else {
+          setBlog([]);
+        }
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
     }
   };
 

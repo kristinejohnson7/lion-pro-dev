@@ -1,11 +1,16 @@
 import React from "react";
 import s from "./ContactCard.module.scss";
+import { ReactComponent as EnvelopeOpen } from "../../assets/envelope-open.svg";
+import { ReactComponent as Phone } from "../../assets/phone.svg";
+import { ReactComponent as LocationArrow } from "../../assets/location-arrow.svg";
 
-export default function ContactCard({ title, details, icon }) {
+export default function ContactCard({ title, details }) {
   return (
     <div className={s.contactCard}>
       <div className={s.contactIcon}>
-        <i className={`fa-solid ${icon} fa-lg`}></i>
+        {title === "Email" && <EnvelopeOpen className="icon" width="22px" />}
+        {title === "Phone" && <Phone className="icon" width="22px" />}
+        {title === "Address" && <LocationArrow className="icon" width="22px" />}
       </div>
       <div className={s.contactText}>
         <h5>{title}</h5>

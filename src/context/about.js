@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect, useCallback, useRef } from "react";
 import { client } from "../client";
 
 const context = createContext({ contact: null });
@@ -7,6 +7,7 @@ const { Provider } = context;
 
 export const AboutProvider = ({ children }) => {
   const [about, setAbout] = useState([]);
+  const loadingRef = useRef(false);
 
   const cleanAboutInfo = useCallback((rawData) => {
     const cleanAbout = rawData.map((slide) => {
@@ -28,18 +29,21 @@ export const AboutProvider = ({ children }) => {
 
   useEffect(() => {
     const getAboutInfo = async () => {
-      try {
-        const response = await client.getEntries({
-          content_type: "lpdAbout",
-        });
-        const responseData = response.items;
-        if (responseData) {
-          cleanAboutInfo(responseData);
-        } else {
-          setAbout([]);
+      if (!loadingRef.current) {
+        loadingRef.current = true;
+        try {
+          const response = await client.getEntries({
+            content_type: "lpdAbout",
+          });
+          const responseData = response.items;
+          if (responseData) {
+            cleanAboutInfo(responseData);
+          } else {
+            setAbout([]);
+          }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
       }
     };
     getAboutInfo();

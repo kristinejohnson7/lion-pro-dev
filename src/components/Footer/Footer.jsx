@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import HubspotForm from "../HubspotForm/HubspotForm";
 import ScrollHandler from "../Nav/ScrollHandle";
 import s from "./Footer.module.scss";
+import { ReactComponent as Instagram } from "../../assets/instagram.svg";
+import { ReactComponent as TikTok } from "../../assets/tiktok.svg";
+import { ReactComponent as Facebook } from "../../assets/facebook-f.svg";
+import { ReactComponent as AngleRight } from "../../assets/angle-right.svg";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Footer() {
@@ -38,7 +42,7 @@ export default function Footer() {
                   href="https://www.facebook.com/LionProDev"
                   rel="noreferrer"
                 >
-                  <i className="fa-brands fa-facebook-f"></i>
+                  <Facebook className="icon" width="13px" />
                 </a>
                 <a
                   className="socialCircle"
@@ -46,7 +50,7 @@ export default function Footer() {
                   rel="noreferrer"
                   href="https://www.instagram.com/lionprodev/"
                 >
-                  <i className="fa-brands fa-instagram"></i>
+                  <Instagram className="icon" width="15px" />
                 </a>
                 <a
                   className="socialCircle"
@@ -54,7 +58,7 @@ export default function Footer() {
                   rel="noreferrer"
                   href="https://www.tiktok.com/@philipjcutting?is_from_webapp=1&sender_device=pc"
                 >
-                  <i className="fa-brands fa-tiktok"></i>
+                  <TikTok className="icon" width="15px" />
                 </a>
               </div>
             </div>
@@ -64,7 +68,7 @@ export default function Footer() {
                 {usefulLinks.map((link) => (
                   <li key={link.key}>
                     <ScrollHandler>
-                      <i className="fa-solid fa-angle-right"></i>
+                      <AngleRight className="icon" width="13px" />
                       <Link to={link.to}>{link.title}</Link>
                     </ScrollHandler>
                   </li>
