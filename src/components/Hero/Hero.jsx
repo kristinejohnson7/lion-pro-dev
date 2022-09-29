@@ -51,7 +51,12 @@ function Hero() {
               </div>
               <div className={s.design}>
                 <div className={s.heroBtmImage}>
-                  <img src={computer} alt="computer icon" width="20px" />
+                  <img
+                    src={computer}
+                    alt="computer icon"
+                    width="30px"
+                    height="30px"
+                  />
                 </div>
                 <h5>Design</h5>
               </div>
