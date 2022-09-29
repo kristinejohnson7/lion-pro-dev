@@ -52,7 +52,7 @@ export default function PortfolioItem({ images, handleClose, item }) {
       >
         {filteredPictures.map((item) => (
           <SwiperSlide key={item.id}>
-            <img src={item.image} alt="" />
+            <img src={item.image} alt="blog" />
           </SwiperSlide>
         ))}
       </Swiper>
