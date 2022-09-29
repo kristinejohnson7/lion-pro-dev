@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect, useCallback, useRef } from "react";
 import { client } from "../client";
 
 const context = createContext({ contact: null });
@@ -7,7 +7,7 @@ const { Provider } = context;
 
 export const TestimonialsProvider = ({ children }) => {
   const [testimonials, setTestimonials] = useState([]);
-  console.log("testimonials", testimonials);
+  const loadingRef = useRef(false);
 
   const cleanTestimonialsInfo = useCallback((rawData) => {
     const cleanTestimonials = rawData.map((slide) => {
@@ -27,18 +27,21 @@ export const TestimonialsProvider = ({ children }) => {
 
   useEffect(() => {
     const getTestimonialsInfo = async () => {
-      try {
-        const response = await client.getEntries({
-          content_type: "lpdTestimonial",
-        });
-        const responseData = response.items;
-        if (responseData) {
-          cleanTestimonialsInfo(responseData);
-        } else {
-          setTestimonials([]);
+      if (!loadingRef.current) {
+        loadingRef.current = true;
+        try {
+          const response = await client.getEntries({
+            content_type: "lpdTestimonial",
+          });
+          const responseData = response.items;
+          if (responseData) {
+            cleanTestimonialsInfo(responseData);
+          } else {
+            setTestimonials([]);
+          }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
       }
     };
     getTestimonialsInfo();

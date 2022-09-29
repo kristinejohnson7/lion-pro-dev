@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect, useCallback, useRef } from "react";
 import { client } from "../client";
 
 const context = createContext({ portfolio: null });
@@ -7,6 +7,7 @@ const { Provider } = context;
 
 export const PortfolioProvider = ({ children }) => {
   const [portfolio, setPortfolio] = useState([]);
+  const loadingRef = useRef(false);
 
   const cleanPortfolioInfo = useCallback((rawData) => {
     const cleanPortfolio = rawData.map((slide) => {
@@ -32,18 +33,21 @@ export const PortfolioProvider = ({ children }) => {
 
   useEffect(() => {
     const getPortfolioInfo = async () => {
-      try {
-        const response = await client.getEntries({
-          content_type: "lpdPortfolio",
-        });
-        const responseData = response.items;
-        if (responseData) {
-          cleanPortfolioInfo(responseData);
-        } else {
-          setPortfolio([]);
+      if (!loadingRef.current) {
+        loadingRef.current = true;
+        try {
+          const response = await client.getEntries({
+            content_type: "lpdPortfolio",
+          });
+          const responseData = response.items;
+          if (responseData) {
+            cleanPortfolioInfo(responseData);
+          } else {
+            setPortfolio([]);
+          }
+        } catch (err) {
+          console.error(err);
         }
-      } catch (err) {
-        console.error(err);
       }
     };
     getPortfolioInfo();

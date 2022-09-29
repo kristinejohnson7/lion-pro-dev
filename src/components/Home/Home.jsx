@@ -5,7 +5,6 @@ import { ServicesProvider } from "../../context/services";
 import Services from "../Services/Services";
 import { PortfolioProvider } from "../../context/portfolio";
 import { BlogProvider } from "../../context/blogs";
-import { ContactProvider } from "../../context/contact";
 import Portfolio from "../Portfolio/Portfolio";
 import Contact from "../Contact/Contact";
 import FeaturedBlogs from "../FeaturedBlogs/FeaturedBlogs";
@@ -24,6 +23,7 @@ export default function Home() {
     restDelta: 0.001,
   });
   console.log("Renders");
+
   return (
     <>
       <motion.div className={s.progressBar} style={{ scaleX }} />
@@ -45,9 +45,7 @@ export default function Home() {
       <AboutProvider>
         <About />
       </AboutProvider>
-      <ContactProvider>
-        <Contact />
-      </ContactProvider>
+      <Contact />
     </>
   );
 }
