@@ -29,7 +29,7 @@ export default function Footer() {
           <div className={s.footerMain}>
             <div className={s.footerSocialsAndLogo}>
               <div className={s.footerLogo}>
-                <img src={logo} alt="" />
+                <img src={logo} alt="logo" />
               </div>
               <p>
                 Behind the word mountains, far from the countries Vokalia and
