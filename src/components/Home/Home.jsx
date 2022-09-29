@@ -23,7 +23,7 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001,
   });
-
+  console.log("Renders");
   return (
     <>
       <motion.div className={s.progressBar} style={{ scaleX }} />
