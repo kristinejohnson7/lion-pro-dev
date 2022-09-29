@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect, useCallback, useRef } from "react";
 import { client } from "../client";
 
 const context = createContext({ hero: null });
@@ -7,6 +7,7 @@ const { Provider } = context;
 
 export const HomePageProvider = ({ children }) => {
   const [hero, setHero] = useState([]);
+  const loadingRef = useRef(false);
 
   const cleanHeroInfo = useCallback((rawData) => {
     const cleanHero = rawData.map((slide) => {
@@ -22,16 +23,19 @@ export const HomePageProvider = ({ children }) => {
 
   useEffect(() => {
     const getHeroInfo = async () => {
-      try {
-        const response = await client.getEntries({ content_type: "lpdHero" });
-        const responseData = response.items;
-        if (responseData) {
-          cleanHeroInfo(responseData);
-        } else {
-          setHero([]);
+      if (!loadingRef.current) {
+        loadingRef.current = true;
+        try {
+          const response = await client.getEntries({ content_type: "lpdHero" });
+          const responseData = response.items;
+          if (responseData) {
+            cleanHeroInfo(responseData);
+          } else {
+            setHero([]);
+          }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
       }
     };
     getHeroInfo();
