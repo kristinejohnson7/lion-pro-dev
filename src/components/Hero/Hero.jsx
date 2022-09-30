@@ -28,7 +28,7 @@ function Hero() {
                   </a>
                 </div>
                 <div className={s.heroImgs}>
-                  <LazyLoadImage
+                  <img
                     src={heroBg}
                     width="300"
                     height="355"
@@ -41,7 +41,7 @@ function Hero() {
                       scale={1.2}
                     >
                       <div className={s.heroPhoneImg}>
-                        <LazyLoadImage
+                        <img
                           src={heroPhones}
                           width="300"
                           height="480"
