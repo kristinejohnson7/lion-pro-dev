@@ -15,7 +15,7 @@ export default function FeaturedBlogs() {
     <section className={s.featuredBlogs}>
       <div className="container">
         <div className={s.blogsTitle}>
-          <Header title="Featured Blogs" variant="primary" />
+          <Header title="Featured Blogs" />
           <p>
             Check out our <Link to="/blog">blogs</Link> to learn more about
             projects and developer tips.

@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <motion.div className={s.progressBar} style={{ scaleX }} />
+      {/* <motion.div className={s.progressBar} style={{ scaleX }} /> */}
       <HomePageProvider>
         <Hero />
       </HomePageProvider>
