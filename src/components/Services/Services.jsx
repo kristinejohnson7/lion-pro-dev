@@ -43,7 +43,7 @@ export default function Services() {
                     <LazyLoadImage src={featuredPicture} alt="services" />
                   </div>
                   <div className={s.cardIcon}>
-                    <img src={icon} alt="services icon" />
+                    <LazyLoadImage src={icon} alt="services icon" />
                   </div>
                   <div className={s.cardText}>
                     <h3>{title.toUpperCase()}</h3>
