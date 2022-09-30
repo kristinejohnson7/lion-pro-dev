@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import heroBg from "../../assets/heroBckgrd.svg";
 import heroPhones from "../../assets/heroPhones.svg";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Hero() {
   const { hero } = useContext(homePageContext);
@@ -27,7 +28,12 @@ function Hero() {
                   </a>
                 </div>
                 <div className={s.heroImgs}>
-                  <img src={heroBg} alt="background shapes" />
+                  <LazyLoadImage
+                    src={heroBg}
+                    width="300"
+                    height="355"
+                    alt="background shapes"
+                  />
                   <div className={s.heroPhone}>
                     <Tilt
                       className="track-on-window"
@@ -35,7 +41,12 @@ function Hero() {
                       scale={1.2}
                     >
                       <div className={s.heroPhoneImg}>
-                        <img src={heroPhones} alt="hero header phones" />
+                        <LazyLoadImage
+                          src={heroPhones}
+                          width="300"
+                          height="480"
+                          alt="hero header phones"
+                        />
                       </div>
                     </Tilt>
                   </div>
@@ -45,13 +56,13 @@ function Hero() {
             <div className={s.heroBottomBanner}>
               <div className={s.nativeMobile}>
                 <div className={s.heroBtmImage}>
-                  <img src={phone} alt="phone icon" width="20px" />
+                  <LazyLoadImage src={phone} alt="phone icon" width="20px" />
                 </div>
                 <h5>Native Mobile Development</h5>
               </div>
               <div className={s.design}>
                 <div className={s.heroBtmImage}>
-                  <img
+                  <LazyLoadImage
                     src={computer}
                     alt="computer icon"
                     width="30px"
