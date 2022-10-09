@@ -14,6 +14,7 @@ import s from "./Home.module.scss";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Testimonials from "../Testimonials/Testimonials";
 import { TestimonialsProvider } from "../../context/testimonials";
+import Process from "../Process/Process";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -33,6 +34,7 @@ export default function Home() {
       <ServicesProvider>
         <Services />
       </ServicesProvider>
+      <Process />
       <PortfolioProvider>
         <Portfolio />
       </PortfolioProvider>
