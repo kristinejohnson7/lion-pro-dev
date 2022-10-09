@@ -31,8 +31,8 @@ export default function Portfolio() {
         <div className={s.portfolioHeader}>
           <Header title="Portfolio" variant="light" />
           <p>
-            Here are some projects , some of them are just samples to develop
-            creativity, some are hobbies and some are projects that our
+            Check out some project we have done. Some of them are samples to
+            develop creativity, some are hobbies and some are projects that our
             customers wanted to show off.
           </p>
         </div>
