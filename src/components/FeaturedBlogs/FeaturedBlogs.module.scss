@@ -2,7 +2,7 @@
 
 .featuredBlogs {
   background-color: $primary-light;
-  padding: $size-60;
+  padding: $size-60 0;
 
   .blogsTitle {
     text-align: center;
@@ -31,7 +31,7 @@
     .bgShapeBottom {
       position: absolute;
       bottom: -5.5rem;
-      right: -3.25rem;
+      right: 0.75rem;
       z-index: 1;
     }
   }
