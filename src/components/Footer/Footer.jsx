@@ -41,6 +41,7 @@ export default function Footer() {
                   target="_blank"
                   href="https://www.facebook.com/LionProDev"
                   rel="noreferrer"
+                  aria-label="Lion Pro Dev Facebook Account"
                 >
                   <Facebook className="icon" width="13px" />
                 </a>
@@ -49,6 +50,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   href="https://www.instagram.com/lionprodev/"
+                  aria-label="Lion Pro Dev Instagram Account"
                 >
                   <Instagram className="icon" width="15px" />
                 </a>
@@ -56,6 +58,7 @@ export default function Footer() {
                   className="socialCircle"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Lion Pro Dev TikTok Account"
                   href="https://www.tiktok.com/@philipjcutting?is_from_webapp=1&sender_device=pc"
                 >
                   <TikTok className="icon" width="15px" />
