@@ -14,10 +14,12 @@ export const TestimonialsProvider = ({ children }) => {
       const { sys, fields } = slide;
       const { id } = sys;
       const title = fields.title;
+      const quote = fields.quote;
       const videoSource = fields.videoSource;
       const updatedTestimonials = {
         id,
         title,
+        quote,
         videoSource,
       };
       return updatedTestimonials;

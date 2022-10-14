@@ -26,7 +26,7 @@ export default function Portfolio() {
   }, [isOpen]);
 
   return (
-    <div className={s.portfolioContainer} id="portfolio">
+    <section className={s.portfolioContainer} id="portfolio">
       <Fade>
         <div className={s.portfolioHeader}>
           <Header title="Portfolio" variant="light" />
@@ -66,6 +66,6 @@ export default function Portfolio() {
           </Modal>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 }

@@ -28,7 +28,7 @@ export default function About() {
   return (
     <section id="about">
       <Fade>
-        <Header title="Meet the Team" />
+        <Header title="Meet the Team" variant="primary" />
         <div className={s.aboutContainer}>
           {about.map((item) => {
             const { id, name, picture } = item;
@@ -58,7 +58,7 @@ export default function About() {
                   X
                 </button>
               </div>
-              <div className={`modalText about`}>
+              <div className={`modalText about ${s.text}`}>
                 <h3>{modalData.name}</h3>
                 <div>
                   <RichTextToReact content={modalData.description} />
