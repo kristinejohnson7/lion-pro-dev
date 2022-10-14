@@ -41,7 +41,7 @@ export default function BlogListings() {
   };
 
   return (
-    <section className="container">
+    <section className={`container ${s.blog}`}>
       <div className={s.blogHeader}>
         <Header title="Lion Pro Dev Blog" />
         <p>
@@ -69,8 +69,8 @@ export default function BlogListings() {
       <div className={s.blogListings}> {displayPosts}</div>
       <div className={s.paginate}>
         <ReactPaginate
-          previousLabel={""}
-          nextLabel={""}
+          previousLabel={"<"}
+          nextLabel={">"}
           pageCount={pageCount}
           onPageChange={changePage}
           containerClassName={"paginationBttns"}
