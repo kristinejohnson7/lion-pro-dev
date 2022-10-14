@@ -116,6 +116,17 @@
       flex-direction: column;
       align-items: center;
       gap: $size-50;
+
+      .footerSocialsAndLogo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+          width: unset;
+          padding: 0 20px;
+        }
+      }
     }
   }
 }

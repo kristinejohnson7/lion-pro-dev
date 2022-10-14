@@ -35,6 +35,10 @@
   width: 60%;
   max-width: 600px;
 
+  .text {
+    margin-top: -35px;
+  }
+
   .aboutBtn {
     text-align: right;
   }
@@ -46,8 +50,6 @@
 
 @media only screen and (max-width: 890px) {
   .aboutContainer {
-    // flex-direction: column;
-    // align-items: center;
     flex-wrap: wrap;
     margin-top: 2rem;
 
@@ -59,5 +61,11 @@
 
   .aboutContent {
     width: 80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .aboutContent .text {
+    margin-top: -10px;
   }
 }
