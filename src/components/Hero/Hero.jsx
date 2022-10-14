@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import heroBg from "../../assets/heroBckgrd.svg";
 import heroPhones from "../../assets/heroPhones.svg";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Hero() {
   const { hero } = useContext(homePageContext);
@@ -45,6 +44,7 @@ function Hero() {
                           src={heroPhones}
                           width="300"
                           height="350"
+                          fetchpriority="high"
                           alt="hero header phones"
                         />
                       </div>
@@ -56,13 +56,13 @@ function Hero() {
             <div className={s.heroBottomBanner}>
               <div className={s.nativeMobile}>
                 <div className={s.heroBtmImage}>
-                  <LazyLoadImage src={phone} alt="phone icon" width="20px" />
+                  <img src={phone} alt="phone icon" width="20px" />
                 </div>
                 <h5>Native Mobile Development</h5>
               </div>
               <div className={s.design}>
                 <div className={s.heroBtmImage}>
-                  <LazyLoadImage
+                  <img
                     src={computer}
                     alt="computer icon"
                     width="30px"
