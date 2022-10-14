@@ -24,7 +24,7 @@ export default function Nav() {
       <header className="navBar">
         <div className="logoContainer">
           <NavLink to="/">
-            <img src={logo} alt="lpd logo" />
+            <img src={logo} alt="lpd logo" width="140" height="60" />
           </NavLink>
         </div>
         <div>
