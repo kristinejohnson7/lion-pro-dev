@@ -44,7 +44,7 @@ function Hero() {
                         <img
                           src={heroPhones}
                           width="300"
-                          height="480"
+                          height="350"
                           alt="hero header phones"
                         />
                       </div>
