@@ -85,9 +85,11 @@
 
 @media only screen and (max-width: 675px) {
   .heroWrapper .heroContainer {
+    margin-top: $size-50;
+
     .heroText {
       p {
-        font-size: 1.5rem;
+        font-size: 1rem;
 
         b {
           font-size: 2.3rem;
