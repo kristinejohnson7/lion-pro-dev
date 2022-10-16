@@ -83,6 +83,10 @@
 
     .heroText {
       text-align: center;
+
+      a {
+        margin-top: $size-16;
+      }
     }
   }
 }
@@ -105,9 +109,16 @@
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 725px) {
   .heroWrapper {
     padding: $size-20 $size-40;
+
+    .heroContainer {
+      .heroText p b {
+        font-size: 1.75rem;
+        letter-spacing: 0.2rem;
+      }
+    }
   }
 
   .heroBottomBanner {
@@ -117,14 +128,6 @@
     div h5 {
       font-size: 0.8rem;
       text-transform: uppercase;
-    }
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .heroWrapper .heroContainer {
-    .heroText p b {
-      font-size: 1.75rem;
     }
   }
 }

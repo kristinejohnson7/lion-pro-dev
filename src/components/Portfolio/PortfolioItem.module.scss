@@ -56,6 +56,10 @@
     flex-wrap: wrap;
     max-height: 43.75rem;
 
+    .portfolioDescription {
+      margin-bottom: $size-20;
+    }
+
     [class="swiper-wrapper"] {
       max-width: 22rem;
     }
@@ -63,7 +67,7 @@
 }
 
 @media only screen and (max-width: 550px) {
-  .modalContent iframe {
-    width: 100%;
+  .itemContent iframe {
+    width: 95%;
   }
 }
