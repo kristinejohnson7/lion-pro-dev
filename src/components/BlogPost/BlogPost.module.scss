@@ -65,6 +65,12 @@
   }
 }
 
+@media only screen and (max-width: 550px) {
+  .blogHeader h3 {
+    font-size: 1.7rem;
+  }
+}
+
 @media only screen and (max-width: 415px) {
   .blogFeaturedImg {
     width: 15.625rem;

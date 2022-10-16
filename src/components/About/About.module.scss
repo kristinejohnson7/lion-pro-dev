@@ -60,26 +60,23 @@
   }
 
   .aboutContent {
-    width: 80%;
+    width: 85%;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .aboutContainer {
-    aboutContent {
-      .text {
-        margin-top: -10px;
-      }
+  .aboutContent {
+    .text {
+      margin-top: -10px;
     }
+  }
+  .aboutContainer .aboutCircleWrapper .aboutCircle {
+    height: 8rem;
+    width: 8rem;
 
-    .aboutCircleWrapper .aboutCircle {
-      height: 8rem;
-      width: 8rem;
-
-      img {
-        margin-top: -16px;
-        height: 10rem;
-      }
+    img {
+      margin-top: -16px;
+      height: 10rem;
     }
   }
 }

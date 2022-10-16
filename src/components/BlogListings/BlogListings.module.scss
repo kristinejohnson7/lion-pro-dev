@@ -119,6 +119,14 @@
   }
 
   @media only screen and (max-width: 550px) {
+    .blogHeader {
+      padding: 0 1rem;
+
+      h3 {
+        font-size: 2rem;
+      }
+    }
+
     .blogFilterOptions {
       flex-direction: column;
       gap: 1.563rem;
