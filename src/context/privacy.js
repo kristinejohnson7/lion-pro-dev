@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect, useCallback, useRef } from "react";
 import { client } from "../client";
 
 const context = createContext({ contact: null });
@@ -7,6 +7,7 @@ const { Provider } = context;
 
 export const PrivacyProvider = ({ children }) => {
   const [privacy, setPrivacy] = useState([]);
+  const loadingRef = useRef(false);
 
   const cleanPrivacyInfo = useCallback((rawData) => {
     const cleanPrivacy = rawData.map((slide) => {
@@ -26,18 +27,21 @@ export const PrivacyProvider = ({ children }) => {
 
   useEffect(() => {
     const getPrivacyInfo = async () => {
-      try {
-        const response = await client.getEntries({
-          content_type: "lpdPrivacyPolicy",
-        });
-        const responseData = response.items;
-        if (responseData) {
-          cleanPrivacyInfo(responseData);
-        } else {
-          setPrivacy([]);
+      if (!loadingRef.current) {
+        loadingRef.current = true;
+        try {
+          const response = await client.getEntries({
+            content_type: "lpdPrivacyPolicy",
+          });
+          const responseData = response.items;
+          if (responseData) {
+            cleanPrivacyInfo(responseData);
+          } else {
+            setPrivacy([]);
+          }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
       }
     };
     getPrivacyInfo();

@@ -1,116 +1,127 @@
 @import "/src/sassStyles/variables";
 
-.blogHeader p {
-  color: $grey;
-  text-align: center;
-}
+.blog {
+  padding-top: 6rem;
 
-.blogFilterOptions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 85%;
-  margin: $size-30 auto;
-  color: grey;
-  border-bottom: 0.125rem solid grey;
-
-  input {
-    border: none;
-    outline: none;
-    margin-bottom: 1rem;
-    padding: 0.188rem;
-    font-size: 0.7rem;
-
-    &:active {
-      border: none;
-    }
+  .blogHeader p {
+    color: $grey;
+    text-align: center;
   }
 
-  .filterTags {
+  .blogFilterOptions {
     display: flex;
-    gap: $size-16;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: $size-30 auto;
+    color: grey;
+    border-bottom: 0.125rem solid grey;
 
-    button {
+    input {
       border: none;
-      background-color: transparent;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      color: grey;
+      outline: none;
+      margin-bottom: 1rem;
+      padding: 0.188rem;
+      font-size: 0.7rem;
 
-      &:focus {
-        color: $primary-color;
-        font-weight: 600;
+      &:active {
         border: none;
-        outline: none;
+      }
+    }
+
+    .filterTags {
+      display: flex;
+      gap: $size-16;
+
+      button {
+        border: none;
+        background-color: transparent;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: grey;
+        cursor: pointer;
+
+        &:focus {
+          color: $primary-color;
+          font-weight: 600;
+          border: none;
+          outline: none;
+        }
+      }
+    }
+
+    .blogSearch {
+      position: relative;
+
+      i {
+        position: absolute;
+        right: 0;
+        bottom: $size-20;
       }
     }
   }
 
-  .blogSearch {
-    position: relative;
-
-    i {
-      position: absolute;
-      right: 0;
-      bottom: $size-20;
-    }
-  }
-}
-
-.blogListings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 62.5rem;
-  flex-wrap: wrap;
-  margin: 3.438rem auto;
-  gap: 1.438rem;
-}
-
-.paginate {
-  ul {
-    list-style: none;
+  .blogListings {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 62.5rem;
+    flex-wrap: wrap;
+    margin: 3.438rem auto;
+    gap: 1.438rem;
+  }
 
-    li:hover {
-      color: $primary-color;
-    }
-
-    [class="paginationActive"] {
-      border-radius: 50%;
-      color: white;
-      background-color: $primary-color;
-
-      &:hover {
-        color: $white;
-      }
-
-      &:global(.next),
-      &:global(.previous) {
-        text-decoration: none;
-        background-color: transparent;
-      }
-    }
-
-    a {
-      cursor: pointer;
+  .paginate {
+    ul {
+      list-style: none;
       display: flex;
-      align-items: center;
       justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      padding: $size-10;
-      margin: 0.5rem;
-      font-weight: 600;
+      align-items: center;
+
+      li:hover {
+        color: $primary-color;
+      }
+
+      [class="paginationActive"] {
+        border-radius: 50%;
+        color: white;
+        background-color: $primary-color;
+
+        a {
+          color: $white;
+        }
+
+        &:global(.next),
+        &:global(.previous) {
+          text-decoration: none;
+          background-color: transparent;
+        }
+      }
+
+      a {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        padding: $size-10;
+        margin: 0.5rem;
+        font-weight: 600;
+      }
     }
   }
-}
 
-@media only screen and (max-width: 550px) {
-  .blogFilterOptions {
-    flex-direction: column;
-    gap: 1.563rem;
+  @media only screen and (max-width: 750px) {
+    .blogListings {
+      max-width: 600px;
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    .blogFilterOptions {
+      flex-direction: column;
+      gap: 1.563rem;
+    }
   }
 }

@@ -1,15 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ContactCard from "./ContactCard";
-import contactContext from "../../context/contact";
 import s from "./Contact.module.scss";
 import HubspotForm from "../HubspotForm/HubspotForm";
 import { motion, AnimatePresence } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import Modal from "../Modal/Modal";
 import Header from "../Header/Header";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Contact() {
-  const { contact } = useContext(contactContext);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -17,6 +16,12 @@ export default function Contact() {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "unset");
   }, [isOpen]);
+
+  const contactData = [
+    { key: 1, title: "Email", details: "lionprodev@gmail.com" },
+    { key: 2, title: "Phone", details: "614-285-6112" },
+    { key: 3, title: "Address", details: "New Albany, Ohio, 43054" },
+  ];
 
   return (
     <>
@@ -30,15 +35,10 @@ export default function Contact() {
                 if we can work together.
               </p>
               <div className={s.contactCardContainer}>
-                {contact.map((item) => {
-                  const { id, type, details, icon } = item;
+                {contactData.map((item) => {
+                  const { id, title, details } = item;
                   return (
-                    <ContactCard
-                      key={id}
-                      title={type}
-                      details={details}
-                      icon={icon}
-                    />
+                    <ContactCard key={id} title={title} details={details} />
                   );
                 })}
               </div>
@@ -47,11 +47,13 @@ export default function Contact() {
               </button>
             </div>
             <motion.div className={s.formContainer}>
-              <HubspotForm
-                id="hubspotContactForm"
-                target="#hubspotContactForm"
-                formId="2129388b-778b-49a7-b596-7e918bb0dc0a"
-              />
+              <LazyLoadComponent>
+                <HubspotForm
+                  id="hubspotContactForm"
+                  target="#hubspotContactForm"
+                  formId="2129388b-778b-49a7-b596-7e918bb0dc0a"
+                />
+              </LazyLoadComponent>
             </motion.div>
           </div>
         </Fade>

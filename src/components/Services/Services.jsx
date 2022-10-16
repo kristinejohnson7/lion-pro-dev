@@ -5,6 +5,7 @@ import Modal from "../Modal/Modal";
 import s from "./Services.module.scss";
 import "../../animation.scss";
 import { Fade } from "react-awesome-reveal";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Services() {
   const { services } = useContext(servicesContext);
@@ -39,10 +40,10 @@ export default function Services() {
                   }}
                 >
                   <div className={s.cardHeaderImage}>
-                    <img src={featuredPicture} alt="services" />
+                    <LazyLoadImage src={featuredPicture} alt="services" />
                   </div>
                   <div className={s.cardIcon}>
-                    <img src={icon} alt="services icon" />
+                    <LazyLoadImage src={icon} alt="services icon" />
                   </div>
                   <div className={s.cardText}>
                     <h3>{title.toUpperCase()}</h3>

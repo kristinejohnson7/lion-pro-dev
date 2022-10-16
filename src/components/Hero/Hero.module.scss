@@ -35,9 +35,11 @@
         top: 0;
         left: 0;
         width: 70%;
+        z-index: 1;
 
         .heroPhoneImg {
           max-width: 31.25rem;
+          position: relative;
         }
       }
     }
@@ -56,13 +58,15 @@
   div {
     display: flex;
     align-items: center;
+    gap: 1rem;
     color: $white;
 
     .heroBtmImage {
       width: $size-50;
 
-      .design {
-        width: $size-80;
+      img {
+        height: 60px;
+        width: 60px;
       }
     }
 
@@ -85,8 +89,6 @@
 
 @media only screen and (max-width: 675px) {
   .heroWrapper .heroContainer {
-    margin-top: $size-50;
-
     .heroText {
       p {
         font-size: 1rem;

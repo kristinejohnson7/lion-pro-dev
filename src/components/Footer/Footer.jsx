@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import HubspotForm from "../HubspotForm/HubspotForm";
 import ScrollHandler from "../Nav/ScrollHandle";
 import s from "./Footer.module.scss";
+import { ReactComponent as Instagram } from "../../assets/instagram.svg";
+import { ReactComponent as TikTok } from "../../assets/tiktok.svg";
+import { ReactComponent as Facebook } from "../../assets/facebook-f.svg";
+import { ReactComponent as AngleRight } from "../../assets/angle-right.svg";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Footer() {
   const usefulLinks = [
@@ -24,7 +29,7 @@ export default function Footer() {
           <div className={s.footerMain}>
             <div className={s.footerSocialsAndLogo}>
               <div className={s.footerLogo}>
-                <img src={logo} alt="" />
+                <img src={logo} alt="logo" />
               </div>
               <p>
                 Behind the word mountains, far from the countries Vokalia and
@@ -36,24 +41,27 @@ export default function Footer() {
                   target="_blank"
                   href="https://www.facebook.com/LionProDev"
                   rel="noreferrer"
+                  aria-label="Lion Pro Dev Facebook Account"
                 >
-                  <i className="fa-brands fa-facebook-f"></i>
+                  <Facebook className="icon" width="13px" />
                 </a>
                 <a
                   className="socialCircle"
                   target="_blank"
                   rel="noreferrer"
                   href="https://www.instagram.com/lionprodev/"
+                  aria-label="Lion Pro Dev Instagram Account"
                 >
-                  <i className="fa-brands fa-instagram"></i>
+                  <Instagram className="icon" width="15px" />
                 </a>
                 <a
                   className="socialCircle"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Lion Pro Dev TikTok Account"
                   href="https://www.tiktok.com/@philipjcutting?is_from_webapp=1&sender_device=pc"
                 >
-                  <i className="fa-brands fa-tiktok"></i>
+                  <TikTok className="icon" width="15px" />
                 </a>
               </div>
             </div>
@@ -63,7 +71,7 @@ export default function Footer() {
                 {usefulLinks.map((link) => (
                   <li key={link.key}>
                     <ScrollHandler>
-                      <i className="fa-solid fa-angle-right"></i>
+                      <AngleRight className="icon" width="13px" />
                       <Link to={link.to}>{link.title}</Link>
                     </ScrollHandler>
                   </li>
@@ -79,11 +87,13 @@ export default function Footer() {
         </div>
         <div className={s.newsletterSubscribe}>
           <h4>Sign up for our newsletter</h4>
-          <HubspotForm
-            id="hubspotNewsletter"
-            target="#hubspotNewsletter"
-            formId="63556e80-90fa-49ba-bda9-264d9f952030"
-          />
+          <LazyLoadComponent>
+            <HubspotForm
+              id="hubspotNewsletter"
+              target="#hubspotNewsletter"
+              formId="63556e80-90fa-49ba-bda9-264d9f952030"
+            />
+          </LazyLoadComponent>
         </div>
       </div>
       <div className={s.footerBottom}>

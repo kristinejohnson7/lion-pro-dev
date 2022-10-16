@@ -1,10 +1,12 @@
+@import "/src/sassStyles/variables";
+
 .progressBar {
   position: fixed;
   top: 5.625rem;
   left: 0;
   right: 0;
-  height: var(--size-10);
-  background: var(--color-secondary);
+  height: 0.7rem;
+  background: $secondary-color;
   transform-origin: 0%;
   z-index: 100;
 }

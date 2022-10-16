@@ -24,7 +24,7 @@
         width: 11.875rem;
       }
 
-      i {
+      .icon {
         color: $primary-color;
       }
     }
@@ -69,7 +69,7 @@
           color: $secondary-color;
         }
 
-        i {
+        svg {
           color: $primary-color;
           margin-right: 0.563rem;
         }
@@ -84,7 +84,6 @@
     a,
     span {
       margin: 0 $size-16;
-      color: lightgrey;
 
       &:first-child {
         margin-left: 0;
@@ -116,6 +115,21 @@
       flex-direction: column;
       align-items: center;
       gap: $size-50;
+
+      .footerSocialsAndLogo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+          width: unset;
+          padding: 0 20px;
+        }
+      }
+    }
+
+    .footerTerms {
+      text-align: center;
     }
   }
 }

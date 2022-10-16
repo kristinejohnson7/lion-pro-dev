@@ -6,7 +6,7 @@ import Tilt from "react-parallax-tilt";
 import s from "./Hero.module.scss";
 import { motion } from "framer-motion";
 import heroBg from "../../assets/heroBckgrd.svg";
-import heroPhones from "../../assets/heroPhones.png";
+import heroPhones from "../../assets/heroPhones.svg";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
 
 function Hero() {
@@ -27,7 +27,12 @@ function Hero() {
                   </a>
                 </div>
                 <div className={s.heroImgs}>
-                  <img src={heroBg} alt="" />
+                  <img
+                    src={heroBg}
+                    width="300"
+                    height="355"
+                    alt="background shapes"
+                  />
                   <div className={s.heroPhone}>
                     <Tilt
                       className="track-on-window"
@@ -35,7 +40,13 @@ function Hero() {
                       scale={1.2}
                     >
                       <div className={s.heroPhoneImg}>
-                        <img src={heroPhones} alt="hero header phones" />
+                        <img
+                          src={heroPhones}
+                          width="300"
+                          height="350"
+                          fetchpriority="high"
+                          alt="hero header phones"
+                        />
                       </div>
                     </Tilt>
                   </div>
@@ -45,13 +56,18 @@ function Hero() {
             <div className={s.heroBottomBanner}>
               <div className={s.nativeMobile}>
                 <div className={s.heroBtmImage}>
-                  <img src={phone} alt="" />
+                  <img src={phone} alt="phone icon" width="20px" />
                 </div>
                 <h5>Native Mobile Development</h5>
               </div>
               <div className={s.design}>
                 <div className={s.heroBtmImage}>
-                  <img src={computer} alt="" />
+                  <img
+                    src={computer}
+                    alt="computer icon"
+                    width="30px"
+                    height="30px"
+                  />
                 </div>
                 <h5>Design</h5>
               </div>

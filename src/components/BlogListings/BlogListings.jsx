@@ -4,6 +4,7 @@ import BlogCard from "../BlogCard/BlogCard";
 import ReactPaginate from "react-paginate";
 import Header from "../Header/Header";
 import s from "./BlogListings.module.scss";
+import { ReactComponent as MagnifyingGlass } from "../../assets/magnifying-glass.svg";
 
 export default function BlogListings() {
   const { blog, getBlogInfo } = useContext(blogContext);
@@ -40,7 +41,7 @@ export default function BlogListings() {
   };
 
   return (
-    <section className="container">
+    <section className={`container ${s.blog}`}>
       <div className={s.blogHeader}>
         <Header title="Lion Pro Dev Blog" />
         <p>
@@ -57,7 +58,7 @@ export default function BlogListings() {
           <button onClick={() => handleTag("Android")}>Android</button>
         </div>
         <div className={s.blogSearch}>
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <MagnifyingGlass className="icon" width="15px" />
           <input
             type="text"
             onChange={handleFilter}
@@ -68,8 +69,8 @@ export default function BlogListings() {
       <div className={s.blogListings}> {displayPosts}</div>
       <div className={s.paginate}>
         <ReactPaginate
-          previousLabel={""}
-          nextLabel={""}
+          previousLabel={"<"}
+          nextLabel={">"}
           pageCount={pageCount}
           onPageChange={changePage}
           containerClassName={"paginationBttns"}

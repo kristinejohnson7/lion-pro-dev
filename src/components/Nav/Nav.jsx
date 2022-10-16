@@ -3,6 +3,7 @@ import logo from "../../assets/lionlogo.png";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, Link } from "react-router-dom";
 import ScrollHandler from "./ScrollHandle";
+import { ReactComponent as Bars } from "../../assets/bars.svg";
 import "./Nav.scss";
 
 export default function Nav() {
@@ -23,7 +24,7 @@ export default function Nav() {
       <header className="navBar">
         <div className="logoContainer">
           <NavLink to="/">
-            <img src={logo} alt="lpd logo" />
+            <img src={logo} alt="lpd logo" width="140" height="60" />
           </NavLink>
         </div>
         <div>
@@ -57,12 +58,20 @@ export default function Nav() {
                 </ScrollHandler>
               </li>
             </ul>
-            <button className="nav-btn nav-close-btn" onClick={showNavBar}>
-              <i className="fa-solid fa-x"></i>
+            <button
+              className="nav-btn nav-close-btn"
+              aria-label="Close Navigation"
+              onClick={showNavBar}
+            >
+              X
             </button>
           </nav>
-          <button className="nav-btn" onClick={showNavBar}>
-            <i className="fa-solid fa-bars"></i>
+          <button
+            className="nav-btn"
+            aria-label="Open Navigation"
+            onClick={showNavBar}
+          >
+            <Bars className="icon" width="20px" />
           </button>
         </div>
       </header>

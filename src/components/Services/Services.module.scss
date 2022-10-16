@@ -8,6 +8,7 @@
   margin-top: $size-50;
   margin-bottom: $size-100;
   padding: $size-30 5.625rem;
+  gap: 1rem;
 
   h2 {
     font-size: 3.5rem;
@@ -106,7 +107,7 @@
 
 .servicesModal {
   background: rgba(255, 255, 255, 0.95);
-  width: 41%;
+  width: 45%;
   max-height: calc(100vh - 20vh);
   overflow: auto;
   border-radius: $size-10;
@@ -115,9 +116,14 @@
   .modalImage {
     position: relative;
 
+    img {
+      max-height: 250px;
+      object-fit: cover;
+    }
+
     button {
       position: absolute;
-      top: $size-10;
+      top: 1.65rem;
       right: $size-30;
 
       &:hover {
@@ -132,9 +138,11 @@
     margin-bottom: $size-40;
 
     h3 {
-      text-align: center;
       color: $primary-color;
+      font-size: 2rem;
       margin-bottom: $size-16;
+      text-align: center;
+      padding-top: 0;
     }
 
     &.about {
@@ -143,7 +151,7 @@
   }
 
   @media only screen and (max-width: 950px) {
-    width: 67%;
+    width: 65%;
 
     .modalText {
       padding: $size-20 1.9rem;
@@ -154,7 +162,7 @@
     }
   }
 
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 650px) {
     width: 82%;
   }
 }

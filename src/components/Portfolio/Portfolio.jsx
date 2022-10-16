@@ -6,6 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import PortfolioItem from "./PortfolioItem";
 import Header from "../Header/Header";
 import s from "./Portfolio.module.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Portfolio() {
   const { portfolio } = useContext(portfolioContext);
@@ -25,13 +26,13 @@ export default function Portfolio() {
   }, [isOpen]);
 
   return (
-    <div className={s.portfolioContainer} id="portfolio">
+    <section className={s.portfolioContainer} id="portfolio">
       <Fade>
         <div className={s.portfolioHeader}>
           <Header title="Portfolio" variant="light" />
           <p>
-            Here are some projects , some of them are just samples to develop
-            creativity, some are hobbies and some are projects that our
+            Check out some project we have done. Some of them are samples to
+            develop creativity, some are hobbies and some are projects that our
             customers wanted to show off.
           </p>
         </div>
@@ -45,7 +46,7 @@ export default function Portfolio() {
                 onClick={(e) => handleDisplayItem(e, id)}
               >
                 <div className={s.cardHeaderImage}>
-                  <img src={featuredPicture} alt="portfolio item"></img>
+                  <LazyLoadImage src={featuredPicture} alt="portfolio item" />
                 </div>
                 <div className={s.cardText}>
                   <h3>{title.toUpperCase()}</h3>
@@ -65,6 +66,6 @@ export default function Portfolio() {
           </Modal>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 }

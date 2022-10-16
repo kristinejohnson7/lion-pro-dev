@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect, useCallback, useRef } from "react";
 import { client } from "../client";
 
 const context = createContext({ contact: null });
@@ -7,6 +7,7 @@ const { Provider } = context;
 
 export const TermsProvider = ({ children }) => {
   const [terms, setTerms] = useState([]);
+  const loadingRef = useRef(false);
 
   const cleanTermsInfo = useCallback((rawData) => {
     const cleanTerms = rawData.map((slide) => {
@@ -26,18 +27,21 @@ export const TermsProvider = ({ children }) => {
 
   useEffect(() => {
     const getTermsInfo = async () => {
-      try {
-        const response = await client.getEntries({
-          content_type: "lpdTermsOfUse",
-        });
-        const responseData = response.items;
-        if (responseData) {
-          cleanTermsInfo(responseData);
-        } else {
-          setTerms([]);
+      if (!loadingRef.current) {
+        loadingRef.current = true;
+        try {
+          const response = await client.getEntries({
+            content_type: "lpdTermsOfUse",
+          });
+          const responseData = response.items;
+          if (responseData) {
+            cleanTermsInfo(responseData);
+          } else {
+            setTerms([]);
+          }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
       }
     };
     getTermsInfo();
