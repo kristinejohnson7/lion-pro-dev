@@ -71,8 +71,10 @@ export default function Footer() {
                 {usefulLinks.map((link) => (
                   <li key={link.key}>
                     <ScrollHandler>
-                      <AngleRight className="icon" width="13px" />
-                      <Link to={link.to}>{link.title}</Link>
+                      <Link to={link.to}>
+                        <AngleRight className="icon" width="13px" />
+                        {link.title}
+                      </Link>
                     </ScrollHandler>
                   </li>
                 ))}
