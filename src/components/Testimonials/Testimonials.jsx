@@ -9,8 +9,6 @@ import "./Testimonials.scss";
 import testimonialsContext from "../../context/testimonials";
 import Header from "../Header/Header";
 import Modal from "../Modal/Modal";
-import { Fade } from "react-awesome-reveal";
-import { ReactComponent as Quote } from "../../assets/quote-left.svg";
 
 export default function Testimonials() {
   const { testimonials } = useContext(testimonialsContext);
@@ -24,24 +22,29 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="container">
-      <Fade>
-        <Header title="Testimonials" variant="primary" />
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
-          loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Pagination, Navigation]}
-          className="testimonySwiper"
-        >
-          {testimonials.map((testimonial) => {
-            const { id, videoSource, title, quote } = testimonial;
-            return (
-              <SwiperSlide key={id} className="testimonyItem">
-                <Quote className="icon" />
+      <Header title="Testimonials" variant="primary" />
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="testimonySwiper"
+      >
+        {testimonials.map((testimonial) => {
+          const { id, videoSource, title, quote, testImage } = testimonial;
+          console.log("test", testimonial);
+          return (
+            <SwiperSlide key={id} className="testimonyItem">
+              <div className="testimonyWrapper">
+                {testImage ? (
+                  <div className="image">
+                    <img src={testImage} alt="testimonial" />
+                  </div>
+                ) : null}
                 <div className="text">
                   <p>
                     {quote}
@@ -54,11 +57,11 @@ export default function Testimonials() {
                   </p>
                   <p className="name">{title}</p>
                 </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </Fade>
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
           <Modal>

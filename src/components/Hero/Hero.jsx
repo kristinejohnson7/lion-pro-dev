@@ -4,7 +4,6 @@ import computer from "../../assets/computerHero.svg";
 import homePageContext from "../../context/home-page";
 import Tilt from "react-parallax-tilt";
 import s from "./Hero.module.scss";
-import { motion } from "framer-motion";
 import heroBg from "../../assets/heroBckgrd.svg";
 import heroPhones from "../../assets/heroPhones.svg";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
@@ -12,7 +11,7 @@ import RichTextToReact from "../RichTextToReact/RichTextToReact";
 function Hero() {
   const { hero } = useContext(homePageContext);
   return (
-    <motion.div id="home" animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+    <section id="home">
       {hero.map((item) => {
         const { id, heroTitle } = item;
 
@@ -75,7 +74,7 @@ function Hero() {
           </div>
         );
       })}
-    </motion.div>
+    </section>
   );
 }
 

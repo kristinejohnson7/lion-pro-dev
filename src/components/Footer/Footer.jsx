@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/lionlogo.png";
+import logo from "../../assets/footerlogo.png";
 import { Link } from "react-router-dom";
 import HubspotForm from "../HubspotForm/HubspotForm";
 import ScrollHandler from "../Nav/ScrollHandle";

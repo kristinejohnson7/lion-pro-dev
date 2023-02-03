@@ -4,7 +4,6 @@ import { AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
 import s from "./Services.module.scss";
 import "../../animation.scss";
-import { Fade } from "react-awesome-reveal";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Services() {
@@ -26,37 +25,35 @@ export default function Services() {
 
   return (
     <>
-      <Fade>
-        <div className={s.servicesContainer} id="services">
-          <div className={s.servicesCardWrapper}>
-            {services.map((item) => {
-              const { id, title, featuredPicture, icon } = item;
-              return (
-                <div
-                  key={id}
-                  className={`${s.serviceCard} grow`}
-                  onClick={(e) => {
-                    handleDisplayService(e, id);
-                  }}
-                >
-                  <div className={s.cardHeaderImage}>
-                    <LazyLoadImage src={featuredPicture} alt="services" />
-                  </div>
-                  <div className={s.cardIcon}>
-                    <LazyLoadImage src={icon} alt="services icon" />
-                  </div>
-                  <div className={s.cardText}>
-                    <h3>{title.toUpperCase()}</h3>
-                  </div>
+      <div className={s.servicesContainer} id="services">
+        <div className={s.servicesCardWrapper}>
+          {services.map((item) => {
+            const { id, title, featuredPicture, icon } = item;
+            return (
+              <div
+                key={id}
+                className={`${s.serviceCard} grow`}
+                onClick={(e) => {
+                  handleDisplayService(e, id);
+                }}
+              >
+                <div className={s.cardHeaderImage}>
+                  <LazyLoadImage src={featuredPicture} alt="services" />
                 </div>
-              );
-            })}
-          </div>
-          <h2>
-            LEARN MORE ABOUT OUR <span>SERVICES</span>
-          </h2>
+                <div className={s.cardIcon}>
+                  <LazyLoadImage src={icon} alt="services icon" />
+                </div>
+                <div className={s.cardText}>
+                  <h3>{title.toUpperCase()}</h3>
+                </div>
+              </div>
+            );
+          })}
         </div>
-      </Fade>
+        <h2>
+          LEARN MORE ABOUT OUR <span>SERVICES</span>
+        </h2>
+      </div>
 
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
