@@ -36,7 +36,7 @@ export default function Contact() {
   ];
 
   return (
-    <LazyLoadComponent>
+    <>
       <div id="contact" className={s.contact}>
         <div className={`${s.contactContainer} container`}>
           <div className={s.getInTouch}>
@@ -93,6 +93,6 @@ export default function Contact() {
           </Modal>
         )}
       </AnimatePresence>
-    </LazyLoadComponent>
+    </>
   );
 }
