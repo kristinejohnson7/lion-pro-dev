@@ -34,8 +34,8 @@ export default function Nav() {
             id="navbarCollapse"
           >
             <ul className="navList">
-              {navOptions.map((item) => (
-                <li>
+              {navOptions.map((item, index) => (
+                <li key={index}>
                   <ScrollHandler>
                     <Link
                       to={item === "blog" ? "/blog" : `/#${item}`}

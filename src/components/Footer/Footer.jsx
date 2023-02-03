@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/lionlogo.png";
+import logo from "../../assets/footerlogo.png";
 import { Link } from "react-router-dom";
 import HubspotForm from "../HubspotForm/HubspotForm";
 import ScrollHandler from "../Nav/ScrollHandle";
@@ -71,8 +71,10 @@ export default function Footer() {
                 {usefulLinks.map((link) => (
                   <li key={link.key}>
                     <ScrollHandler>
-                      <AngleRight className="icon" width="13px" />
-                      <Link to={link.to}>{link.title}</Link>
+                      <Link to={link.to}>
+                        <AngleRight className="icon" width="13px" />
+                        {link.title}
+                      </Link>
                     </ScrollHandler>
                   </li>
                 ))}

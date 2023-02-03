@@ -16,12 +16,16 @@ export const TestimonialsProvider = ({ children }) => {
       const title = fields.title;
       const quote = fields.quote;
       const videoSource = fields.videoSource;
+      const testImage = fields.image?.fields?.file?.url;
+
       const updatedTestimonials = {
         id,
         title,
         quote,
         videoSource,
+        testImage,
       };
+      console.log("services", updatedTestimonials);
       return updatedTestimonials;
     });
     setTestimonials(cleanTestimonials);

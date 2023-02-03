@@ -23,7 +23,6 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001,
   });
-  console.log("Renders");
 
   return (
     <>

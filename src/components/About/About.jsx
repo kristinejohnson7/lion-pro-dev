@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import aboutContext from "../../context/about";
 import Modal from "../Modal/Modal";
 import { AnimatePresence } from "framer-motion";
-import { Fade } from "react-awesome-reveal";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
 import Header from "../Header/Header";
 import s from "./About.module.scss";
@@ -27,28 +26,26 @@ export default function About() {
 
   return (
     <section id="about">
-      <Fade>
-        <Header title="Meet the Team" variant="primary" />
-        <div className={s.aboutContainer}>
-          {about.map((item) => {
-            const { id, name, picture } = item;
-            return (
-              <div
-                className={`${s.aboutCircleWrapper} grow`}
-                key={id}
-                onClick={(e) => {
-                  handleDisplayAbout(e, id);
-                }}
-              >
-                <div className={s.aboutCircle}>
-                  <LazyLoadImage src={picture} alt="about" />
-                </div>
-                <h5>{name}</h5>
+      <Header title="Meet the Team" variant="primary" />
+      <div className={s.aboutContainer}>
+        {about.map((item) => {
+          const { id, name, picture } = item;
+          return (
+            <div
+              className={`${s.aboutCircleWrapper} grow`}
+              key={id}
+              onClick={(e) => {
+                handleDisplayAbout(e, id);
+              }}
+            >
+              <div className={s.aboutCircle}>
+                <LazyLoadImage src={picture} alt="about" />
               </div>
-            );
-          })}
-        </div>
-      </Fade>
+              <h5>{name}</h5>
+            </div>
+          );
+        })}
+      </div>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
           <Modal handleClose={() => setIsOpen(false)}>

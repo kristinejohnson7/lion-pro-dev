@@ -5,7 +5,6 @@ import s from "./FeaturedBlogs.module.scss";
 import { Link } from "react-router-dom";
 import shape1 from "../../assets/bgshape1.svg";
 import shape2 from "../../assets/bgshape2.svg";
-import { Fade } from "react-awesome-reveal";
 import Header from "../Header/Header";
 
 export default function FeaturedBlogs() {
@@ -21,19 +20,17 @@ export default function FeaturedBlogs() {
             projects and developer tips.
           </p>
         </div>
-        <Fade>
-          <div className={s.blogWrapper}>
-            <div className={s.bgShapeTop}>
-              <img src={shape1} alt="bg shape" />
-            </div>
-            {blog.map((item) => {
-              return <BlogCard key={item.id} {...item} />;
-            })}
-            <div className={s.bgShapeBottom}>
-              <img src={shape2} alt="bg shape" />
-            </div>
+        <div className={s.blogWrapper}>
+          <div className={s.bgShapeTop}>
+            <img src={shape1} alt="bg shape" />
           </div>
-        </Fade>
+          {blog.map((item) => {
+            return <BlogCard key={item.id} {...item} />;
+          })}
+          <div className={s.bgShapeBottom}>
+            <img src={shape2} alt="bg shape" />
+          </div>
+        </div>
       </div>
     </section>
   );
