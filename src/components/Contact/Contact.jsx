@@ -36,7 +36,7 @@ export default function Contact() {
   ];
 
   return (
-    <>
+    <LazyLoadComponent>
       <div id="contact" className={s.contact}>
         <div className={`${s.contactContainer} container`}>
           <div className={s.getInTouch}>
@@ -55,7 +55,6 @@ export default function Contact() {
             <button
               id="SOIBTN_InitialProjectCall"
               className="btn outlined"
-              // style={{background: #006DAF; color: #ffffff; padding: 10px 20px; border: 1px solid #c8c8c8; font: bold 14px Arial; cursor: pointer;"
               data-height="580"
               data-psz="00"
               data-so-page="InitialProjectCall"
@@ -63,10 +62,6 @@ export default function Contact() {
             >
               Schedule an Appointment
             </button>
-
-            {/* <button className="btn outlined" onClick={() => setIsOpen(true)}>
-              SCHEDULE A MEETING
-            </button> */}
           </div>
           <motion.div className={s.formContainer}>
             <LazyLoadComponent>
@@ -98,6 +93,6 @@ export default function Contact() {
           </Modal>
         )}
       </AnimatePresence>
-    </>
+    </LazyLoadComponent>
   );
 }
