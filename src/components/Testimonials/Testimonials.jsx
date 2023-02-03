@@ -9,6 +9,7 @@ import "./Testimonials.scss";
 import testimonialsContext from "../../context/testimonials";
 import Header from "../Header/Header";
 import Modal from "../Modal/Modal";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Testimonials() {
   const { testimonials } = useContext(testimonialsContext);
@@ -42,7 +43,7 @@ export default function Testimonials() {
               <div className="testimonyWrapper">
                 {testImage ? (
                   <div className="image">
-                    <img src={testImage} alt="testimonial" />
+                    <LazyLoadImage src={testImage} alt="testimonial" />
                   </div>
                 ) : null}
                 <div className="text">
