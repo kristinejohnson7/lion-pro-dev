@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import logo from "../../assets/lionlogo.png";
+import logo from "../../assets/heroLogo.png";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, Link } from "react-router-dom";
 import ScrollHandler from "./ScrollHandle";

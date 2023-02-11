@@ -55,3 +55,14 @@ section.container {
   margin: 0 auto;
   max-width: 1200px;
 }
+
+.btn.project {
+  background-color: $secondary-color;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: $primary-color;
+  font-weight: 600;
+
+  &:hover {
+    background-color: $white;
+  }
+}

@@ -1,9 +1,7 @@
 @import "/src/sassStyles/variables";
 
 .navbar {
-  box-shadow: rgba(255, 197, 41, 0.13) 6px 2px 16px 0px,
-    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-  background-color: $white;
+  background-color: $primary-color;
   height: 5.625rem;
   position: fixed;
   z-index: 2500;
@@ -20,8 +18,9 @@
   margin: 0 auto;
 
   .logoContainer img {
-    height: 60px;
-    width: 8.75rem;
+    height: 40px;
+    margin-top: 1rem;
+    width: 70px;
   }
 
   .navList {
@@ -31,12 +30,14 @@
     flex-direction: row;
 
     li a {
+      color: $white;
       font-size: 0.8rem;
       font-weight: 600;
+      letter-spacing: 1px;
 
       &:hover {
         text-decoration: none;
-        color: $primary-color;
+        color: $secondary-color;
       }
 
       &:focus {
@@ -46,11 +47,7 @@
       }
 
       &.project {
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-        &:focus {
-          color: $white;
-        }
+        color: $primary-color;
       }
     }
   }

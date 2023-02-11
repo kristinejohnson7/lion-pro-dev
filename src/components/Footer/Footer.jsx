@@ -32,8 +32,8 @@ export default function Footer() {
                 <img src={logo} alt="logo" />
               </div>
               <p>
-                Behind the word mountains, far from the countries Vokalia and
-                Consonantia, there live the blind texts they live
+                Empowering businesses with creative and effective web and mobile
+                solutions that drive growth and engage audiences.
               </p>
               <div className={s.socialsContainer}>
                 <a

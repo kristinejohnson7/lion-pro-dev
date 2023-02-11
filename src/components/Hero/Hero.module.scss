@@ -1,5 +1,51 @@
 @import "/src/sassStyles/variables";
 
+.box {
+  position: relative;
+  min-height: 55rem;
+}
+
+.box:before,
+.box:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+.box:after {
+  -webkit-mask: radial-gradient(
+        var(--r1, 100%) var(--r2, 80%) at top,
+        white 79.5%,
+        transparent 80%
+      )
+      left,
+    radial-gradient(
+        var(--r1, 100%) var(--r2, 80%) at bottom,
+        transparent 79.5%,
+        white 80%
+      )
+      right;
+  mask: radial-gradient(
+        var(--r1, 100%) var(--r2, 80%) at top,
+        white 79.5%,
+        transparent 80%
+      )
+      left,
+    radial-gradient(
+        var(--r1, 100%) var(--r2, 80%) at bottom,
+        transparent 79.5%,
+        white 80%
+      )
+      right;
+  -webkit-mask-size: 50.1% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 50.1% 100%;
+  mask-repeat: no-repeat;
+  background: linear-gradient($primary-color 20%, $primary-medium);
+}
+
 .heroWrapper {
   padding: $size-20 $size-100;
 
@@ -7,127 +53,201 @@
     display: flex;
     justify-content: center;
     margin-top: $size-100;
-    align-items: center;
     gap: 5rem;
 
-    .heroText p {
-      overflow-wrap: break-word;
-      font-size: 2.3rem;
-      letter-spacing: 0.125rem;
+    .heroText {
+      max-width: 600px;
+      z-index: 100;
 
-      b {
-        font-family: $highlight-font;
-        letter-spacing: $size-5;
-        color: $primary-color;
-        font-size: 3rem;
+      .description {
+        color: $white;
+
+        p {
+          margin-bottom: 1.3rem;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      h2 {
+        color: $white;
+        font-size: 48px;
+        font-weight: 500;
+        letter-spacing: 0.125rem;
+        line-height: 1.3;
+        overflow-wrap: break-word;
+
+        div {
+          display: inline-block;
+          margin-left: 15px;
+          margin-right: 7px;
+          max-width: 250px;
+          min-width: 180px;
+        }
+
+        b {
+          font-family: $highlight-font;
+          letter-spacing: $size-5;
+          color: $secondary-color;
+          font-size: 2.5rem;
+        }
       }
 
       a {
-        margin: 1.5rem 0;
+        margin-top: 1rem;
       }
     }
 
-    .heroImgs {
+    .heroImg {
       position: relative;
+      z-index: 100;
 
-      .heroPhone {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 70%;
-        z-index: 1;
-
-        .heroPhoneImg {
-          max-width: 31.25rem;
-          position: relative;
-        }
+      img {
+        height: 500px;
+        width: 500px;
       }
     }
   }
 }
 
 .heroBottomBanner {
-  background-color: $primary-color;
-  margin-top: $size-60;
+  background-color: #5094d2;
+  width: 98%;
+  margin: 0 auto;
+  max-width: 1200px;
+  border-radius: 5px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: $size-50;
   padding: $size-14 0;
 
-  div {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .companiesWrapper {
     color: $white;
+    display: flex;
+    gap: 1.5rem;
 
-    .heroBtmImage {
-      width: $size-50;
-
-      img {
-        height: 60px;
-        width: 60px;
-      }
-    }
-
-    h5 {
-      font-weight: 400;
-      font-size: 1rem;
+    .image img {
+      border-radius: 7px;
+      height: 75px;
+      margin-right: 2.3rem;
+      width: 75px;
     }
   }
-}
 
-@media only screen and (max-width: 900px) {
-  .heroContainer {
-    flex-direction: column;
-
-    .heroText {
-      text-align: center;
-
-      a {
-        margin-top: $size-16;
-      }
-    }
+  .divider {
+    height: 50px;
+    border-right: 2px solid white;
   }
-}
 
-@media only screen and (max-width: 675px) {
-  .heroWrapper .heroContainer {
-    .heroText {
+  .btmBannerTrusted {
+    align-items: center;
+    color: $white;
+    display: flex;
+
+    img {
+      height: 70px;
+      width: 70px;
+    }
+
+    .bannerText {
       p {
         font-size: 1rem;
-
-        b {
-          font-size: 2.3rem;
-        }
       }
-    }
-
-    .heroImgs .heroPhone {
-      left: $size-30;
     }
   }
 }
 
-@media only screen and (max-width: 725px) {
+@media screen and (max-width: 1270px) {
+  .heroWrapper .heroContainer .heroText h2 {
+    font-size: 30px;
+    margin-bottom: 0.75rem;
+
+    div {
+      max-width: 180px;
+      min-width: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 1165px) {
   .heroWrapper {
-    padding: $size-20 $size-40;
+    padding: 1.25rem 2.25rem;
 
     .heroContainer {
-      .heroText p b {
-        font-size: 1.75rem;
-        letter-spacing: 0.2rem;
+      gap: 3rem;
+
+      .heroImg img {
+        height: 400px;
+        width: 400px;
       }
     }
   }
 
   .heroBottomBanner {
-    flex-direction: column;
-    gap: 0.438rem;
+    .btmBannerTrusted {
+      display: none;
+    }
 
-    div h5 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
+    .divider {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .heroWrapper .heroContainer {
+    flex-direction: column;
+
+    .heroText {
+      margin: 0 auto;
+
+      .description {
+        text-align: left;
+      }
+    }
+
+    .heroImg {
+      margin: 0 auto;
+      margin-top: -1rem;
+
+      img {
+        height: 300px;
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .heroWrapper .heroContainer {
+    .heroText h2 {
+      font-size: 23px;
+    }
+
+    .heroImg img {
+      height: 250px;
+      width: 250px;
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .heroWrapper .heroContainer {
+    .heroText {
+      h2 {
+        font-size: 18px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
     }
   }
 }
