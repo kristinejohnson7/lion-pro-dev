@@ -25,7 +25,6 @@ export const TestimonialsProvider = ({ children }) => {
         videoSource,
         testImage,
       };
-      console.log("services", updatedTestimonials);
       return updatedTestimonials;
     });
     setTestimonials(cleanTestimonials);
