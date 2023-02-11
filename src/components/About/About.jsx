@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import aboutContext from "../../context/about";
 import Modal from "../Modal/Modal";
 import { AnimatePresence } from "framer-motion";
@@ -12,6 +12,8 @@ export default function About() {
   const [modalData, setModalData] = useState("");
   const [isOpen, setIsOpen] = useState("");
 
+  const ref = useRef();
+
   const handleDisplayAbout = (e, id) => {
     const modalPage = about.find((service) => service.id === id);
     setModalData(modalPage);
@@ -22,6 +24,20 @@ export default function About() {
     isOpen
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "unset");
+  }, [isOpen]);
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (isOpen && ref.current && !ref.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
   }, [isOpen]);
 
   return (
@@ -48,8 +64,8 @@ export default function About() {
       </div>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
-          <Modal handleClose={() => setIsOpen(false)}>
-            <div className={s.aboutContent}>
+          <Modal>
+            <div className={s.aboutContent} ref={ref}>
               <div className={s.aboutBtn}>
                 <button className="btn" onClick={() => setIsOpen(false)}>
                   X

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -17,10 +17,32 @@ export default function Testimonials() {
   const [modalData, setModalData] = useState("");
   const [isOpen, setIsOpen] = useState("");
 
+  const ref = useRef();
+
   const handleDisplayVideo = (e, video) => {
     setModalData(video);
     setIsOpen(true);
   };
+
+  useEffect(() => {
+    isOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [isOpen]);
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (isOpen && ref.current && !ref.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [isOpen]);
 
   return (
     <section id="testimonials">
@@ -33,7 +55,7 @@ export default function Testimonials() {
           pagination={{
             clickable: true,
           }}
-          navigation={false}
+          navigation={true}
           modules={[Pagination, Navigation]}
           className="testimonySwiper"
           breakpoints={{
@@ -81,8 +103,8 @@ export default function Testimonials() {
         </Swiper>
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {isOpen && (
-            <Modal handleClose={() => setIsOpen(false)}>
-              <div className="testimonialIframe">
+            <Modal>
+              <div className="testimonialIframe" ref={ref}>
                 <button className="btn" onClick={() => setIsOpen(false)}>
                   X
                 </button>

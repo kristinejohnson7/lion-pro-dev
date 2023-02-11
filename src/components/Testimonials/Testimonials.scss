@@ -12,6 +12,7 @@
     border-radius: 25px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     background-color: #fff;
+    min-height: 445px;
     width: 320px;
 
     .image-content,
@@ -120,9 +121,17 @@
   position: relative;
 }
 
+.swiper-button-prev {
+  left: -2.5px;
+}
+
+.swiper-button-next {
+  right: 5px;
+}
+
 @media screen and (max-width: 1150px) {
   .swiper {
-    max-width: 730px;
+    max-width: 800px;
   }
 }
 
@@ -135,6 +144,11 @@
 @media screen and (max-width: 390px) {
   #testimonials .card {
     width: 295px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
   }
 }
 
