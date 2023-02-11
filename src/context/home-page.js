@@ -13,8 +13,8 @@ export const HomePageProvider = ({ children }) => {
     const cleanHero = rawData.map((slide) => {
       const { sys, fields } = slide;
       const { id } = sys;
-      const heroTitle = fields.title;
-      const updatedHero = { id, heroTitle };
+      const companyImg = fields.companyImg.fields.file.url;
+      const updatedHero = { id, companyImg };
       return updatedHero;
     });
 

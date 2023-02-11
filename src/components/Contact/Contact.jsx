@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ContactCard from "./ContactCard";
 import s from "./Contact.module.scss";
 import HubspotForm from "../HubspotForm/HubspotForm";
@@ -9,6 +9,7 @@ import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Contact() {
   const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef();
 
   useEffect(() => {
     isOpen
@@ -29,10 +30,24 @@ export default function Contact() {
     };
   }, []);
 
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (isOpen && ref.current && !ref.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [isOpen]);
+
   const contactData = [
-    { key: 1, title: "Email", details: "lionprodev@gmail.com" },
-    { key: 2, title: "Phone", details: "614-285-6112" },
-    { key: 3, title: "Address", details: "New Albany, Ohio, 43054" },
+    { title: "Email", details: "lionprodev@gmail.com" },
+    { title: "Phone", details: "614-285-6112" },
+    { title: "Address", details: "New Albany, Ohio, 43054" },
   ];
 
   return (
@@ -46,10 +61,10 @@ export default function Contact() {
               if we can work together.
             </p>
             <div className={s.contactCardContainer}>
-              {contactData.map((item) => {
-                const { id, title, details } = item;
+              {contactData.map((item, index) => {
+                const { title, details } = item;
                 return (
-                  <div key={id}>
+                  <div key={index}>
                     <ContactCard title={title} details={details} />
                   </div>
                 );
@@ -78,14 +93,15 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
-      <AnimatePresence initial={false} exitBeforeEnter={true}>
+      {/* <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
-          <Modal handleClose={() => setIsOpen(false)}>
+          <Modal>
             <div className={s.schedule}>
               <button className="btn" onClick={() => setIsOpen(false)}>
                 X
               </button>
               <iframe
+                ref={ref}
                 title="title"
                 src="https://meetings.hubspot.com/philip-cutting/zoom-call?embed=true"
                 frameBorder="0"
@@ -93,7 +109,7 @@ export default function Contact() {
             </div>
           </Modal>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </>
   );
 }
