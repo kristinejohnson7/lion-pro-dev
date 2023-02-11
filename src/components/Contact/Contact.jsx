@@ -48,7 +48,11 @@ export default function Contact() {
             <div className={s.contactCardContainer}>
               {contactData.map((item) => {
                 const { id, title, details } = item;
-                return <ContactCard key={id} title={title} details={details} />;
+                return (
+                  <div key={id}>
+                    <ContactCard title={title} details={details} />
+                  </div>
+                );
               })}
             </div>
 
@@ -84,10 +88,7 @@ export default function Contact() {
               <iframe
                 title="title"
                 src="https://meetings.hubspot.com/philip-cutting/zoom-call?embed=true"
-                frameborder="0"
-                webkitallowfullscreen
-                mozallowfullscreen
-                allowfullscreen
+                frameBorder="0"
               ></iframe>
             </div>
           </Modal>

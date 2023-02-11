@@ -1,91 +1,92 @@
 @import "/src/sassStyles/variables";
 
 #testimonials {
-  margin-top: $size-50;
+  background-color: $light-grey;
+  padding: 3rem 0 6rem;
 
-  .testimonyItem {
-    padding: 0px 80px 80px 80px;
-
-    .testimonyWrapper {
-      border: 2px solid $primary-color;
-      border-radius: 2px;
-      margin-top: 3rem;
-      position: relative;
-
-      .image {
-        left: 40px;
-        position: absolute;
-        top: -30px;
-
-        img {
-          border-radius: 5px;
-          border: 2px solid $primary-color;
-          height: 80px;
-          width: 80px;
-        }
-      }
-
-      .text {
-        padding: 2.5rem;
-        padding-top: 4rem;
-
-        .videoModal {
-          font-weight: 600;
-          color: $primary-color;
-          cursor: pointer;
-          margin-left: 7px;
-        }
-
-        .name {
-          font-weight: 600;
-          font-size: $size-18;
-          margin-top: 7px;
-          margin-left: 5px;
-        }
-      }
-    }
+  h3 {
+    margin-bottom: 1.5rem;
   }
 
-  .testimonySwiper {
-    &.swiper {
-      width: 65%;
-      height: 100%;
-      margin: $size-30 auto 5.625rem;
+  .card {
+    border-radius: 25px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #fff;
+    width: 320px;
+
+    .image-content,
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 14px;
     }
 
-    &.swiper-slide {
-      text-align: center;
-      font-size: $size-18;
-      background: #fff;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
+    .image-content {
+      position: relative;
+      row-gap: 5px;
+      padding: 25px 0;
 
-      img {
-        display: block;
-        width: 100%;
+      .overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
         height: 100%;
-        object-fit: cover;
+        width: 100%;
+        background-color: $primary-color;
+        border-radius: 25px 25px 0 25px;
+      }
+
+      .overlay::before,
+      .overlay::after {
+        position: absolute;
+        content: "";
+        height: 40px;
+        width: 40px;
+        right: 0;
+        bottom: -40px;
+        background-color: $primary-color;
+      }
+
+      .overlay::after {
+        border-radius: 0 25px 0 0;
+        background-color: $white;
+      }
+
+      .card-image {
+        position: relative;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        background: #fff;
+        padding: 3px;
+
+        .card-img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 4px solid $primary-color;
+        }
       }
     }
 
-    .swiper-pagination-bullet {
-      background-color: $grey;
-      opacity: 0.4;
-    }
+    .card-content {
+      .name {
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+      }
 
-    .swiper-pagination-bullet-active {
-      background-color: $primary-color;
-      opacity: 1;
+      .description {
+        font-size: 14px;
+        color: grey;
+        text-align: center;
+      }
+
+      .videoModal {
+        margin: 1rem 0;
+      }
     }
   }
 
@@ -108,66 +109,63 @@
       height: 500px;
     }
   }
+}
 
-  @media only screen and (max-width: 900px) {
-    .testimonyItem {
-      padding: 0px 50px 50px 50px;
+.swiper-wrapper {
+  margin-left: 35px;
+}
+
+.swiper-pagination {
+  margin-top: 2rem;
+  position: relative;
+}
+
+@media screen and (max-width: 1150px) {
+  .swiper {
+    max-width: 730px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .swiper {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  #testimonials .card {
+    width: 295px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .swiper-wrapper {
+    margin-left: 17px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .testimonialIframe {
+    padding: 20px;
+
+    button {
+      margin-right: 0;
     }
 
-    .testimonySwiper.swiper {
-      width: 92%;
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next {
-      display: none;
+    iframe {
+      width: 370px;
+      height: 370px;
     }
   }
+}
 
-  @media screen and (max-width: 650px) {
-    .testimonialIframe {
-      padding: 20px;
+@media screen and (max-width: 435px) {
+  .testimonialIframe {
+    padding: 10px;
 
-      button {
-        margin-right: 0;
-      }
-
-      iframe {
-        width: 370px;
-        height: 370px;
-      }
-    }
-  }
-
-  @media screen and (max-width: 435px) {
-    .testimonyItem {
-      padding: 15px;
-
-      .testimonyWrapper {
-        margin-top: 1rem;
-
-        .text {
-          padding: 1rem;
-          padding-top: 4rem;
-        }
-      }
-    }
-
-    .testimonySwiper.swiper {
-      margin-top: 0;
-
-      .swiper-pagination {
-        position: relative;
-      }
-    }
-
-    .testimonialIframe {
-      padding: 10px;
-
-      iframe {
-        width: 300px;
-        height: 300px;
-      }
+    iframe {
+      width: 300px;
+      height: 300px;
     }
   }
 }

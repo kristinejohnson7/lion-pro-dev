@@ -98,9 +98,7 @@ export default function Footer() {
           </LazyLoadComponent>
         </div>
       </div>
-      <div className={s.footerBottom}>
-        ©{date}. Kristine Johnson. All Rights Reserved.
-      </div>
+      <div className={s.footerBottom}>©{date}. All Rights Reserved.</div>
     </footer>
   );
 }

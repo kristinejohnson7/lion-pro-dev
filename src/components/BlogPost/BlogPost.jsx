@@ -36,8 +36,6 @@ export default function BlogPost() {
     }
   }, [content, ref]);
 
-  console.log("content", content);
-
   return (
     slug &&
     title && (

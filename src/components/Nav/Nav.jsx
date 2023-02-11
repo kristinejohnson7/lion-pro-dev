@@ -71,7 +71,7 @@ export default function Nav() {
             aria-label="Open Navigation"
             onClick={showNavBar}
           >
-            <Bars className="icon" width="20px" />
+            <Bars className="icon" width="20px" path="white" />
           </button>
         </div>
       </header>
