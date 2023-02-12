@@ -5,7 +5,10 @@ import Modal from "../Modal/Modal";
 import PortfolioItem from "./PortfolioItem";
 import Header from "../Header/Header";
 import s from "./Portfolio.module.scss";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import {
+  LazyLoadComponent,
+  LazyLoadImage,
+} from "react-lazy-load-image-component";
 
 export default function Portfolio() {
   const { portfolio } = useContext(portfolioContext);
@@ -25,44 +28,46 @@ export default function Portfolio() {
   }, [isOpen]);
 
   return (
-    <section className={s.portfolioContainer} id="portfolio">
-      <div className={s.portfolioHeader}>
-        <Header title="Portfolio" variant="light" />
-        <p>
-          Check out some project we have done. Some of them are samples to
-          develop creativity, some are hobbies and some are projects that our
-          customers wanted to show off.
-        </p>
-      </div>
-      <div className={s.cardContainer}>
-        {portfolio.map((item) => {
-          const { id, title, featuredPicture } = item;
-          return (
-            <div
-              key={id}
-              className={`${s.portfolioCard} grow`}
-              onClick={(e) => handleDisplayItem(e, id)}
-            >
-              <div className={s.cardHeaderImage}>
-                <LazyLoadImage src={featuredPicture} alt="portfolio item" />
+    <LazyLoadComponent>
+      <section className={s.portfolioContainer} id="portfolio">
+        <div className={s.portfolioHeader}>
+          <Header title="Portfolio" variant="light" />
+          <p>
+            Check out some project we have done. Some of them are samples to
+            develop creativity, some are hobbies and some are projects that our
+            customers wanted to show off.
+          </p>
+        </div>
+        <div className={s.cardContainer}>
+          {portfolio.map((item) => {
+            const { id, title, featuredPicture } = item;
+            return (
+              <div
+                key={id}
+                className={`${s.portfolioCard} grow`}
+                onClick={(e) => handleDisplayItem(e, id)}
+              >
+                <div className={s.cardHeaderImage}>
+                  <LazyLoadImage src={featuredPicture} alt="portfolio item" />
+                </div>
+                <div className={s.cardText}>
+                  <h3>{title.toUpperCase()}</h3>
+                </div>
               </div>
-              <div className={s.cardText}>
-                <h3>{title.toUpperCase()}</h3>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <AnimatePresence initial={false} exitBeforeEnter={true}>
-        {isOpen && (
-          <Modal handleClose={() => setIsOpen(false)}>
-            <PortfolioItem
-              item={portfolioData}
-              handleClose={() => setIsOpen(false)}
-            />
-          </Modal>
-        )}
-      </AnimatePresence>
-    </section>
+            );
+          })}
+        </div>
+        <AnimatePresence initial={false} exitBeforeEnter={true}>
+          {isOpen && (
+            <Modal handleClose={() => setIsOpen(false)}>
+              <PortfolioItem
+                item={portfolioData}
+                handleClose={() => setIsOpen(false)}
+              />
+            </Modal>
+          )}
+        </AnimatePresence>
+      </section>
+    </LazyLoadComponent>
   );
 }
