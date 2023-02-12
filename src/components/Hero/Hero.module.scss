@@ -133,11 +133,16 @@
     display: flex;
     gap: 1.5rem;
 
-    .image img {
-      border-radius: 7px;
-      height: 75px;
-      margin-right: 2.3rem;
-      width: 75px;
+    .image {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+
+      img {
+        border-radius: 7px;
+        height: 75px;
+        width: 75px;
+      }
     }
   }
 
@@ -225,10 +230,25 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .box:after {
+    mask-size: 104.1% 100%;
+    -webkit-mask-size: 104.1% 100%;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .heroWrapper .heroContainer {
-    .heroText h2 {
-      font-size: 23px;
+    margin-top: 5rem;
+
+    .heroText {
+      h2 {
+        font-size: 23px;
+      }
+
+      .description p {
+        font-size: 14px;
+      }
     }
 
     .heroImg img {
@@ -236,18 +256,15 @@
       width: 250px;
     }
   }
+
+  .heroBottomBanner .companiesWrapper .image img {
+    height: 55px;
+    width: 55px;
+  }
 }
 
 @media screen and (max-width: 350px) {
-  .heroWrapper .heroContainer {
-    .heroText {
-      h2 {
-        font-size: 18px;
-      }
-
-      .description {
-        font-size: 14px;
-      }
-    }
+  .heroWrapper .heroContainer .heroText h2 {
+    font-size: 18px;
   }
 }

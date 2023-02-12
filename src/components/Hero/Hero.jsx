@@ -55,12 +55,11 @@ function Hero() {
             <img src={rating} alt="rating icon" />
             <div className={s.bannerText}>
               <h2>Top Rated</h2>
-              <p>on Upwork with over 300 project hours</p>
+              <p>and trusted amongst our customers</p>
             </div>
           </div>
           <div className={s.divider}></div>
           <div className={s.companiesWrapper}>
-            {/* <h2>Trusted by:</h2> */}
             <div className={s.image}>
               {hero.map((item) => {
                 const { id, companyImg } = item;
