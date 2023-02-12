@@ -37,8 +37,8 @@ export default function Contact() {
   ];
 
   return (
-    <LazyLoadComponent>
-      <div id="contact" className={s.contact}>
+    <section id="contact" className={s.contact}>
+      <LazyLoadComponent>
         <div className={`${s.contactContainer} container`}>
           <div className={s.getInTouch}>
             <Header title="Get In Touch" variant="light" />
@@ -61,7 +61,7 @@ export default function Contact() {
             <ContactFormLazy />
           </div>
         </div>
-      </div>
-    </LazyLoadComponent>
+      </LazyLoadComponent>
+    </section>
   );
 }
