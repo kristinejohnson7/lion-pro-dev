@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { lazy, useState, useEffect, useRef } from "react";
 import ContactCard from "./ContactCard";
 import s from "./Contact.module.scss";
 import Header from "../Header/Header";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
+
+const ContactFormLazy = lazy(() => import("./ContactForm"));
 
 export default function Contact() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,19 +15,6 @@ export default function Contact() {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "unset");
   }, [isOpen]);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src = "https://cdn.oncehub.com/mergedjs/so.js";
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -47,7 +37,7 @@ export default function Contact() {
   ];
 
   return (
-    <>
+    <LazyLoadComponent>
       <div id="contact" className={s.contact}>
         <div className={`${s.contactContainer} container`}>
           <div className={s.getInTouch}>
@@ -68,16 +58,10 @@ export default function Contact() {
             </div>
           </div>
           <div className={s.formContainer}>
-            <div
-              id="SOIDIV_InitialProjectCall"
-              data-so-page="InitialProjectCall"
-              data-height="550"
-              data-style="border: 1px solid #d8d8d8; min-width: 290px; max-width: 900px;"
-              data-psz="00"
-            ></div>
+            <ContactFormLazy />
           </div>
         </div>
       </div>
-    </>
+    </LazyLoadComponent>
   );
 }
