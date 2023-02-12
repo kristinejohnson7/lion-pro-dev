@@ -29,7 +29,12 @@ export default function Footer() {
           <div className={s.footerMain}>
             <div className={s.footerSocialsAndLogo}>
               <div className={s.footerLogo}>
-                <img src={logo} alt="logo" />
+                <img
+                  src={logo}
+                  alt="lion pro dev logo"
+                  width="100px"
+                  height="62px"
+                />
               </div>
               <p>
                 Empowering businesses with creative and effective web and mobile
