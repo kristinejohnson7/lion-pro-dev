@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import Hero from "../Hero/Hero";
 import { HomePageProvider } from "../../context/home-page";
 import { ServicesProvider } from "../../context/services";
@@ -7,12 +7,9 @@ import { PortfolioProvider } from "../../context/portfolio";
 import { BlogProvider } from "../../context/blogs";
 import Portfolio from "../Portfolio/Portfolio";
 import Contact from "../Contact/Contact";
-import FeaturedBlogs from "../FeaturedBlogs/FeaturedBlogs";
 import { AboutProvider } from "../../context/about";
-import About from "../About/About";
 import s from "./Home.module.scss";
 import { motion, useScroll, useSpring } from "framer-motion";
-import Testimonials from "../Testimonials/Testimonials";
 import { TestimonialsProvider } from "../../context/testimonials";
 import Process from "../Process/Process";
 
@@ -23,6 +20,10 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001,
   });
+
+  const Testimonials = lazy(() => import("../Testimonials/Testimonials"));
+  const FeaturedBlogs = lazy(() => import("../FeaturedBlogs/FeaturedBlogs"));
+  const About = lazy(() => import("../About/About"));
 
   return (
     <>
