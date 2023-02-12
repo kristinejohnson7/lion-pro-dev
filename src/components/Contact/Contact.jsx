@@ -17,18 +17,18 @@ export default function Contact() {
       : (document.body.style.overflow = "unset");
   }, [isOpen]);
 
-  useEffect(() => {
-    const script = document.createElement("script");
+  // useEffect(() => {
+  //   const script = document.createElement("script");
 
-    script.src = "https://cdn.oncehub.com/mergedjs/so.js";
-    script.async = true;
+  //   script.src = "https://cdn.oncehub.com/mergedjs/so.js";
+  //   script.async = true;
 
-    document.body.appendChild(script);
+  //   document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
