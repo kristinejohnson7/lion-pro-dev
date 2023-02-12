@@ -6,7 +6,6 @@ export default function ContactForm() {
 
     script.src = "https://cdn.oncehub.com/mergedjs/so.js";
     script.async = true;
-    script.defer = true;
 
     document.body.appendChild(script);
 
