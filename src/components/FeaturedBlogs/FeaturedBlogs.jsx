@@ -22,13 +22,13 @@ export default function FeaturedBlogs() {
         </div>
         <div className={s.blogWrapper}>
           <div className={s.bgShapeTop}>
-            <img src={shape1} alt="bg shape" />
+            <img src={shape1} alt="bg shape" width="205px" height="205px" />
           </div>
           {blog.map((item) => {
             return <BlogCard key={item.id} {...item} />;
           })}
           <div className={s.bgShapeBottom}>
-            <img src={shape2} alt="bg shape" />
+            <img src={shape2} alt="bg shape" width="270px" height="274px" />
           </div>
         </div>
       </div>
