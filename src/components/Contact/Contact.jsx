@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ContactCard from "./ContactCard";
 import s from "./Contact.module.scss";
-import HubspotForm from "../HubspotForm/HubspotForm";
-import { motion, AnimatePresence } from "framer-motion";
-import Modal from "../Modal/Modal";
 import Header from "../Header/Header";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Contact() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,46 +66,18 @@ export default function Contact() {
                 );
               })}
             </div>
-
-            <button
-              id="SOIBTN_InitialProjectCall"
-              className="btn outlined"
-              data-height="580"
-              data-psz="00"
-              data-so-page="InitialProjectCall"
-              data-delay="1"
-            >
-              Schedule an Appointment
-            </button>
           </div>
-          <motion.div className={s.formContainer}>
-            <LazyLoadComponent>
-              <HubspotForm
-                id="hubspotContactForm"
-                target="#hubspotContactForm"
-                formId="2129388b-778b-49a7-b596-7e918bb0dc0a"
-              />
-            </LazyLoadComponent>
-          </motion.div>
+          <div className={s.formContainer}>
+            <div
+              id="SOIDIV_InitialProjectCall"
+              data-so-page="InitialProjectCall"
+              data-height="550"
+              data-style="border: 1px solid #d8d8d8; min-width: 290px; max-width: 900px;"
+              data-psz="00"
+            ></div>
+          </div>
         </div>
       </div>
-      {/* <AnimatePresence initial={false} exitBeforeEnter={true}>
-        {isOpen && (
-          <Modal>
-            <div className={s.schedule}>
-              <button className="btn" onClick={() => setIsOpen(false)}>
-                X
-              </button>
-              <iframe
-                ref={ref}
-                title="title"
-                src="https://meetings.hubspot.com/philip-cutting/zoom-call?embed=true"
-                frameBorder="0"
-              ></iframe>
-            </div>
-          </Modal>
-        )}
-      </AnimatePresence> */}
     </>
   );
 }
