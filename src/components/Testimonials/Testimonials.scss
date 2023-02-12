@@ -12,6 +12,8 @@
     border-radius: 25px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
     min-height: 445px;
     width: 320px;
 
@@ -19,7 +21,9 @@
     .card-content {
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
       align-items: center;
+      justify-content: end;
       padding: 10px 14px;
     }
 
