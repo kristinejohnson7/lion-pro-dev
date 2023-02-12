@@ -34,3 +34,19 @@ body {
 .icon path {
   fill: currentColor;
 }
+
+#SOIDIV_InitialProjectCall {
+  width: 550px;
+}
+
+@media screen and (max-width: 1300px) {
+  #SOIDIV_InitialProjectCall {
+    width: 390px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  #SOIDIV_InitialProjectCall {
+    width: 300px;
+  }
+}
