@@ -1,17 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
-import envCompatible from "vite-plugin-env-compatible";
+// import envCompatible from "vite-plugin-env-compatible";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  envPrefix: "REACT_APP_",
+  // envPrefix: "REACT_APP_",
   build: {
     outDir: "build",
   },
   plugins: [
     react(),
-    envCompatible(),
+    // envCompatible(),
     svgr(),
     // svgrPlugin({
     //   svgrOptions: {
