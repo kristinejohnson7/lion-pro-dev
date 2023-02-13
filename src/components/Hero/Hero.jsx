@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import rating from "../../assets/toprated.svg";
+import { ReactComponent as RatingIcon } from "../../assets/toprated.svg";
 import homePageContext from "../../context/home-page";
 import s from "./Hero.module.scss";
-import heroImage from "../../assets/heroAnimate.svg";
+import { ReactComponent as HeroImage } from "../../assets/heroAnimate.svg";
 import Typewriter from "typewriter-effect";
 
 function Hero() {
@@ -46,13 +46,14 @@ function Hero() {
               </a>
             </div>
             <div className={s.heroImg}>
-              <img src={heroImage} alt="hero" />
+              <HeroImage />
             </div>
           </div>
         </div>
         <div className={s.heroBottomBanner}>
           <div className={s.btmBannerTrusted}>
-            <img src={rating} alt="rating icon" />
+            <RatingIcon />
+            {/* <img src={rating} alt="rating icon" /> */}
             <div className={s.bannerText}>
               <h2>Top Rated</h2>
               <p>and trusted amongst our customers</p>
