@@ -104,7 +104,7 @@
       position: relative;
       z-index: 100;
 
-      img {
+      svg {
         height: 500px;
         width: 500px;
       }
@@ -156,7 +156,7 @@
     color: $white;
     display: flex;
 
-    img {
+    svg {
       height: 70px;
       width: 70px;
     }
@@ -188,7 +188,7 @@
     .heroContainer {
       gap: 3rem;
 
-      .heroImg img {
+      .heroImg svg {
         height: 400px;
         width: 400px;
       }
@@ -222,7 +222,7 @@
       margin: 0 auto;
       margin-top: -1rem;
 
-      img {
+      svg {
         height: 300px;
         width: 300px;
       }
@@ -251,7 +251,7 @@
       }
     }
 
-    .heroImg img {
+    .heroImg svg {
       height: 250px;
       width: 250px;
     }
