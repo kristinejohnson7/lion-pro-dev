@@ -5,7 +5,7 @@
 
   .contactContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding: 4.375rem 0;
 
     .getInTouch {
@@ -44,7 +44,11 @@
 //SCSS for iframe inside index.scss
 @media screen and (max-width: 1300px) {
   .contact .contactContainer .getInTouch {
-    width: 43%;
+    width: 36%;
+
+    .getInTouchIntro {
+      width: 87%;
+    }
   }
 }
 
@@ -56,11 +60,5 @@
     .getInTouch {
       width: 90%;
     }
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .contact .contactContainer .getInTouch .getInTouchIntro {
-    width: 87%;
   }
 }

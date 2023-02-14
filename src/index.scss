@@ -36,12 +36,30 @@ body {
 }
 
 #SOIDIV_InitialProjectCall {
-  width: 550px;
+  width: 600px;
+
+  iframe {
+    height: 490px;
+  }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1100px) {
   #SOIDIV_InitialProjectCall {
-    width: 390px;
+    width: 500px;
+
+    iframe {
+      height: 700px;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #SOIDIV_InitialProjectCall {
+    width: 400px;
+
+    iframe {
+      height: 720px;
+    }
   }
 }
 
