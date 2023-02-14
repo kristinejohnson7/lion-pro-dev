@@ -58,7 +58,7 @@ body {
     width: 400px;
 
     iframe {
-      height: 720px;
+      height: 825px;
     }
   }
 }
@@ -66,5 +66,9 @@ body {
 @media screen and (max-width: 445px) {
   #SOIDIV_InitialProjectCall {
     width: 300px;
+
+    iframe {
+      height: 850px;
+    }
   }
 }
