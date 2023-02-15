@@ -1,18 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import HeroBanner from "./HeroBanner";
-
 import s from "./Hero.module.scss";
 import heroImage from "../../assets/heroAnimate.svg";
 import Typewriter from "typewriter-effect";
 
 function Hero() {
   return (
-    <section
-      id="home"
-      className={s.box}
-      // style={{ "--r1": "126%", "--r2": "72.2%" }}
-    >
-      {/* <div className={s.inside}> */}
+    <section id="home" className={s.box}>
       <svg
         className={s.svg}
         xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +58,6 @@ function Hero() {
         </div>
         <HeroBanner />
       </div>
-      {/* </div> */}
     </section>
   );
 }

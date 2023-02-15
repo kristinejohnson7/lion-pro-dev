@@ -1,0 +1,79 @@
+@import "/src/sassStyles/variables";
+
+.heroBottomBanner {
+  background-color: #5094d2;
+  width: 98%;
+  margin: 0 auto;
+  max-width: 1200px;
+  margin-bottom: 4rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: $size-50;
+  padding: $size-14 0;
+  z-index: 10;
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .companiesWrapper {
+    color: $white;
+    display: flex;
+    gap: 1.5rem;
+
+    .image {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+
+      img {
+        border-radius: 7px;
+        height: 75px;
+        width: 75px;
+      }
+    }
+  }
+
+  .divider {
+    height: 50px;
+    border-right: 2px solid white;
+  }
+
+  .btmBannerTrusted {
+    align-items: center;
+    color: $white;
+    display: flex;
+
+    img {
+      height: 70px;
+      width: 70px;
+    }
+
+    .bannerText {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .heroBottomBanner {
+    .btmBannerTrusted {
+      display: none;
+    }
+
+    .divider {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .heroBottomBanner .companiesWrapper .image img {
+    height: 55px;
+    width: 55px;
+  }
+}

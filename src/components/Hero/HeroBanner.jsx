@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import s from "./Hero.module.scss";
+import s from "./HeroBanner.module.scss";
 import rating from "../../assets/toprated.svg";
 import homePageContext from "../../context/home-page";
 
