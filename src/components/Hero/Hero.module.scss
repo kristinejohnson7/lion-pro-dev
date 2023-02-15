@@ -1,58 +1,31 @@
 @import "/src/sassStyles/variables";
 
 .box {
+  min-height: 45rem;
   position: relative;
-  min-height: 55rem;
 }
 
-.box:before,
-.box:after {
-  content: "";
+.svg {
   position: absolute;
-  top: 0;
+  width: 100%;
+  bottom: 118px;
   left: 0;
   right: 0;
-  height: 100%;
-}
-.box:after {
-  -webkit-mask: radial-gradient(
-        var(--r1, 100%) var(--r2, 80%) at top,
-        white 79.5%,
-        transparent 80%
-      )
-      left,
-    radial-gradient(
-        var(--r1, 100%) var(--r2, 80%) at bottom,
-        transparent 79.5%,
-        white 80%
-      )
-      right;
-  mask: radial-gradient(
-        var(--r1, 100%) var(--r2, 80%) at top,
-        white 79.5%,
-        transparent 80%
-      )
-      left,
-    radial-gradient(
-        var(--r1, 100%) var(--r2, 80%) at bottom,
-        transparent 79.5%,
-        white 80%
-      )
-      right;
-  -webkit-mask-size: 50.1% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-size: 50.1% 100%;
-  mask-repeat: no-repeat;
-  background: linear-gradient($primary-color 20%, $primary-medium);
+  z-index: 1;
 }
 
 .heroWrapper {
-  padding: $size-20 $size-100;
+  .bottom {
+    height: 1rem;
+    background-color: white;
+  }
 
   .heroContainer {
     display: flex;
+    width: 100%;
     justify-content: center;
-    margin-top: $size-100;
+    padding-top: $size-100;
+    background: linear-gradient($primary-color 20%, $primary-medium);
     gap: 5rem;
 
     .heroText {
@@ -112,81 +85,28 @@
   }
 }
 
-.heroBottomBanner {
-  background-color: #5094d2;
-  width: 98%;
-  margin: 0 auto;
-  max-width: 1200px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: $size-50;
-  padding: $size-14 0;
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  .companiesWrapper {
-    color: $white;
-    display: flex;
-    gap: 1.5rem;
-
-    .image {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-
-      img {
-        border-radius: 7px;
-        height: 75px;
-        width: 75px;
-      }
-    }
-  }
-
-  .divider {
-    height: 50px;
-    border-right: 2px solid white;
-  }
-
-  .btmBannerTrusted {
-    align-items: center;
-    color: $white;
-    display: flex;
-
-    img {
-      height: 70px;
-      width: 70px;
-    }
-
-    .bannerText {
-      p {
-        font-size: 1rem;
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 1270px) {
-  .heroWrapper .heroContainer .heroText h2 {
-    font-size: 30px;
-    margin-bottom: 0.75rem;
-
-    div {
-      max-width: 180px;
-      min-width: 70px;
-    }
+  .box {
+    min-height: 41rem;
   }
-}
 
-@media screen and (max-width: 1165px) {
+  .svg {
+    bottom: 145px;
+  }
+
   .heroWrapper {
-    padding: 1.25rem 2.25rem;
-
     .heroContainer {
       gap: 3rem;
+      padding-right: 3.25rem;
+      padding-left: 3.25rem;
+
+      .heroText h2 {
+        font-size: 33px;
+
+        div {
+          min-width: 125px;
+        }
+      }
 
       .heroImg img {
         height: 400px;
@@ -194,56 +114,62 @@
       }
     }
   }
-
-  .heroBottomBanner {
-    .btmBannerTrusted {
-      display: none;
-    }
-
-    .divider {
-      display: none;
-    }
-  }
 }
 
 @media only screen and (max-width: 950px) {
-  .heroWrapper .heroContainer {
-    flex-direction: column;
+  .svg {
+    bottom: 131px;
+  }
 
-    .heroText {
-      margin: 0 auto;
+  .heroWrapper {
+    .heroContainer {
+      flex-direction: column;
 
-      .description {
-        text-align: left;
+      .heroText {
+        margin: 0 auto;
+        max-width: 800px;
+
+        .description {
+          text-align: left;
+        }
+      }
+
+      .heroImg {
+        margin: 0 auto;
+        margin-top: -3rem;
+
+        img {
+          height: 300px;
+          width: 300px;
+        }
       }
     }
 
-    .heroImg {
-      margin: 0 auto;
-      margin-top: -1rem;
-
-      img {
-        height: 300px;
-        width: 300px;
-      }
+    .bottom {
+      height: 2rem;
     }
   }
 }
 
 @media screen and (max-width: 700px) {
-  .box:after {
-    mask-size: 104.1% 100%;
-    -webkit-mask-size: 104.1% 100%;
+  .heroWrapper .heroContainer .heroImg {
+    margin-top: -1rem;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .heroWrapper .heroContainer {
-    margin-top: 5rem;
+  .svg {
+    bottom: 113px;
+  }
 
+  .heroWrapper .heroContainer {
     .heroText {
       h2 {
-        font-size: 23px;
+        font-size: 20px;
+
+        div {
+          min-width: 85px;
+        }
       }
 
       .description p {
@@ -255,11 +181,6 @@
       height: 250px;
       width: 250px;
     }
-  }
-
-  .heroBottomBanner .companiesWrapper .image img {
-    height: 55px;
-    width: 55px;
   }
 }
 

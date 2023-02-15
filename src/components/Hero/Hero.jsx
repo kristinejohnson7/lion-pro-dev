@@ -1,19 +1,24 @@
-import React, { useContext } from "react";
-import rating from "../../assets/toprated.svg";
-import homePageContext from "../../context/home-page";
+import React from "react";
+import HeroBanner from "./HeroBanner";
 import s from "./Hero.module.scss";
 import heroImage from "../../assets/heroAnimate.svg";
 import Typewriter from "typewriter-effect";
 
 function Hero() {
-  const { hero } = useContext(homePageContext);
   return (
-    <section
-      id="home"
-      className={s.box}
-      style={{ "--r1": "126%", "--r2": "72.2%" }}
-    >
-      <div>
+    <section id="home" className={s.box}>
+      <svg
+        className={s.svg}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill="#ffffff"
+          fill-opacity="1"
+          d="M0,128L34.3,149.3C68.6,171,137,213,206,218.7C274.3,224,343,192,411,186.7C480,181,549,203,617,218.7C685.7,235,754,245,823,224C891.4,203,960,149,1029,154.7C1097.1,160,1166,224,1234,218.7C1302.9,213,1371,139,1406,101.3L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+        ></path>
+      </svg>
+      <div className={s.absolute}>
         <div className={s.heroWrapper}>
           <div className={s.heroContainer}>
             <div className={s.heroText}>
@@ -49,25 +54,9 @@ function Hero() {
               <img src={heroImage} alt="hero" />
             </div>
           </div>
+          <div className={s.bottom}></div>
         </div>
-        <div className={s.heroBottomBanner}>
-          <div className={s.btmBannerTrusted}>
-            <img src={rating} alt="rating icon" />
-            <div className={s.bannerText}>
-              <h2>Top Rated</h2>
-              <p>and trusted amongst our customers</p>
-            </div>
-          </div>
-          <div className={s.divider}></div>
-          <div className={s.companiesWrapper}>
-            <div className={s.image}>
-              {hero.map((item) => {
-                const { id, companyImg } = item;
-                return <img key={id} src={companyImg} alt="company logo" />;
-              })}
-            </div>
-          </div>
-        </div>
+        <HeroBanner />
       </div>
     </section>
   );
