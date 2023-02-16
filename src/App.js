@@ -10,47 +10,50 @@ import { PrivacyProvider } from "./context/privacy";
 import Terms from "./components/Terms/Terms";
 import Privacy from "./components/Privacy/Privacy";
 import "./sassStyles/_global.scss";
+import NavProvider from "./context/NavContext";
 
 function App() {
   return (
     <Router>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/blog"
-          element={
-            <BlogProvider>
-              <BlogListings />
-            </BlogProvider>
-          }
-        />
-        <Route
-          path="/blog/:slug"
-          element={
-            <BlogProvider>
-              <BlogPost />
-            </BlogProvider>
-          }
-        />
-        <Route
-          path="/terms-of-use"
-          element={
-            <TermsProvider>
-              <Terms />
-            </TermsProvider>
-          }
-        />
-        <Route
-          path="/privacy-policy"
-          element={
-            <PrivacyProvider>
-              <Privacy />
-            </PrivacyProvider>
-          }
-        />
-      </Routes>
-      <Footer />
+      <NavProvider>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/blog"
+            element={
+              <BlogProvider>
+                <BlogListings />
+              </BlogProvider>
+            }
+          />
+          <Route
+            path="/blog/:slug"
+            element={
+              <BlogProvider>
+                <BlogPost />
+              </BlogProvider>
+            }
+          />
+          <Route
+            path="/terms-of-use"
+            element={
+              <TermsProvider>
+                <Terms />
+              </TermsProvider>
+            }
+          />
+          <Route
+            path="/privacy-policy"
+            element={
+              <PrivacyProvider>
+                <Privacy />
+              </PrivacyProvider>
+            }
+          />
+        </Routes>
+        <Footer />
+      </NavProvider>
     </Router>
   );
 }

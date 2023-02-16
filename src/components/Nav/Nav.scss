@@ -29,25 +29,80 @@
     align-items: center;
     flex-direction: row;
 
-    li a {
-      color: $white;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 1px;
+    li {
+      cursor: pointer;
+      position: relative;
 
-      &:hover {
-        text-decoration: none;
-        color: $secondary-color;
+      .project {
+        background-color: $secondary-color;
+        color: $primary-color;
+
+        &.contact {
+          background-color: $white;
+        }
+        &:hover:not(.activeClass) {
+          color: $primary-color;
+        }
       }
 
-      &:focus {
-        color: $primary-color;
-        border-bottom: 3px solid $primary-color;
-        padding-bottom: 1.063rem;
-      }
+      button {
+        background: none;
+        border: none;
+        color: $white;
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 1.1px;
 
-      &.project {
-        color: $primary-color;
+        &.activeClass {
+          color: $secondary-color;
+        }
+
+        &.activeClass::before {
+          content: "";
+          position: absolute;
+          height: 1.3px;
+          width: 100%;
+          background-color: $secondary-color;
+          bottom: -5px;
+          left: 0;
+        }
+
+        &::before:not(.activeClass) {
+          content: "";
+          position: absolute;
+          cursor: pointer;
+          height: 1.3px;
+          width: 100%;
+          background-color: $primary-light;
+          left: 0;
+          bottom: -5px;
+          transform: scale(0, 1);
+          transition: transform 0.25s ease;
+          transform-origin: 0 100%;
+        }
+
+        &::before:not(.activeClass) {
+          transform: scale(1, 1);
+        }
+
+        &:hover:not(.activeClass) {
+          color: $primary-light;
+        }
+
+        // &:hover {
+        //   text-decoration: none;
+        //   color: $secondary-color;
+        // }
+
+        // &:focus {
+        //   color: $secondary-color;
+        //   border-bottom: 3px solid $primary-color;
+        //   padding-bottom: 1.063rem;
+        // }
+
+        // &.project {
+        //   color: $primary-color;
+        // }
       }
     }
   }
@@ -95,7 +150,7 @@
         color: $secondary-color;
       }
 
-      a {
+      button {
         font-size: 1.5rem;
         color: $white;
       }
@@ -108,7 +163,7 @@
     .navList {
       flex-direction: column;
 
-      li a:hover {
+      li button:hover {
         color: $primary-medium;
       }
 

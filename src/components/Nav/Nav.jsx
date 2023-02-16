@@ -1,23 +1,30 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import logo from "../../assets/heroLogo.png";
 import Navbar from "react-bootstrap/Navbar";
-import { NavLink, Link } from "react-router-dom";
-import ScrollHandler from "./ScrollHandle";
+import { NavLink } from "react-router-dom";
 import { ReactComponent as Bars } from "../../assets/bars.svg";
+import { NavContext } from "../../context/NavContext";
 import "./Nav.scss";
 
 export default function Nav() {
   const navRef = useRef();
+  const { activeLinkId } = useContext(NavContext);
+
+  const navOptions = ["services", "portfolio", "testimonials", "blog", "about"];
 
   const showNavBar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
 
-  const hideBars = () => {
-    navRef.current.setAttribute("class", "navbar-collapse collapse");
-  };
+  const handleClickNav = (title) => {
+    document
+      .getElementById(title.toLowerCase())
+      .scrollIntoView({ behavior: "smooth" });
 
-  const navOptions = ["services", "portfolio", "testimonials", "about", "blog"];
+    if (window.innerWidth < 900) {
+      navRef.current.setAttribute("class", "navbar-collapse collapse");
+    }
+  };
 
   return (
     <Navbar sticky="top">
@@ -35,27 +42,24 @@ export default function Nav() {
           >
             <ul className="navList">
               {navOptions.map((item, index) => (
-                <li key={index}>
-                  <ScrollHandler>
-                    <Link
-                      to={item === "blog" ? "/blog" : `/#${item}`}
-                      onClick={hideBars}
-                    >
-                      {item.toUpperCase()}
-                    </Link>
-                  </ScrollHandler>
+                <li key={item}>
+                  <button
+                    onClick={() => handleClickNav(item)}
+                    className={activeLinkId === item ? "activeClass" : ""}
+                  >
+                    {item.toUpperCase()}
+                  </button>
                 </li>
               ))}
               <li>
-                <ScrollHandler>
-                  <Link
-                    className="btn project"
-                    to="/#contact"
-                    onClick={hideBars}
-                  >
-                    START A PROJECT
-                  </Link>
-                </ScrollHandler>
+                <button
+                  onClick={() => handleClickNav("contact")}
+                  className={`btn project ${
+                    activeLinkId === "contact" ? "contact" : ""
+                  }`}
+                >
+                  START A PROJECT
+                </button>
               </li>
             </ul>
             <button
