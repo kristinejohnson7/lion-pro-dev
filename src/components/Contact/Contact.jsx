@@ -3,6 +3,7 @@ import ContactCard from "./ContactCard";
 import s from "./Contact.module.scss";
 import Header from "../Header/Header";
 import { useNav } from "../../hooks/useNav";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const ContactFormLazy = lazy(() => import("./ContactForm"));
 
@@ -39,28 +40,30 @@ export default function Contact() {
 
   return (
     <section id="contact" className={s.contact} ref={contactRef}>
-      <div className={`${s.contactContainer} container`}>
-        <div className={s.getInTouch}>
-          <Header title="Get In Touch" variant="light" />
-          <p className={s.getInTouchIntro}>
-            Lets discuss your project and give you some inspiration, and see if
-            we can work together.
-          </p>
-          <div className={s.contactCardContainer}>
-            {contactData.map((item, index) => {
-              const { title, details } = item;
-              return (
-                <div key={index}>
-                  <ContactCard title={title} details={details} />
-                </div>
-              );
-            })}
+      <LazyLoadComponent>
+        <div className={`${s.contactContainer} container`}>
+          <div className={s.getInTouch}>
+            <Header title="Get In Touch" variant="light" />
+            <p className={s.getInTouchIntro}>
+              Lets discuss your project and give you some inspiration, and see
+              if we can work together.
+            </p>
+            <div className={s.contactCardContainer}>
+              {contactData.map((item, index) => {
+                const { title, details } = item;
+                return (
+                  <div key={index}>
+                    <ContactCard title={title} details={details} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className={s.formContainer}>
+            <ContactFormLazy />
           </div>
         </div>
-        <div className={s.formContainer}>
-          <ContactFormLazy />
-        </div>
-      </div>
+      </LazyLoadComponent>
     </section>
   );
 }
