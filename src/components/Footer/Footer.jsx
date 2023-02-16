@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../../assets/footerlogo.png";
 import { Link } from "react-router-dom";
 import HubspotForm from "../HubspotForm/HubspotForm";
-import ScrollHandler from "../Nav/ScrollHandle";
 import s from "./Footer.module.scss";
 import { ReactComponent as Instagram } from "../../assets/instagram.svg";
 import { ReactComponent as TikTok } from "../../assets/tiktok.svg";
@@ -12,15 +11,19 @@ import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 export default function Footer() {
   const usefulLinks = [
-    { to: "/", title: "Home", key: 1 },
-    { to: "/#about", title: "About", key: 2 },
-    { to: "/#services", title: "Services", key: 3 },
-    { to: "/#portfolio", title: "Portfolio", key: 4 },
-    { to: "/blog", title: "Blog", key: 5 },
-    { to: "/#contact", title: "Contact", key: 6 },
+    { to: "home", title: "Home", key: 1 },
+    { to: "about", title: "About", key: 2 },
+    { to: "services", title: "Services", key: 3 },
+    { to: "portfolio", title: "Portfolio", key: 4 },
+    { to: "blog", title: "Blog", key: 5 },
+    { to: "contact", title: "Contact", key: 6 },
   ];
 
   const date = new Date().getFullYear();
+
+  const handleClick = (title) => {
+    document.getElementById(title).scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <footer>
@@ -74,13 +77,9 @@ export default function Footer() {
               <h4>Useful Links</h4>
               <ul>
                 {usefulLinks.map((link) => (
-                  <li key={link.key}>
-                    <ScrollHandler>
-                      <Link to={link.to}>
-                        <AngleRight className="icon" width="13px" />
-                        {link.title}
-                      </Link>
-                    </ScrollHandler>
+                  <li key={link.key} onClick={() => handleClick(link.to)}>
+                    <AngleRight className="icon" width="13px" />
+                    {link.title}
                   </li>
                 ))}
               </ul>
