@@ -31,54 +31,56 @@ export default function Services() {
 
   return (
     <section id="services" ref={servicesRef}>
-      <div className={s.servicesContainer}>
-        <div className={s.servicesCardWrapper}>
-          {services.map((item) => {
-            const { id, title, featuredPicture, icon } = item;
-            return (
-              <div
-                key={id}
-                className={`${s.serviceCard} grow`}
-                onClick={(e) => {
-                  handleDisplayService(e, id);
-                }}
-              >
-                <div className={s.cardHeaderImage}>
-                  <LazyLoadImage src={featuredPicture} alt="services" />
+      <LazyLoadComponent>
+        <div className={s.servicesContainer}>
+          <div className={s.servicesCardWrapper}>
+            {services.map((item) => {
+              const { id, title, featuredPicture, icon } = item;
+              return (
+                <div
+                  key={id}
+                  className={`${s.serviceCard} grow`}
+                  onClick={(e) => {
+                    handleDisplayService(e, id);
+                  }}
+                >
+                  <div className={s.cardHeaderImage}>
+                    <LazyLoadImage src={featuredPicture} alt="services" />
+                  </div>
+                  <div className={s.cardIcon}>
+                    <LazyLoadImage src={icon} alt="services icon" />
+                  </div>
+                  <div className={s.cardText}>
+                    <h3>{title.toUpperCase()}</h3>
+                  </div>
                 </div>
-                <div className={s.cardIcon}>
-                  <LazyLoadImage src={icon} alt="services icon" />
-                </div>
-                <div className={s.cardText}>
-                  <h3>{title.toUpperCase()}</h3>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <h2>
+            LEARN MORE ABOUT OUR <span>SERVICES</span>
+          </h2>
         </div>
-        <h2>
-          LEARN MORE ABOUT OUR <span>SERVICES</span>
-        </h2>
-      </div>
 
-      <AnimatePresence initial={false} exitBeforeEnter={true}>
-        {isOpen && (
-          <Modal>
-            <div className={s.servicesModal}>
-              <div className={s.modalImage}>
-                <button className="btn" onClick={() => setIsOpen(false)}>
-                  X
-                </button>
-                <img src={modalData.featuredPicture} alt="services" />
+        <AnimatePresence initial={false} exitBeforeEnter={true}>
+          {isOpen && (
+            <Modal>
+              <div className={s.servicesModal}>
+                <div className={s.modalImage}>
+                  <button className="btn" onClick={() => setIsOpen(false)}>
+                    X
+                  </button>
+                  <img src={modalData.featuredPicture} alt="services" />
+                </div>
+                <div className={s.modalText}>
+                  <h3>{modalData.title}</h3>
+                  <div>{modalData.description}</div>
+                </div>
               </div>
-              <div className={s.modalText}>
-                <h3>{modalData.title}</h3>
-                <div>{modalData.description}</div>
-              </div>
-            </div>
-          </Modal>
-        )}
-      </AnimatePresence>
+            </Modal>
+          )}
+        </AnimatePresence>
+      </LazyLoadComponent>
     </section>
   );
 }
