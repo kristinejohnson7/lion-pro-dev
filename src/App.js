@@ -10,15 +10,17 @@ import { PrivacyProvider } from "./context/privacy";
 import Terms from "./components/Terms/Terms";
 import Privacy from "./components/Privacy/Privacy";
 import "./sassStyles/_global.scss";
-import NavProvider from "./context/NavContext";
+import About from "./components/About/About";
+import { AboutProvider } from "./context/about";
 
 function App() {
   return (
     <Router>
-      <NavProvider>
+      <AboutProvider>
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route
             path="/blog"
             element={
@@ -53,7 +55,7 @@ function App() {
           />
         </Routes>
         <Footer />
-      </NavProvider>
+      </AboutProvider>
     </Router>
   );
 }

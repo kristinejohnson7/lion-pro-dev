@@ -9,14 +9,11 @@ import {
   LazyLoadComponent,
   LazyLoadImage,
 } from "react-lazy-load-image-component";
-import { useNav } from "../../hooks/useNav";
 
 export default function Portfolio() {
   const { portfolio } = useContext(portfolioContext);
   const [isOpen, setIsOpen] = useState(false);
   const [portfolioData, setPortfolioData] = useState(false);
-
-  const portfolioRef = useNav("portfolio");
 
   const handleDisplayItem = (e, id) => {
     const modalPage = portfolio.find((item) => item.id === id);
@@ -31,7 +28,7 @@ export default function Portfolio() {
   }, [isOpen]);
 
   return (
-    <section className={s.portfolioContainer} id="portfolio" ref={portfolioRef}>
+    <section className={s.portfolioContainer} id="portfolio">
       <LazyLoadComponent>
         <div className={s.portfolioHeader}>
           <Header title="Portfolio" variant="light" />

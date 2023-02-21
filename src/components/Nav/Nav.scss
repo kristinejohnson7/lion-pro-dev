@@ -45,64 +45,18 @@
         }
       }
 
-      button {
+      a {
         background: none;
         border: none;
         color: $white;
         cursor: pointer;
+        font-size: 14px;
         font-weight: 600;
         letter-spacing: 1.1px;
 
-        &.activeClass {
-          color: $secondary-color;
-        }
-
-        &.activeClass::before {
-          content: "";
-          position: absolute;
-          height: 1.3px;
-          width: 100%;
-          background-color: $secondary-color;
-          bottom: -5px;
-          left: 0;
-        }
-
-        &::before:not(.activeClass) {
-          content: "";
-          position: absolute;
-          cursor: pointer;
-          height: 1.3px;
-          width: 100%;
-          background-color: $primary-light;
-          left: 0;
-          bottom: -5px;
-          transform: scale(0, 1);
-          transition: transform 0.25s ease;
-          transform-origin: 0 100%;
-        }
-
-        &::before:not(.activeClass) {
-          transform: scale(1, 1);
-        }
-
-        &:hover:not(.activeClass) {
+        &:hover {
           color: $primary-light;
         }
-
-        // &:hover {
-        //   text-decoration: none;
-        //   color: $secondary-color;
-        // }
-
-        // &:focus {
-        //   color: $secondary-color;
-        //   border-bottom: 3px solid $primary-color;
-        //   padding-bottom: 1.063rem;
-        // }
-
-        // &.project {
-        //   color: $primary-color;
-        // }
       }
     }
   }
@@ -150,8 +104,8 @@
         color: $secondary-color;
       }
 
-      button {
-        font-size: 1.5rem;
+      a {
+        font-size: 1.2rem;
         color: $white;
       }
     }

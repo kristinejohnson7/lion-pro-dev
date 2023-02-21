@@ -11,7 +11,6 @@ import Header from "../Header/Header";
 import Modal from "../Modal/Modal";
 import defaultImg from "../../assets/defaultTest.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useNav } from "../../hooks/useNav";
 
 export default function Testimonials() {
   const { testimonials } = useContext(testimonialsContext);
@@ -19,7 +18,6 @@ export default function Testimonials() {
   const [isOpen, setIsOpen] = useState("");
 
   const ref = useRef();
-  const testimonialsRef = useNav("testimonials");
 
   const handleDisplayVideo = (e, video) => {
     setModalData(video);
@@ -47,7 +45,7 @@ export default function Testimonials() {
   }, [isOpen]);
 
   return (
-    <section id="testimonials" ref={testimonialsRef}>
+    <section id="testimonials">
       <div className="container">
         <Header title="Testimonials" variant="primary" />
         <Swiper

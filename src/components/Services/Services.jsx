@@ -8,14 +8,11 @@ import {
   LazyLoadComponent,
   LazyLoadImage,
 } from "react-lazy-load-image-component";
-import { useNav } from "../../hooks/useNav";
 
 export default function Services() {
   const { services } = useContext(servicesContext);
   const [modalData, setModalData] = useState("");
   const [isOpen, setIsOpen] = useState("");
-
-  const servicesRef = useNav("services");
 
   const handleDisplayService = (e, id) => {
     const modalPage = services.find((service) => service.id === id);
@@ -30,7 +27,7 @@ export default function Services() {
   }, [isOpen]);
 
   return (
-    <section id="services" ref={servicesRef}>
+    <section id="services">
       <LazyLoadComponent>
         <div className={s.servicesContainer}>
           <div className={s.servicesCardWrapper}>

@@ -5,11 +5,8 @@ import { AnimatePresence } from "framer-motion";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
 import Header from "../Header/Header";
 import s from "./About.module.scss";
-import {
-  LazyLoadComponent,
-  LazyLoadImage,
-} from "react-lazy-load-image-component";
-import { useNav } from "../../hooks/useNav";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import aboutImg from "../../assets/about.png";
 
 export default function About() {
   const { about } = useContext(aboutContext);
@@ -17,7 +14,6 @@ export default function About() {
   const [isOpen, setIsOpen] = useState("");
 
   const ref = useRef();
-  const aboutRef = useNav("about");
 
   const handleDisplayAbout = (e, id) => {
     const modalPage = about.find((service) => service.id === id);
@@ -46,48 +42,69 @@ export default function About() {
   }, [isOpen]);
 
   return (
-    <section id="about" ref={aboutRef}>
-      <LazyLoadComponent>
-        <Header title="Meet the Team" variant="primary" />
-        <div className={s.aboutContainer}>
-          {about.map((item) => {
-            const { id, name, picture } = item;
-            return (
-              <div
-                className={`${s.aboutCircleWrapper} grow`}
-                key={id}
-                onClick={(e) => {
-                  handleDisplayAbout(e, id);
-                }}
-              >
-                <div className={s.aboutCircle}>
-                  <LazyLoadImage src={picture} alt="about" />
-                </div>
-                <h5>{name}</h5>
-              </div>
-            );
-          })}
+    <section id="about" className={`${s.about} container`}>
+      <div className={s.aboutHeading}>
+        <LazyLoadImage src={aboutImg} alt="about" />
+        <div className={s.headingText}>
+          <Header title="About Lion Pro Dev" variant="primary" />
+          <p>
+            Our agency's core values are honesty, integrity, and
+            professionalism. We strive to maintain open and transparent
+            communication with our clients throughout the web development
+            process, ensuring that their input is valued and incorporated into
+            the final product. We take pride in building lasting relationships
+            with our clients and working together to achieve their online goals.{" "}
+          </p>
+          <p>
+            Whether you're a small start-up or a large corporation, our web
+            development agency has the skills and expertise to bring your vision
+            to life. We look forward to working with you and helping you achieve
+            success in the digital world.
+          </p>
         </div>
-        <AnimatePresence initial={false} exitBeforeEnter={true}>
-          {isOpen && (
-            <Modal>
-              <div className={s.aboutContent} ref={ref}>
-                <div className={s.aboutBtn}>
-                  <button className="btn" onClick={() => setIsOpen(false)}>
-                    X
-                  </button>
-                </div>
-                <div className={`modalText about ${s.text}`}>
-                  <h3>{modalData.name}</h3>
-                  <div>
-                    <RichTextToReact content={modalData.description} />
-                  </div>
+      </div>
+      <h1>
+        Meet our team of <span>creators, developers,</span> and{" "}
+        <span>problem solvers.</span>
+      </h1>
+      <div className={s.aboutContainer}>
+        {about.map((item) => {
+          const { id, name, picture } = item;
+          return (
+            <div
+              className={`${s.aboutCircleWrapper} grow`}
+              key={id}
+              onClick={(e) => {
+                handleDisplayAbout(e, id);
+              }}
+            >
+              <div className={s.aboutCircle}>
+                <LazyLoadImage src={picture} alt="about" />
+              </div>
+              <h5>{name}</h5>
+            </div>
+          );
+        })}
+      </div>
+      <AnimatePresence initial={false} exitBeforeEnter={true}>
+        {isOpen && (
+          <Modal>
+            <div className={s.aboutContent} ref={ref}>
+              <div className={s.aboutBtn}>
+                <button className="btn" onClick={() => setIsOpen(false)}>
+                  X
+                </button>
+              </div>
+              <div className={`modalText about ${s.text}`}>
+                <h3>{modalData.name}</h3>
+                <div>
+                  <RichTextToReact content={modalData.description} />
                 </div>
               </div>
-            </Modal>
-          )}
-        </AnimatePresence>
-      </LazyLoadComponent>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

@@ -7,13 +7,10 @@ import { ReactComponent as ArrowRight } from "../../assets/angle-right.svg";
 import { ReactComponent as ArrowDown } from "../../assets/angle-down.svg";
 import { ReactComponent as Gears } from "../../assets/gears.svg";
 import { ReactComponent as Testing } from "../../assets/testing.svg";
-import { useNav } from "../../hooks/useNav";
 
 export default function Process() {
-  const servicesRef = useNav("services");
-
   return (
-    <section id={s["process"]} ref={servicesRef}>
+    <section id={s["process"]}>
       <div className="container">
         <div className={s.header}>
           <Header title="The Process" />
