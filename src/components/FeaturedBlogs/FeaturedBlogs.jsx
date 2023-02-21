@@ -10,15 +10,12 @@ import {
   LazyLoadComponent,
   LazyLoadImage,
 } from "react-lazy-load-image-component";
-import { useNav } from "../../hooks/useNav";
 
 export default function FeaturedBlogs() {
   const { blog } = useContext(blogContext);
 
-  const blogRef = useNav("blog");
-
   return (
-    <section id="blog" className={s.featuredBlogs} ref={blogRef}>
+    <section id="blog" className={s.featuredBlogs}>
       <LazyLoadComponent>
         <div className="container">
           <div className={s.blogsTitle}>

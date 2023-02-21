@@ -3,17 +3,14 @@ import HeroBanner from "./HeroBanner";
 import s from "./Hero.module.scss";
 import heroImage from "../../assets/heroAnimate.svg";
 import Typewriter from "typewriter-effect";
-import { useNav } from "../../hooks/useNav";
 
 function Hero() {
-  const heroRef = useNav("home");
-
   const handleClick = () => {
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="home" className={s.box} ref={heroRef}>
+    <section id="home" className={s.box}>
       <svg
         className={s.svg}
         xmlns="http://www.w3.org/2000/svg"

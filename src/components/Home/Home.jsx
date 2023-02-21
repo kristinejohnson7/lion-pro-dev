@@ -8,8 +8,6 @@ import { BlogProvider } from "../../context/blogs";
 import Portfolio from "../Portfolio/Portfolio";
 import Contact from "../Contact/Contact";
 import FeaturedBlogs from "../FeaturedBlogs/FeaturedBlogs";
-import { AboutProvider } from "../../context/about";
-import About from "../About/About";
 import s from "./Home.module.scss";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Testimonials from "../Testimonials/Testimonials";
@@ -43,9 +41,6 @@ export default function Home() {
       <BlogProvider isFeatured>
         <FeaturedBlogs />
       </BlogProvider>
-      <AboutProvider>
-        <About />
-      </AboutProvider>
       <Contact />
     </>
   );

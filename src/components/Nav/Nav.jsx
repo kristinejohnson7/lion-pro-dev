@@ -1,30 +1,24 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef } from "react";
 import logo from "../../assets/heroLogo.png";
+import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as Bars } from "../../assets/bars.svg";
-import { NavContext } from "../../context/NavContext";
 import "./Nav.scss";
+import ScrollHandler from "./ScrollHandle";
 
 export default function Nav() {
   const navRef = useRef();
-  const { activeLinkId } = useContext(NavContext);
-
-  const navOptions = ["services", "portfolio", "testimonials", "blog", "about"];
 
   const showNavBar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
 
-  const handleClickNav = (title) => {
-    document
-      .getElementById(title.toLowerCase())
-      .scrollIntoView({ behavior: "smooth" });
-
-    if (window.innerWidth < 900) {
-      navRef.current.setAttribute("class", "navbar-collapse collapse");
-    }
+  const hideBars = () => {
+    navRef.current.setAttribute("class", "navbar-collapse collapse");
   };
+
+  const navOptions = ["services", "portfolio", "testimonials", "blog"];
 
   return (
     <Navbar sticky="top">
@@ -41,25 +35,33 @@ export default function Nav() {
             id="navbarCollapse"
           >
             <ul className="navList">
-              {navOptions.map((item, index) => (
-                <li key={item}>
-                  <button
-                    onClick={() => handleClickNav(item)}
-                    className={activeLinkId === item ? "activeClass" : ""}
-                  >
-                    {item.toUpperCase()}
-                  </button>
+              {navOptions.map((item) => (
+                <li>
+                  <ScrollHandler>
+                    <Link
+                      to={item === "blog" ? "/blog" : `/#${item}`}
+                      onClick={hideBars}
+                    >
+                      {item.toUpperCase()}
+                    </Link>
+                  </ScrollHandler>
                 </li>
               ))}
               <li>
-                <button
-                  onClick={() => handleClickNav("contact")}
-                  className={`btn project ${
-                    activeLinkId === "contact" ? "contact" : ""
-                  }`}
-                >
-                  START A PROJECT
-                </button>
+                <Link to={"/about"} onClick={hideBars}>
+                  ABOUT
+                </Link>
+              </li>
+              <li>
+                <ScrollHandler>
+                  <Link
+                    className="btn project"
+                    to="/#contact"
+                    onClick={hideBars}
+                  >
+                    START A PROJECT
+                  </Link>
+                </ScrollHandler>
               </li>
             </ul>
             <button
@@ -75,7 +77,7 @@ export default function Nav() {
             aria-label="Open Navigation"
             onClick={showNavBar}
           >
-            <Bars className="icon" width="20px" path="white" />
+            <Bars className="icon" width="20px" />
           </button>
         </div>
       </header>

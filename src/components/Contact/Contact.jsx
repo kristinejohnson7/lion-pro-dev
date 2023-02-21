@@ -2,7 +2,6 @@ import React, { lazy, useState, useEffect, useRef } from "react";
 import ContactCard from "./ContactCard";
 import s from "./Contact.module.scss";
 import Header from "../Header/Header";
-import { useNav } from "../../hooks/useNav";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const ContactFormLazy = lazy(() => import("./ContactForm"));
@@ -10,7 +9,6 @@ const ContactFormLazy = lazy(() => import("./ContactForm"));
 export default function Contact() {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
-  const contactRef = useNav("contact");
 
   useEffect(() => {
     isOpen
@@ -39,7 +37,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className={s.contact} ref={contactRef}>
+    <section id="contact" className={s.contact}>
       <LazyLoadComponent>
         <div className={`${s.contactContainer} container`}>
           <div className={s.getInTouch}>
