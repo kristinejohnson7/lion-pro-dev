@@ -1,7 +1,7 @@
 @import "/src/sassStyles/variables";
 
 #process {
-  background-color: #f1f1f1;
+  background-color: lightgrey;
   margin-bottom: 0;
   min-height: 500px;
   padding: $size-60 0;
@@ -11,10 +11,6 @@
 
     h3 {
       padding-top: 0;
-    }
-
-    .processIntro {
-      margin-bottom: $size-30;
     }
   }
 
@@ -71,6 +67,10 @@
       position: relative;
       animation: heart-pulse 1.5s ease-out alternate;
       animation-iteration-count: infinite;
+
+      svg {
+        color: $primary-color;
+      }
 
       .down {
         opacity: 0;
