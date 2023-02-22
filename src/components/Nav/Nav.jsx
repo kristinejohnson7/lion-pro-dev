@@ -18,7 +18,7 @@ export default function Nav() {
     navRef.current.setAttribute("class", "navbar-collapse collapse");
   };
 
-  const navOptions = ["services", "portfolio", "testimonials", "blog"];
+  const navOptions = ["services", "testimonials", "blog"];
 
   return (
     <Navbar sticky="top">

@@ -14,7 +14,6 @@ export default function Footer() {
     { to: "home", title: "Home", key: 1 },
     { to: "about", title: "About", key: 2 },
     { to: "services", title: "Services", key: 3 },
-    { to: "portfolio", title: "Portfolio", key: 4 },
     { to: "blog", title: "Blog", key: 5 },
     { to: "contact", title: "Contact", key: 6 },
   ];
