@@ -1,167 +1,138 @@
 @import "/src/sassStyles/variables";
 @import "/src/sassStyles/global";
 
-.servicesContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: $size-100;
-  padding: $size-30 5.625rem;
-  gap: 1rem;
+.services {
+  background: $primary-color;
+  padding-bottom: 7rem;
 
-  h2 {
-    font-size: 3.5rem;
-    color: #061f35;
-    font-family: $highlight-font;
-
-    span {
-      color: $primary-color;
-    }
+  h3 {
+    padding-top: 6rem;
   }
 
-  .servicesCardWrapper {
+  hr {
+    border: 2px solid $secondary-color;
+    margin: 1.5rem auto 4rem;
+    width: 200px;
+  }
+
+  .cardWrapper {
     display: flex;
-    gap: 1.063rem;
-    flex-wrap: wrap;
-    max-width: 46rem;
+    gap: 2rem;
+    justify-content: center;
 
-    .serviceCard {
-      color: #061f35;
-      border: 1px solid lightgrey;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-        rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-      width: 13.75rem;
-      display: flex;
-      flex-direction: column;
-      font-size: $size-16;
+    .card {
+      background-color: $white;
+      border-radius: 7px;
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+      color: $base-color;
       cursor: pointer;
-      gap: $size-10;
+      padding: 2rem;
+      position: relative;
+      text-align: center;
+      width: 275px;
 
-      &:hover {
-        border: 2px solid $secondary-color;
-      }
+      &.activeBox {
+        scale: 1.09;
 
-      h3 {
-        color: $primary-color;
-        text-align: left;
-      }
-
-      .cardHeaderImage {
-        width: 100%;
-        padding: 0;
-        overflow: hidden;
-
-        img {
-          height: 11.25rem;
-          object-fit: cover;
-        }
-      }
-
-      .cardIcon {
-        position: relative;
-
-        img {
-          width: $size-80;
-          background-color: rgba(255, 198, 41, 0.9);
-          border-radius: $size-10;
-          padding: $size-5;
+        :after {
+          content: "";
           position: absolute;
-          left: 1.063rem;
-          top: -3.125rem;
+          left: 0;
+          right: 0;
+          bottom: -45px;
+          margin: 0 auto;
+          width: 0;
+          height: 0;
+          border-top: 55px solid $white;
+          border-left: 50px solid transparent;
+          border-right: 50px solid transparent;
         }
       }
 
-      .cardText {
-        margin: 4rem 0 $size-20;
-        text-align: left;
-        padding: 0 $size-20;
+      &:not(.activeBox):hover {
+        scale: 1.05;
+        transition: ease-in-out 0.3s;
+      }
 
-        h3 {
-          font-size: 1.5rem;
+      p span {
+        font-weight: 700;
+      }
+
+      .img {
+        margin: 0 auto;
+        width: 130px;
+
+        .idea {
+          width: 130px;
+          height: 135px;
+        }
+
+        .refine {
+          width: 100px;
+          height: 140px;
+        }
+
+        .data {
+          padding: 0.75rem;
+          height: 137px;
         }
       }
     }
   }
 
-  @media only screen and (max-width: 900px) {
-    flex-wrap: wrap;
-    gap: $size-20;
+  .portfolioWrapper {
+    border: 2px solid $white;
+    border-radius: 7px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    max-width: 910px;
+    padding: 0.5rem;
+    width: 100%;
 
-    h2 {
-      text-align: center;
-      margin-top: $size-20;
-    }
+    .portfolioCard {
+      background-color: $white;
+      border-radius: 7px;
+      padding: 1.5rem;
+      width: 100%;
+      height: 100%;
 
-    .servicesCardWrapper {
-      justify-content: center;
-    }
-  }
-
-  @media only screen and (max-width: 640px) {
-    .servicesCardWrapper .serviceCard {
-      width: 19rem;
-    }
-  }
-}
-
-.servicesModal {
-  background: $white;
-  width: 45%;
-  max-height: calc(100vh - 20vh);
-  overflow: auto;
-  border-radius: $size-10;
-  max-width: 700px;
-
-  .modalImage {
-    position: relative;
-
-    img {
-      max-height: 250px;
-      object-fit: cover;
-    }
-
-    button {
-      position: absolute;
-      top: 1.65rem;
-      right: $size-30;
-
-      &:hover {
-        background-color: $secondary-color;
+      h2,
+      p {
+        margin-bottom: 1rem;
       }
     }
   }
 
-  .modalText {
-    padding: $size-30;
-    text-align: left;
-    margin-bottom: $size-40;
+  @media screen and (max-width: 950px) {
+    .cardWrapper .card {
+      width: 200px;
+    }
+  }
 
+  .portfolioWrapper {
+    height: 350px;
+    width: 90%;
+  }
+
+  @media screen and (max-width: 720px) {
     h3 {
-      color: $primary-color;
-      font-size: 2rem;
-      margin-bottom: $size-16;
-      text-align: center;
-      padding-top: 0;
+      line-height: 2.9rem;
+      font-size: 2.5rem;
+      margin: 0.5rem;
     }
 
-    &.about {
-      margin-top: $size-50;
+    .cardWrapper {
+      display: none;
     }
-  }
 
-  @media only screen and (max-width: 950px) {
-    width: 65%;
-
-    .modalText {
-      padding: $size-20 1.9rem;
-
-      h3 {
-        font-size: 2rem;
-      }
+    .portfolioWrapper {
+      height: 100%;
+      margin-top: 3rem;
     }
-  }
-
-  @media only screen and (max-width: 650px) {
-    width: 82%;
   }
 }

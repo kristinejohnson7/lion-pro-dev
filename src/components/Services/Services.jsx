@@ -1,83 +1,117 @@
-import React, { useContext, useState, useEffect } from "react";
-import servicesContext from "../../context/services";
-import { AnimatePresence } from "framer-motion";
-import Modal from "../Modal/Modal";
+import React, { useState } from "react";
 import s from "./Services.module.scss";
-import "../../animation.scss";
-import {
-  LazyLoadComponent,
-  LazyLoadImage,
-} from "react-lazy-load-image-component";
+import Header from "../Header/Header";
+import idea from "../../assets/idea.svg";
+import data from "../../assets/data.svg";
+import refine from "../../assets/refine.svg";
+import { content } from "../../content/services";
+import { useEffect } from "react";
 
 export default function Services() {
-  const { services } = useContext(servicesContext);
-  const [modalData, setModalData] = useState("");
-  const [isOpen, setIsOpen] = useState("");
+  const [active, setActive] = useState({
+    type: content[0].type,
+    paragraph: content[0].paragraph,
+    header: content[0].header,
+  });
 
-  const handleDisplayService = (e, id) => {
-    const modalPage = services.find((service) => service.id === id);
-    setModalData(modalPage);
-    setIsOpen(true);
+  useEffect(() => {}, [active, window.innerWidth]);
+
+  const handleContactClick = () => {
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    isOpen
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "unset");
-  }, [isOpen]);
-
   return (
-    <section id="services">
-      <LazyLoadComponent>
-        <div className={s.servicesContainer}>
-          <div className={s.servicesCardWrapper}>
-            {services.map((item) => {
-              const { id, title, featuredPicture, icon } = item;
+    <section id="services" className={s.services}>
+      <div className={`${s.servicesWrapper} container`}>
+        <Header title="What challenge are you facing?" variant="light" />
+        <hr />
+        <div className={s.cardWrapper}>
+          <div
+            className={`${s.card} ${active.type === "idea" ? s.activeBox : ""}`}
+            onClick={() =>
+              setActive({
+                type: content[0].type,
+                paragraph: content[0].paragraph,
+                header: content[0].header,
+              })
+            }
+          >
+            <div className={s.img}>
+              <img src={idea} className={s.idea} alt="light bulb icon" />
+            </div>
+            <p>
+              I have an <span>app idea</span> but need help making it come to
+              life
+            </p>
+          </div>
+          <div
+            className={`${s.card} ${
+              active.type === "refine" ? s.activeBox : ""
+            }`}
+            onClick={() =>
+              setActive({
+                type: content[1].type,
+                paragraph: content[1].paragraph,
+                header: content[1].header,
+              })
+            }
+          >
+            <div className={s.img}>
+              <img src={refine} className={s.refine} alt="refine icon" />
+            </div>
+            <p>
+              I have an <span>existing product</span> that needs to be refined
+            </p>
+          </div>
+          <div
+            className={`${s.card} ${active.type === "data" ? s.activeBox : ""}`}
+            onClick={() =>
+              setActive({
+                type: content[2].type,
+                paragraph: content[2].paragraph,
+                header: content[2].header,
+              })
+            }
+          >
+            <div className={s.img}>
+              <img src={data} className={s.data} alt="database icon" />
+            </div>
+            <p>
+              I need help turning <span>my data</span> into something valuable.
+            </p>
+          </div>
+        </div>
+        {window.innerWidth > 720 ? (
+          <div className={s.portfolioWrapper}>
+            <div className={s.portfolioCard}>
+              <h2>{active.header}</h2>
+              <p>{active.paragraph}</p>
+              <button onClick={handleContactClick} className="btn project">
+                LET'S BUILD SOMETHING
+              </button>
+            </div>
+          </div>
+        ) : (
+          <>
+            {content.map((item) => {
               return (
-                <div
-                  key={id}
-                  className={`${s.serviceCard} grow`}
-                  onClick={(e) => {
-                    handleDisplayService(e, id);
-                  }}
-                >
-                  <div className={s.cardHeaderImage}>
-                    <LazyLoadImage src={featuredPicture} alt="services" />
-                  </div>
-                  <div className={s.cardIcon}>
-                    <LazyLoadImage src={icon} alt="services icon" />
-                  </div>
-                  <div className={s.cardText}>
-                    <h3>{title.toUpperCase()}</h3>
+                <div className={s.portfolioWrapper}>
+                  <div className={s.portfolioCard}>
+                    <h2>{item.header}</h2>
+                    <p>{item.paragraph}</p>
+                    <button
+                      onClick={handleContactClick}
+                      className="btn project"
+                    >
+                      LET'S BUILD SOMETHING
+                    </button>
                   </div>
                 </div>
               );
             })}
-          </div>
-          <h2>
-            LEARN MORE ABOUT OUR <span>SERVICES</span>
-          </h2>
-        </div>
-
-        <AnimatePresence initial={false} exitBeforeEnter={true}>
-          {isOpen && (
-            <Modal>
-              <div className={s.servicesModal}>
-                <div className={s.modalImage}>
-                  <button className="btn" onClick={() => setIsOpen(false)}>
-                    X
-                  </button>
-                  <img src={modalData.featuredPicture} alt="services" />
-                </div>
-                <div className={s.modalText}>
-                  <h3>{modalData.title}</h3>
-                  <div>{modalData.description}</div>
-                </div>
-              </div>
-            </Modal>
-          )}
-        </AnimatePresence>
-      </LazyLoadComponent>
+          </>
+        )}
+      </div>
     </section>
   );
 }

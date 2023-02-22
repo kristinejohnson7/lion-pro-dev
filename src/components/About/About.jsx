@@ -50,13 +50,13 @@ export default function About() {
           <p>
             Our agency's core values are honesty, integrity, and
             professionalism. We strive to maintain open and transparent
-            communication with our clients throughout the web development
-            process, ensuring that their input is valued and incorporated into
-            the final product. We take pride in building lasting relationships
-            with our clients and working together to achieve their online goals.{" "}
+            communication with our clients throughout the development process,
+            ensuring that their input is valued and incorporated into the final
+            product. We take pride in building lasting relationships with our
+            clients and working together to achieve their online goals.
           </p>
           <p>
-            Whether you're a small start-up or a large corporation, our web
+            Whether you're a small start-up or a large corporation, our
             development agency has the skills and expertise to bring your vision
             to life. We look forward to working with you and helping you achieve
             success in the digital world.

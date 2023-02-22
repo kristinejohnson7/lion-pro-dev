@@ -1,4 +1,5 @@
-/* bebas-neue-regular - latin */
+@import "/src/sassStyles/variables";
+
 @font-face {
   font-family: "Bebas Neue";
   font-style: normal;
@@ -33,6 +34,10 @@ body {
 
 .icon path {
   fill: currentColor;
+}
+
+footer a .icon {
+  color: $primary-color;
 }
 
 #SOIDIV_InitialProjectCall {

@@ -1,7 +1,6 @@
 import React from "react";
 import Hero from "../Hero/Hero";
 import { HomePageProvider } from "../../context/home-page";
-import { ServicesProvider } from "../../context/services";
 import Services from "../Services/Services";
 import { PortfolioProvider } from "../../context/portfolio";
 import { BlogProvider } from "../../context/blogs";
@@ -28,13 +27,11 @@ export default function Home() {
       <HomePageProvider>
         <Hero />
       </HomePageProvider>
-      <ServicesProvider>
-        <Services />
-      </ServicesProvider>
+      <Services />
       <Process />
-      <PortfolioProvider>
+      {/* <PortfolioProvider>
         <Portfolio />
-      </PortfolioProvider>
+      </PortfolioProvider> */}
       <TestimonialsProvider>
         <Testimonials />
       </TestimonialsProvider>

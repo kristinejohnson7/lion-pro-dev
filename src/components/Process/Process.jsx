@@ -13,7 +13,7 @@ export default function Process() {
     <section id={s["process"]}>
       <div className="container">
         <div className={s.header}>
-          <Header title="The Process" />
+          <Header title="How It Works" />
         </div>
         <div className={s.processWrapper}>
           <div className={s.processItem}>
@@ -23,8 +23,8 @@ export default function Process() {
             <div className={s.content}>
               <h4>Development Strategy</h4>
               <p>
-                An effective app strategy includes competitor research, business
-                goals, and a product roadmap.
+                First, we'll develop an effective app strategy includes
+                competitor research, business goals, and a product roadmap.
               </p>
             </div>
           </div>
@@ -39,8 +39,8 @@ export default function Process() {
             <div className={s.content}>
               <h4>User Experience</h4>
               <p>
-                Our app designers create app designs following the best
-                practices and app store UI guidelines.
+                Next, you will receive designs following the best practices and
+                app store UI guidelines.
               </p>
             </div>
           </div>
