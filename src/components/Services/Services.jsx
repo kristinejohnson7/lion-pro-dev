@@ -61,7 +61,7 @@ export default function Services() {
             );
           })}
         </div>
-        {window.innerWidth > 720 ? (
+        {window.innerWidth > 815 ? (
           <div className={s.portfolioWrapper}>
             <div className={s.portfolioCard}>
               <div className={s.portfolioCardDescription}>
