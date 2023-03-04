@@ -86,7 +86,7 @@
   .portfolioWrapper {
     border: 2px solid $white;
     border-radius: 7px;
-    height: 300px;
+    height: 450px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5rem;
@@ -97,13 +97,53 @@
     .portfolioCard {
       background-color: $white;
       border-radius: 7px;
+      display: flex;
+      gap: 1.5rem;
       padding: 1.5rem;
       width: 100%;
       height: 100%;
 
-      h2,
-      p {
-        margin-bottom: 1rem;
+      .portfolioCardDescription {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0.7rem;
+
+        h2 {
+          color: $primary-color;
+          font-size: 1.2rem;
+        }
+
+        h2,
+        p {
+          margin-bottom: 1rem;
+        }
+
+        .portfolioCTA {
+          background: rgba(211, 211, 211, 0.7);
+          border-radius: 7px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          margin-left: auto;
+          margin-top: 1.7rem;
+          padding: 1rem;
+          text-align: right;
+
+          p {
+            margin-bottom: 0.5rem;
+            margin-left: auto;
+            max-width: 80%;
+            text-align: right;
+          }
+
+          a {
+            color: $primary-color;
+            font-weight: 700;
+          }
+        }
+      }
+
+      img {
+        width: 200px;
       }
     }
   }
@@ -112,11 +152,6 @@
     .cardWrapper .card {
       width: 200px;
     }
-  }
-
-  .portfolioWrapper {
-    height: 350px;
-    width: 90%;
   }
 
   @media screen and (max-width: 720px) {
