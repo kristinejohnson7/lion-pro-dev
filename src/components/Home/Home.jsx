@@ -2,9 +2,7 @@ import React from "react";
 import Hero from "../Hero/Hero";
 import { HomePageProvider } from "../../context/home-page";
 import Services from "../Services/Services";
-import { PortfolioProvider } from "../../context/portfolio";
 import { BlogProvider } from "../../context/blogs";
-import Portfolio from "../Portfolio/Portfolio";
 import Contact from "../Contact/Contact";
 import FeaturedBlogs from "../FeaturedBlogs/FeaturedBlogs";
 import s from "./Home.module.scss";
@@ -29,9 +27,6 @@ export default function Home() {
       </HomePageProvider>
       <Services />
       <Process />
-      {/* <PortfolioProvider>
-        <Portfolio />
-      </PortfolioProvider> */}
       <TestimonialsProvider>
         <Testimonials />
       </TestimonialsProvider>

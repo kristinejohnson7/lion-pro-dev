@@ -53,6 +53,11 @@ export default function Nav() {
                 </Link>
               </li>
               <li>
+                <Link to={"/projects"} onClick={hideBars}>
+                  PROJECTS
+                </Link>
+              </li>
+              <li>
                 <ScrollHandler>
                   <Link
                     className="btn project"

@@ -9,6 +9,8 @@ import dataPortfolio from "../../assets/dataPortfolio.png";
 import refinePortfolio from "../../assets/refinePortfolio.png";
 import { content } from "../../content/services";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Services() {
   const [active, setActive] = useState({
@@ -74,10 +76,10 @@ export default function Services() {
                 </div>
                 <div className={s.portfolioCTA}>
                   <p>{active.portfolio}</p>
-                  {/* <a href="#">Learn more about our work</a> */}
+                  <Link to="/projects">Learn more about our work</Link>
                 </div>
               </div>
-              <img
+              <LazyLoadImage
                 src={
                   active.type === "idea"
                     ? ideaPortfolio

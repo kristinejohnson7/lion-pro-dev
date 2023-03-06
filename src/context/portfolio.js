@@ -7,6 +7,7 @@ const { Provider } = context;
 
 export const PortfolioProvider = ({ children }) => {
   const [portfolio, setPortfolio] = useState([]);
+  const [singlePortfolio, setSinglePortfolio] = useState({});
   const loadingRef = useRef(false);
 
   const cleanPortfolioInfo = useCallback((rawData) => {
@@ -15,21 +16,36 @@ export const PortfolioProvider = ({ children }) => {
       const { id } = sys;
       const title = fields.title;
       const description = fields.description;
-      const pictures = fields.photos;
-      const featuredPicture = fields.headerImage.fields.file.url;
+      const slug = fields.slug;
+      const cardImage = fields.cardImage;
+      const content = fields.content;
       const youTubeEmbedId = fields.youTubeVideoId;
       const updatedPortfolio = {
         id,
         title,
         description,
-        pictures,
-        featuredPicture,
+        cardImage,
+        content,
+        slug,
         youTubeEmbedId,
       };
       return updatedPortfolio;
     });
     setPortfolio(cleanPortfolio);
   }, []);
+
+  const getSinglePortfolio = async (slug) => {
+    try {
+      const response = await client.getEntries({
+        content_type: "lpdPortfolio",
+        "fields.slug": slug,
+      });
+      const portfolio = response.items[0];
+      setSinglePortfolio(portfolio.fields);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     const getPortfolioInfo = async () => {
@@ -57,6 +73,8 @@ export const PortfolioProvider = ({ children }) => {
     <Provider
       value={{
         portfolio,
+        singlePortfolio,
+        getSinglePortfolio,
       }}
       children={children}
     />
