@@ -12,6 +12,9 @@ import Privacy from "./components/Privacy/Privacy";
 import "./sassStyles/_global.scss";
 import About from "./components/About/About";
 import { AboutProvider } from "./context/about";
+import Portfolio from "./components/Portfolio/Portfolio";
+import { PortfolioProvider } from "./context/portfolio";
+import PortfolioItem from "./components/Portfolio/PortfolioItem";
 
 function App() {
   return (
@@ -21,6 +24,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route
+            path="/projects"
+            element={
+              <PortfolioProvider>
+                <Portfolio />
+              </PortfolioProvider>
+            }
+          />
           <Route
             path="/blog"
             element={
@@ -35,6 +46,14 @@ function App() {
               <BlogProvider>
                 <BlogPost />
               </BlogProvider>
+            }
+          />
+          <Route
+            path="/project/:slug"
+            element={
+              <PortfolioProvider>
+                <PortfolioItem />
+              </PortfolioProvider>
             }
           />
           <Route

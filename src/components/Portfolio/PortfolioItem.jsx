@@ -1,61 +1,71 @@
-import React from "react";
+import React, { useEffect, useContext, useState, useRef } from "react";
 import s from "./PortfolioItem.module.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import portfolioContext from "../../context/portfolio";
+import Header from "../Header/Header";
+import RichTextToReact from "../RichTextToReact/RichTextToReact";
+import { AnimatePresence } from "framer-motion";
+import Modal from "../Modal/Modal";
 
-export default function PortfolioItem({ images, handleClose, item }) {
-  const { title, pictures, description, youTubeEmbedId } = item;
-  const filteredPictures = pictures.map((picture) => {
-    const id = picture.sys.id;
-    const image = picture.fields?.file.url;
-    return { id: id, image: image };
-  });
+export default function PortfolioItem() {
+  const { singlePortfolio, getSinglePortfolio } = useContext(portfolioContext);
+  const { slug } = useParams();
+  const [isOpen, setIsOpen] = useState("");
+  const ref = useRef();
 
-  return (
-    <div className={s.itemWrapper}>
-      <div className={s.itemContent}>
-        <button className={`${s.portfolioBtn} btn`} onClick={handleClose}>
-          X
-        </button>
-        <div className={s.portfolioTitle}>{title}</div>
-        <p className={s.portfolioDescription}>{description}</p>
-        <iframe
-          width="403"
-          height="280"
-          src={`https://www.youtube.com/embed/${youTubeEmbedId}`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-        />
-        <div>
-          <Link
-            className={`btn ${s.startProjectBtn}`}
-            to="/#contact"
-            onClick={handleClose}
-          >
-            START YOUR PROJECT
-          </Link>
+  const { title, youTubeVideoId, portfolioItemHeaderImage, content } =
+    singlePortfolio;
+
+  useEffect(() => {
+    if (slug) {
+      getSinglePortfolio(slug);
+    }
+  }, [slug]);
+
+  return slug ? (
+    <>
+      <section className={s.itemWrapper}>
+        <div className={s.itemHero}>
+          <img
+            src={portfolioItemHeaderImage?.fields.file.url}
+            alt="project hero"
+          />
+
+          <div className={s.itemContent}>
+            <Header title={title} variant="primary" />
+            <RichTextToReact content={content} />
+            {youTubeVideoId && (
+              <div className={s.video} onClick={() => setIsOpen(true)}>
+                View video testimonial
+              </div>
+            )}
+            <div>
+              <Link className={`btn ${s.startProjectBtn}`} to="/#contact">
+                START YOUR PROJECT
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-      <Swiper
-        pagination={{
-          type: "progressbar",
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {filteredPictures.map((item) => (
-          <SwiperSlide key={item.id}>
-            <img src={item.image} alt="blog" />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+      </section>
+      <AnimatePresence initial={false} exitBeforeEnter={true}>
+        {isOpen && (
+          <Modal>
+            <div className="testimonialIframe" ref={ref}>
+              <button className="btn" onClick={() => setIsOpen(false)}>
+                X
+              </button>
+              <iframe
+                title="title"
+                src={youTubeVideoId}
+                frameBorder="0"
+              ></iframe>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
+    </>
+  ) : (
+    <div>Error</div>
   );
 }

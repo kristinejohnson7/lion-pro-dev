@@ -16,6 +16,7 @@ export default function Footer() {
     { to: "services", title: "Services", key: 3 },
     { to: "blog", title: "Blog", key: 5 },
     { to: "contact", title: "Contact", key: 6 },
+    { to: "projects", title: "Projects", key: 7 },
   ];
 
   const date = new Date().getFullYear();

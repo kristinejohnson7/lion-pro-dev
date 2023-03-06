@@ -25,7 +25,12 @@ img {
 
 section {
   margin: 0 auto;
-  min-height: 1000px;
+
+  &#services,
+  #home,
+  #blog {
+    min-height: 1000px;
+  }
 
   &#about {
     min-height: 500px;
@@ -79,19 +84,36 @@ section.container {
 
 @media screen and (max-width: 1100px) {
   section {
-    min-height: 1000px;
+    & #blog,
+    #services,
+    #testimonials,
+    #contact,
+    #home,
+    #about {
+      min-height: 1000px;
+    }
   }
 }
 
 @media screen and (max-width: 900px) {
   section {
-    min-height: 1400px;
+    &#blog,
+    #services,
+    #testimonials,
+    #contact,
+    #home,
+    #about {
+      min-height: 1550px;
+    }
   }
 }
 
 @media screen and (max-width: 750px) {
   section {
-    min-height: 1900px;
+    &#blog,
+    #home {
+      min-height: 1900px;
+    }
 
     &#services {
       min-height: 1400px;
@@ -104,22 +126,6 @@ section.container {
     &#testimonials,
     &#contact {
       min-height: 750px;
-    }
-  }
-}
-
-@media screen and (max-width: 650px) {
-  section {
-    min-height: 2000px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  section {
-    min-height: 2100px;
-
-    &#about {
-      min-height: 600px;
     }
   }
 }

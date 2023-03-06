@@ -1,73 +1,83 @@
 @import "/src/sassStyles/variables";
 
 .itemWrapper {
-  background-color: $white;
-  max-width: calc(100% - $size-80);
-  height: calc(100% - $size-100);
-  display: flex;
-  justify-content: center;
-  padding: $size-20;
-  border-radius: $size-5;
-  gap: $size-10;
+  padding-top: 9rem;
+  padding-bottom: 6rem;
 
-  .itemContent {
-    width: 100%;
+  .itemHero {
     display: flex;
-    flex-direction: column;
+    padding: 0 6rem;
     align-items: center;
 
-    .portfolioBtn {
-      align-self: start;
+    .itemContent {
+      background: rgba(211, 211, 211, 0.7);
+      border-radius: 7px;
+      box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+      margin-left: -30px;
+      padding-left: 50px;
+      padding-right: 30px;
+
+      h3 {
+        text-align: left;
+      }
+
+      p {
+        margin-bottom: 0.7rem;
+      }
+
+      .video {
+        font-weight: 600;
+        color: $primary-color;
+        cursor: pointer;
+      }
+
+      .startProjectBtn {
+        margin: $size-30 0;
+      }
     }
 
-    .portfolioTitle {
-      font-size: 2rem;
-      font-weight: 500;
-      text-align: center;
-      margin-bottom: $size-10;
-    }
-
-    .portfolioDescription {
-      line-height: 1.7;
-      width: 85%;
-    }
-
-    .startProjectBtn {
-      margin: $size-30 0;
-    }
-  }
-}
-
-.itemWrapper {
-  [class="swiper-wrapper"] {
-    max-width: 34.375rem;
-  }
-
-  [class="swiper-slide"] img {
-    width: 100%;
-    border: $size-10 solid black;
-    border-radius: $size-10;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .itemWrapper {
-    overflow: auto;
-    flex-wrap: wrap;
-    max-height: 43.75rem;
-
-    .portfolioDescription {
-      margin-bottom: $size-20;
-    }
-
-    [class="swiper-wrapper"] {
-      max-width: 22rem;
+    img {
+      width: 320px;
+      z-index: 100;
     }
   }
-}
 
-@media only screen and (max-width: 550px) {
-  .itemContent iframe {
-    width: 95%;
+  @media only screen and (max-width: 1180px) {
+    .itemHero .itemContent {
+      h3 {
+        line-height: 1.1;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .itemHero {
+      padding: 0 3rem;
+
+      .itemContent {
+        margin-left: 0;
+        padding: 0 20px;
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .itemHero .itemContent h3 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .itemHero {
+      padding: 0 2rem;
+
+      .itemContent h3 {
+        font-size: 2rem;
+      }
+    }
   }
 }
