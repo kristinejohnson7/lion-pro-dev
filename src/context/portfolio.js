@@ -18,6 +18,7 @@ export const PortfolioProvider = ({ children }) => {
       const description = fields.description;
       const slug = fields.slug;
       const cardImage = fields.cardImage;
+      const footerImage = fields.footerImage;
       const content = fields.content;
       const youTubeEmbedId = fields.youTubeVideoId;
       const updatedPortfolio = {
@@ -25,6 +26,7 @@ export const PortfolioProvider = ({ children }) => {
         title,
         description,
         cardImage,
+        footerImage,
         content,
         slug,
         youTubeEmbedId,

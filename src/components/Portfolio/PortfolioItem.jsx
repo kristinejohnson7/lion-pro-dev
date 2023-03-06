@@ -7,6 +7,7 @@ import Header from "../Header/Header";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
+import { motion } from "framer-motion";
 
 export default function PortfolioItem() {
   const { singlePortfolio, getSinglePortfolio } = useContext(portfolioContext);
@@ -14,19 +15,30 @@ export default function PortfolioItem() {
   const [isOpen, setIsOpen] = useState("");
   const ref = useRef();
 
-  const { title, youTubeVideoId, portfolioItemHeaderImage, content } =
-    singlePortfolio;
+  const {
+    title,
+    youTubeVideoId,
+    portfolioItemHeaderImage,
+    content,
+    footerImage,
+  } = singlePortfolio;
 
   useEffect(() => {
     if (slug) {
       getSinglePortfolio(slug);
     }
   }, [slug]);
+  console.log(singlePortfolio);
 
   return slug ? (
     <>
       <section className={s.itemWrapper}>
-        <div className={s.itemHero}>
+        <motion.div
+          className={s.itemHero}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <img
             src={portfolioItemHeaderImage?.fields.file.url}
             alt="project hero"
@@ -46,7 +58,16 @@ export default function PortfolioItem() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
+        <motion.div
+          className={s.portfolioFooter}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Header title="Intuitive User Experience." variant="primary" />
+          <img src={footerImage?.fields.file.url} alt="portfolio footer" />
+        </motion.div>
       </section>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
