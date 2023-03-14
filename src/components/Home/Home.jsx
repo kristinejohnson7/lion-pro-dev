@@ -10,6 +10,8 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import Testimonials from "../Testimonials/Testimonials";
 import { TestimonialsProvider } from "../../context/testimonials";
 import Process from "../Process/Process";
+import Faq from "../Faq/Faq";
+import { FaqProvider } from "../../context/faq";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -30,6 +32,9 @@ export default function Home() {
       <TestimonialsProvider>
         <Testimonials />
       </TestimonialsProvider>
+      <FaqProvider>
+        <Faq />
+      </FaqProvider>
       <BlogProvider isFeatured>
         <FeaturedBlogs />
       </BlogProvider>
