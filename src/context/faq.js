@@ -9,8 +9,6 @@ export const FaqProvider = ({ children }) => {
   const [faq, setFaq] = useState([]);
   const loadingRef = useRef(false);
 
-  console.log(faq, "faq");
-
   const cleanFaqInfo = useCallback((rawData) => {
     const cleanFaq = rawData.map((slide) => {
       const { sys, fields } = slide;
@@ -28,7 +26,6 @@ export const FaqProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    console.log("start");
     const getFaqInfo = async () => {
       if (!loadingRef.current) {
         loadingRef.current = true;

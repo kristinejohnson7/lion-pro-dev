@@ -33,4 +33,14 @@
       transition: display 0.3s ease-in 0.4s;
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    .card {
+      width: 90%;
+
+      .cardHeader p {
+        width: 70%;
+      }
+    }
+  }
 }

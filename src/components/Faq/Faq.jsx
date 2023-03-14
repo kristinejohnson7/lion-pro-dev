@@ -21,8 +21,6 @@ export default function Faq() {
       <div className={s.faqContainer}>
         {faq.map((item) => {
           const { id, question, description } = item;
-          console.log("id", id);
-          console.log("active Id", activeId);
           return (
             <motion.div
               layout
@@ -31,7 +29,7 @@ export default function Faq() {
               onClick={() => handleFaqClick(id)}
             >
               <div className={s.cardHeader}>
-                {question}
+                <p>{question}</p>
                 {activeId === id ? (
                   <Minus className="icon" width="20px" />
                 ) : (
