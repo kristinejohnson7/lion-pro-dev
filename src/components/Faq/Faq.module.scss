@@ -1,0 +1,46 @@
+@import "/src/sassStyles/variables";
+
+.faqContainer {
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+
+  .card {
+    background-color: $medium-grey;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    font-family: "Roboto", sans-serif;
+    margin: 0 auto;
+    margin-bottom: 0.75rem;
+    max-width: 900px;
+    padding: 1.5rem;
+
+    .cardHeader {
+      align-items: center;
+      display: flex;
+      font-size: 1.05rem;
+      font-weight: 600;
+      justify-content: space-between;
+    }
+
+    .description {
+      display: none;
+      margin-top: 1.5rem;
+    }
+
+    &.active .description {
+      display: block;
+      transition: display 0.3s ease-in 0.4s;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .card {
+      width: 90%;
+
+      .cardHeader p {
+        width: 70%;
+      }
+    }
+  }
+}
