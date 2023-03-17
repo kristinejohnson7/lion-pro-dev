@@ -4,6 +4,7 @@ import "./index.scss";
 import App from "./App";
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
+import { HelmetProvider } from "react-helmet-async";
 
 Sentry.init({
   dsn: process.env.REACT_APP_SENTRY_KEY,
@@ -15,6 +16,8 @@ Sentry.init({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>
 );

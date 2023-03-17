@@ -5,6 +5,7 @@ import ReactPaginate from "react-paginate";
 import Header from "../Header/Header";
 import s from "./BlogListings.module.scss";
 import { ReactComponent as MagnifyingGlass } from "../../assets/magnifying-glass.svg";
+import { Helmet } from "react-helmet-async";
 
 export default function BlogListings() {
   const { blog, getBlogInfo } = useContext(blogContext);
@@ -41,45 +42,55 @@ export default function BlogListings() {
   };
 
   return (
-    <section className={`container ${s.blog}`}>
-      <div className={s.blogHeader}>
-        <Header title="Lion Pro Dev Blog" />
-        <p>
-          Check out our blogs for developers offering tips on how to code clean,
-          and case studies for Android development.
-        </p>
-      </div>
-      <div className={s.blogFilterOptions}>
-        <div className={s.filterTags}>
-          <button onClick={() => handleTag(null)}>All</button>
-          <button onClick={() => handleTag("Developer Guides")}>
-            Developer Guides
-          </button>
-          <button onClick={() => handleTag("Android")}>Android</button>
+    <>
+      <Helmet>
+        <title>Lion Pro Dev | Blog</title>
+        <meta
+          name="description"
+          content="Web and mobile application development blogs and how to's"
+        />
+        <link rel="canonical" href="https://lionprodev.com/blog" />
+      </Helmet>
+      <section className={`container ${s.blog}`}>
+        <div className={s.blogHeader}>
+          <Header title="Lion Pro Dev Blog" />
+          <p>
+            Check out our blogs for developers offering tips on how to code
+            clean, and case studies for Android development.
+          </p>
         </div>
-        <div className={s.blogSearch}>
-          <MagnifyingGlass className="icon" width="15px" />
-          <input
-            type="text"
-            onChange={handleFilter}
-            placeholder="Search blog title"
+        <div className={s.blogFilterOptions}>
+          <div className={s.filterTags}>
+            <button onClick={() => handleTag(null)}>All</button>
+            <button onClick={() => handleTag("Developer Guides")}>
+              Developer Guides
+            </button>
+            <button onClick={() => handleTag("Android")}>Android</button>
+          </div>
+          <div className={s.blogSearch}>
+            <MagnifyingGlass className="icon" width="15px" />
+            <input
+              type="text"
+              onChange={handleFilter}
+              placeholder="Search blog title"
+            />
+          </div>
+        </div>
+        <div className={s.blogListings}> {displayPosts}</div>
+        <div className={s.paginate}>
+          <ReactPaginate
+            previousLabel={"<"}
+            nextLabel={">"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"paginationBttns"}
+            previousLinkClassName={"fa-solid fa-angle-left fa-lg"}
+            nextLinkClassName={"fa-solid fa-angle-right fa-lg"}
+            disabledClassName={"paginationDisabled"}
+            activeClassName={"paginationActive"}
           />
         </div>
-      </div>
-      <div className={s.blogListings}> {displayPosts}</div>
-      <div className={s.paginate}>
-        <ReactPaginate
-          previousLabel={"<"}
-          nextLabel={">"}
-          pageCount={pageCount}
-          onPageChange={changePage}
-          containerClassName={"paginationBttns"}
-          previousLinkClassName={"fa-solid fa-angle-left fa-lg"}
-          nextLinkClassName={"fa-solid fa-angle-right fa-lg"}
-          disabledClassName={"paginationDisabled"}
-          activeClassName={"paginationActive"}
-        />
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

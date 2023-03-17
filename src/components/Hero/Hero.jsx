@@ -26,7 +26,7 @@ function Hero() {
         <div className={s.heroWrapper}>
           <div className={s.heroContainer}>
             <div className={s.heroText}>
-              <h2>
+              <h1>
                 We
                 <Typewriter
                   options={{
@@ -37,7 +37,7 @@ function Hero() {
                   }}
                 />
                 your apps <br /> hassle free.
-              </h2>
+              </h1>
               <div className={s.description}>
                 <p>
                   We work closely with you to understand your unique needs and

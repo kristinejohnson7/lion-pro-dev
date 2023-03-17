@@ -44,7 +44,7 @@
         }
       }
 
-      h2 {
+      h1 {
         color: $white;
         font-size: 48px;
         font-weight: 500;
@@ -100,7 +100,7 @@
       padding-right: 3.25rem;
       padding-left: 3.25rem;
 
-      .heroText h2 {
+      .heroText h1 {
         font-size: 33px;
 
         div {
@@ -164,7 +164,7 @@
 
   .heroWrapper .heroContainer {
     .heroText {
-      h2 {
+      h1 {
         font-size: 20px;
 
         div {
@@ -185,7 +185,7 @@
 }
 
 @media screen and (max-width: 350px) {
-  .heroWrapper .heroContainer .heroText h2 {
+  .heroWrapper .heroContainer .heroText h1 {
     font-size: 18px;
   }
 }

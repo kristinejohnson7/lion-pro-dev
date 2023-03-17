@@ -10,9 +10,11 @@ import { ReactComponent as Minus } from "../../assets/minus.svg";
 export default function Faq() {
   const { faq } = useContext(faqContext);
   const [activeId, setActiveId] = useState("");
+  const [activeIdIsOpen, setActiveIdIsOpen] = useState(false);
 
   const handleFaqClick = (id) => {
     activeId === id ? setActiveId("") : setActiveId(id);
+    setActiveIdIsOpen(!activeIdIsOpen);
   };
 
   return (
@@ -24,21 +26,24 @@ export default function Faq() {
           return (
             <motion.div
               layout
+              transition={{ layout: { duration: 1, type: "spring" } }}
               key={id}
-              className={`${s.card} ${activeId === id ? s.active : ""}`}
+              className={`${s.card}`}
               onClick={() => handleFaqClick(id)}
             >
-              <div className={s.cardHeader}>
+              <motion.div layout="position" className={s.cardHeader}>
                 <p>{question}</p>
                 {activeId === id ? (
                   <Minus className="icon" width="20px" />
                 ) : (
                   <Plus className="icon" width="20px" />
                 )}
-              </div>
-              <motion.div className={s.description}>
-                <RichTextToReact content={description} />
               </motion.div>
+              {activeId === id && activeIdIsOpen ? (
+                <motion.div className={s.description}>
+                  <RichTextToReact content={description} />
+                </motion.div>
+              ) : null}
             </motion.div>
           );
         })}
