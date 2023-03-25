@@ -15,6 +15,7 @@ import { AboutProvider } from "./context/about";
 import Portfolio from "./components/Portfolio/Portfolio";
 import { PortfolioProvider } from "./context/portfolio";
 import PortfolioItem from "./components/Portfolio/PortfolioItem";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -72,6 +73,7 @@ function App() {
               </PrivacyProvider>
             }
           />
+          <Route exact={true} path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </AboutProvider>
