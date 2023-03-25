@@ -5,7 +5,7 @@ import s from "./BlogPost.module.scss";
 import RichTextToReact from "../RichTextToReact/RichTextToReact";
 import dayjs from "dayjs";
 import readingTime from "reading-time/lib/reading-time";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import Header from "../Header/Header";
 
 export default function BlogPost() {
@@ -13,17 +13,15 @@ export default function BlogPost() {
   const { slug } = useParams();
   const { author, content, date, featuredImage, title } = singleBlog;
   const [readingTimeState, setReadingTimeState] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const ref = useRef();
 
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   useEffect(() => {
+    //scroll to top of page and only then render component
+    window.scrollTo(0, 0);
+    setIsScrolled(true);
+
     if (slug) {
       getSingleBlog(slug);
     }
@@ -36,35 +34,36 @@ export default function BlogPost() {
     }
   }, [content, ref]);
 
-  return (
-    slug &&
-    title && (
-      <>
-        <motion.div className="progress-bar" style={{ scaleX }} />
-        <section className="container">
-          <div className={s.blogHeader}>
-            <div className={s.blogDetailsHeader}>
-              <p>{author}</p>
-              <p className={s.headerDateAndTime}>
-                {dayjs(date).format("dddd MMM DD, YYYY")}
-                <span>-</span>
-                <span>
-                  {parseInt(readingTimeState) > 0
-                    ? `${parseInt(readingTimeState)} min read`
-                    : "Less than one min read"}
-                </span>
-              </p>
-            </div>
-            <Header title={title.toUpperCase()} />
+  return slug && title && isScrolled ? (
+    <>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, fade: true }}
+        transition={{ duration: 0.8 }}
+        className="container"
+      >
+        <motion.div className={s.blogHeader}>
+          <div className={s.blogDetailsHeader}>
+            <p>{author}</p>
+            <p className={s.headerDateAndTime}>
+              {dayjs(date).format("dddd MMM DD, YYYY")}
+              <span>-</span>
+              <span>
+                {parseInt(readingTimeState) > 0
+                  ? `${parseInt(readingTimeState)} min read`
+                  : "Less than one min read"}
+              </span>
+            </p>
           </div>
-          <div className={s.blogFeaturedImg}>
-            <img src={featuredImage.fields.file.url} alt="blog featured" />
-          </div>
-          <div className={s.blogText} ref={ref}>
-            <RichTextToReact content={content} />
-          </div>
-        </section>
-      </>
-    )
-  );
+          <Header title={title.toUpperCase()} />
+        </motion.div>
+        <div className={s.blogFeaturedImg}>
+          <img src={featuredImage.fields.file.url} alt="blog featured" />
+        </div>
+        <div className={s.blogText} ref={ref}>
+          <RichTextToReact content={content} />
+        </div>
+      </motion.section>
+    </>
+  ) : null;
 }

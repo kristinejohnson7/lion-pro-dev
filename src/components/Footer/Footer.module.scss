@@ -118,6 +118,10 @@ footer {
         align-items: center;
         gap: $size-50;
 
+        .usefulLinks {
+          display: none;
+        }
+
         .footerSocialsAndLogo {
           display: flex;
           flex-direction: column;

@@ -65,9 +65,20 @@
   }
 }
 
+@media only screen and (max-width: 850px) {
+  .blogHeader {
+    width: 90%;
+
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}
+
 @media only screen and (max-width: 550px) {
   .blogHeader h3 {
     font-size: 1.7rem;
+    line-height: 2.2rem;
   }
 }
 

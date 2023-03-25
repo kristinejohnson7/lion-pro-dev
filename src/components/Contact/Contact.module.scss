@@ -64,3 +64,9 @@
     }
   }
 }
+
+@media screen and (max-width: 450px) {
+  .contact .formContainer {
+    width: 90%;
+  }
+}

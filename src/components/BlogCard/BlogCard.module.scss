@@ -41,7 +41,8 @@
       color: $primary-color;
       font-size: 1.3rem;
       font-family: $highlight-font;
-      letter-spacing: 0.081rem;
+      letter-spacing: 0.061rem;
+      line-height: 25px;
     }
 
     .cardTextPreview {
@@ -73,7 +74,7 @@
 
     .blogAuthor,
     .cardTextPreview {
-      margin-top: $size-20;
+      margin-top: 0.5rem;
     }
   }
 

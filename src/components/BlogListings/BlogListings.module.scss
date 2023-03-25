@@ -41,8 +41,12 @@
         color: grey;
         cursor: pointer;
 
+        &:hover,
         &:focus {
           color: $primary-color;
+        }
+
+        &:focus {
           font-weight: 600;
           border: none;
           outline: none;

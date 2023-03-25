@@ -28,17 +28,16 @@ export default function PortfolioItem() {
       getSinglePortfolio(slug);
     }
   }, [slug]);
-  console.log(singlePortfolio);
 
   return slug ? (
     <>
-      <section className={s.itemWrapper}>
-        <motion.div
-          className={s.itemHero}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+      <motion.section
+        className={s.itemWrapper}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, fade: true }}
+        transition={{ duration: 1 }}
+      >
+        <div className={s.itemHero}>
           <img
             src={portfolioItemHeaderImage?.fields.file.url}
             alt="project hero"
@@ -58,17 +57,12 @@ export default function PortfolioItem() {
               </Link>
             </div>
           </div>
-        </motion.div>
-        <motion.div
-          className={s.portfolioFooter}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Header title="Intuitive User Experience." variant="primary" />
+        </div>
+        <div className={s.portfolioFooter}>
+          <Header title="A team of experts here to help." variant="primary" />
           <img src={footerImage?.fields.file.url} alt="portfolio footer" />
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {isOpen && (
           <Modal>
