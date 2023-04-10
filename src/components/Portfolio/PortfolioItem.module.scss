@@ -1,6 +1,7 @@
 @import "/src/sassStyles/variables";
 
 .itemWrapper {
+  max-width: 1300px;
   padding-top: 9rem;
   padding-bottom: 6rem;
 
@@ -45,14 +46,36 @@
   .portfolioFooter {
     align-items: center;
     display: flex;
+    gap: 2rem;
     justify-content: center;
     padding: 0 2rem;
     max-width: 1350px;
     margin-right: auto;
     margin-left: auto;
 
+    h3 {
+      font-size: 2.5rem;
+      text-align: left;
+    }
+
     img {
-      width: 700px;
+      width: 600px;
+    }
+
+    li span {
+      font-weight: 700;
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .portfolioFooter {
+      .content {
+        padding-left: 2rem;
+      }
+
+      img {
+        width: 450px;
+      }
     }
   }
 
@@ -63,8 +86,12 @@
       }
     }
 
-    .portfolioFooter h3 {
-      display: none;
+    .portfolioFooter {
+      flex-wrap: wrap;
+
+      .content {
+        padding-right: 2rem;
+      }
     }
   }
 
@@ -100,8 +127,18 @@
   }
 
   @media screen and (max-width: 515px) {
-    .portfolioFooter img {
-      width: 400px;
+    .portfolioFooter {
+      padding: 0 1rem;
+
+      h3 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      img {
+        width: 400px;
+      }
     }
   }
 

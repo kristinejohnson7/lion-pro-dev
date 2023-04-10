@@ -59,7 +59,48 @@ export default function PortfolioItem() {
           </div>
         </div>
         <div className={s.portfolioFooter}>
-          <Header title="A team of experts here to help." variant="primary" />
+          <div className={s.content}>
+            <Header title="A team of experts here to help." variant="primary" />
+            <p>
+              <ol>
+                <li>
+                  <span>Discovery phase:</span> We begin by understanding your
+                  business goals, target audience, and project requirements.
+                  This involves meetings with you to gather information and
+                  research on your industry and competition.
+                </li>
+                <li>
+                  <span>Planning phase:</span> Once we have a clear
+                  understanding of your project requirements, we develop a
+                  detailed project plan that outlines the timeline, budget, and
+                  scope of work. This plan is reviewed with you to ensure we are
+                  on the same page.
+                </li>
+                <li>
+                  <span>Design phase:</span> We create wireframes and mockups to
+                  visualize the website's layout and design. We work with you to
+                  refine the design until it meets your expectations.
+                </li>
+                <li>
+                  <span>Development phase:</span> We use the latest technologies
+                  to build a fully functional website that meets your
+                  requirements. We make sure the website is optimized for search
+                  engines and mobile devices.
+                </li>
+                <li>
+                  <span>Testing and Quality Assurance phase:</span> We
+                  rigorously test the website to ensure it functions properly,
+                  is secure, and meets industry standards.
+                </li>
+                <li>
+                  <span>Launch phase:</span> Once the website has been approved,
+                  we deploy it to your server and make it live. We provide
+                  training and support to ensure you can manage the website
+                  easily.
+                </li>
+              </ol>
+            </p>
+          </div>
           <img src={footerImage?.fields.file.url} alt="portfolio footer" />
         </div>
       </motion.section>
