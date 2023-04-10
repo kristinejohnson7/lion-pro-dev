@@ -28,7 +28,7 @@ export default function Portfolio() {
       </Helmet>
       <section className={`${s.portfolioContainer} container`} id="portfolio">
         <div className={s.portfolioHeader}>
-          <Header title="Check out our projects" />
+          <Header title="Our Projects" />
           <p>
             Check out some projects we have done. Some of them are samples to
             develop creativity, some are hobbies and some are projects that our
